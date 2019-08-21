@@ -17,6 +17,7 @@ class SnackImagesController < ApplicationController
   def create
     @snack_image = SnackImage.new(snack_image_params)
     @snack_image.snack = @snack
+    @snack_image.user = current_user
     if @snack_image.save
       redirect_to snack_path(@snack)
     else
