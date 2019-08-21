@@ -1,7 +1,5 @@
 .footer {
    position: fixed;
-   display: flex;
-   justify-content: space-around;
    bottom: 0;
    width: 100%;
    color: $purple;
@@ -11,6 +9,7 @@
 
 .inline {
   display: flex;
+  justify-content: space-evenly;
 }
 
 .inline img {
