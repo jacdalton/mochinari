@@ -14,9 +14,10 @@
 }
 
 .favorite-card h2 {
-  font-size: 16px;
+  font-size: 25px;
   font-weight: bold;
-  margin: 0;
+  padding-top:5px;
+  padding-left: 10px;
 }
 
 .favorite-card p {
@@ -25,10 +26,16 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 8px;
+  padding-left: 10px;
 }
 
 .favorite-card .favorite-card {
   padding: 16px;
+}
+
+.tags{
+  padding-left:25px;
+  padding-bottom:2px;
 }
 
 
