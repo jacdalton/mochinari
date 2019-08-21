@@ -1,13 +1,12 @@
 .feature-cards {
 width: 148px;
-border-radius:5px;
-display:flex;
-justify-content:space-around;
 }
 
 .feature-cards img {
-  width: 85%;
-  object-fit: cover;
-  padding:5px;
+  height: 100%;
+  width: 50%;
+  border-radius:5px;
+  display:flex;
+  justify-content:space-around;
 }
 

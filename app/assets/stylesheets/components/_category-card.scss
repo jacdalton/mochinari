@@ -1,11 +1,11 @@
 .category-card{
-  width:max-content;
+  width:inherit;
+  height: 200px;
   margin:0 auto;
   position:relative;
 }
 
 .individual-category-card {
-  background-image:url(images2.jpeg);
   background-position: center;
   height: 180px;
   width:140px;

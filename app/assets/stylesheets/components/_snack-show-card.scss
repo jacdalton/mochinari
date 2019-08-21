@@ -57,3 +57,16 @@
 
   }
 
+.section {
+  display: flex;
+}
+
+.four-images {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.four-images img {
+  flex: 0 50%;
+}
