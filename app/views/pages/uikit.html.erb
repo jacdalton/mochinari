@@ -83,14 +83,7 @@
   <div class="snack-index-card-infos">
     <div class="info">
       <h1>Snack Index </h1>
-      <p>
-        <% 4.times do %>
-        <i class="fas fa-star"></i>
-        <% end %>
-        <% 1.times do %>
-        <i class="far fa-star"></i>
-        <% end %>
-      </p>
+      <%= render 'shared/stars', :snack => @snack %>
     </div>
   </div>
 </div>
