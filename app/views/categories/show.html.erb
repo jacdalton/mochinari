@@ -20,7 +20,7 @@
     <%= link_to "show me snacky" , snack_path(image.snack)  %>
     <h2> <%= image.snack.name %> </h2>
     <br>
-    <p>Stars: <%= image.snack.snack_ratings.reduce / image.snack.snack_ratings.size %></p>
+    <p>Stars: <%= image.snack.avg_snack_stars %></p>
     <div class="bobby">
       <%= image_tag("bobby", :alt=> "bobby") %>
     </div>
