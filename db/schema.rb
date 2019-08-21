@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_08_21_020314) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,7 +55,9 @@ ActiveRecord::Schema.define(version: 2019_08_21_020314) do
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["category_id"], name: "index_snacks_on_category_id"
+    t.index ["user_id"], name: "index_snacks_on_user_id"
   end
 
   create_table "snacks_trails_tables", force: :cascade do |t|
@@ -96,6 +99,7 @@ ActiveRecord::Schema.define(version: 2019_08_21_020314) do
   add_foreign_key "snack_ratings", "snacks"
   add_foreign_key "snack_ratings", "users"
   add_foreign_key "snacks", "categories"
+  add_foreign_key "snacks", "users"
   add_foreign_key "snacks_trails_tables", "snacks"
   add_foreign_key "snacks_trails_tables", "trails"
   add_foreign_key "trails", "users"
