@@ -4,5 +4,5 @@ class Category < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 20 }, uniqueness: true
   validates :description, presence: true
-  validates :photo_url, presence: true
+  validates :image_path, presence: true
 end
