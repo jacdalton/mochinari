@@ -3,6 +3,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   position: relative;
+  height:300px;
 }
 
 .snack-index-card  > img {
@@ -41,20 +42,20 @@
 
 .info {
   padding-left: 12px;
-  padding-top: 12px;
+  padding-top: 10px;
   color:$purple;
 }
 
 .stars{
-  padding-top:10px;
+  padding-bottom:10px;
 }
 
 img.bobby{
   border-radius:50%;
-  width:45px;
-  height:45px;
+  width:40px;
+  height:40px;
   position:absolute;
-  bottom:28px;
+  bottom:10px;
   right:10px;
 }
 
