@@ -22,8 +22,6 @@
   <p>tag</p>
 </div>
 
-
-
 <div class="favorite-card">
   <%= image_tag("cake", :alt=> "bananadeer") %>
   <div class="card-product-infos">
@@ -52,7 +50,14 @@
   <div class="snack-index-card-infos">
     <div>
       <h1>Snack Index </h1>
-      <p>Stars</p>
+      <p>
+        <% 4.times do %>
+        <i class="fas fa-star"></i>
+        <% end %>
+        <% 1.times do %>
+        <i class="far fa-star"></i>
+        <% end %>
+      </p>
     </div>
     <div class="bobby">
       <%= image_tag("bobby", :alt=> "bananadeer") %>
