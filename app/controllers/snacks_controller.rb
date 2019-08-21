@@ -18,7 +18,7 @@ class SnacksController < ApplicationController
     @snack = Snack.new(snack_params)
     @snack.user = current_user
     if @snack.save
-      redirect snack_path(@snack)
+      redirect_to snack_path(@snack)
     else
       render :new
     end
