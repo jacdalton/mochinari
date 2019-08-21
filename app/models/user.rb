@@ -3,9 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :trails
-  has_many :snack_ratings
-  has_many :snack_images
+  has_many :trails, dependent: :destroy
+  has_many :snack_ratings, dependent: :destroy
+  has_many :snack_images, dependent: :destroy
   has_many :snacks
 
   validates :email, presence: true, uniqueness: true
