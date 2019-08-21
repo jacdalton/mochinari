@@ -59,6 +59,20 @@ Category.create!(
 # - username
 # - location ( will need to update seeds for this, once map is implemented )
 
+puts 'Generating Katy and Bobby...'
+
+User.create!(
+  email: 'katy@gmail.com',
+  password: '123123',
+  username: 'katy.smith711'
+)
+
+User.create!(
+  email: 'bobby@gmail.com',
+  password: '123123',
+  username: 'bobby3ats'
+)
+
 puts 'Creating test users...'
 
 usernames = [

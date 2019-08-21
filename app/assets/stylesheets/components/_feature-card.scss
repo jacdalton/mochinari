@@ -5,6 +5,8 @@ width: 148px;
 .feature-cards img {
   height: 100%;
   width: 50%;
-  object-fit: cover;
+  border-radius:5px;
+  display:flex;
+  justify-content:space-around;
 }
 
