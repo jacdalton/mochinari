@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_21_020314) do
-
+ActiveRecord::Schema.define(version: 2019_08_21_041014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,11 +59,11 @@ ActiveRecord::Schema.define(version: 2019_08_21_020314) do
     t.index ["user_id"], name: "index_snacks_on_user_id"
   end
 
-  create_table "snacks_trails_tables", force: :cascade do |t|
+  create_table "snacks_trails", force: :cascade do |t|
     t.bigint "snack_id"
     t.bigint "trail_id"
-    t.index ["snack_id"], name: "index_snacks_trails_tables_on_snack_id"
-    t.index ["trail_id"], name: "index_snacks_trails_tables_on_trail_id"
+    t.index ["snack_id"], name: "index_snacks_trails_on_snack_id"
+    t.index ["trail_id"], name: "index_snacks_trails_on_trail_id"
   end
 
   create_table "trails", force: :cascade do |t|
@@ -100,7 +99,7 @@ ActiveRecord::Schema.define(version: 2019_08_21_020314) do
   add_foreign_key "snack_ratings", "users"
   add_foreign_key "snacks", "categories"
   add_foreign_key "snacks", "users"
-  add_foreign_key "snacks_trails_tables", "snacks"
-  add_foreign_key "snacks_trails_tables", "trails"
+  add_foreign_key "snacks_trails", "snacks"
+  add_foreign_key "snacks_trails", "trails"
   add_foreign_key "trails", "users"
 end
