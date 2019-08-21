@@ -1,4 +1,3 @@
-
 <div class="category-card">
   <p>Category card</p>
   <div class="individual-category-card"></div>
@@ -30,14 +29,12 @@
 <div class="tag">
   <p>tag</p>
 </div>
-
 <div class="column"></div>
-  <div class="category-card">
-    <p>Category card</p>
-    <div class="individual-category-card"></div>
-  </div>
+<div class="category-card">
+  <p>Category card</p>
+  <div class="individual-category-card"></div>
 </div>
-
+</div>
 <div class="row">
   <div class="feature-cards">
     <%= image_tag 'namadora.jpg'%>
@@ -49,19 +46,16 @@
     <%= image_tag 'namadora.jpg'%>
   </div>
 </div>
-
-
 <div class="tag">
   <p>tag</p>
 </div>
-
 <div class="favorite-card">
   <%= image_tag("cake", :alt=> "bananadeer") %>
   <div class="card-product-infos">
     <h2>Favorite Snack</h2>
     <p>description</p>
     <br>
-     <div class="tags">
+    <div class="tags">
       <div class="row">
         <div class="tag">
           <p>tag</p>
@@ -77,20 +71,21 @@
   </div>
 </div>
 <div class="snack-index-card">
-  <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
   <%= image_tag 'mikan.jpeg' %>
-
   <div class="snack-index-card-infos">
-    <div class="info">
+    <div>
       <h1>Snack Index </h1>
         <p>
         <% 4.times do %>
-        <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
         <% end %>
         <% 1.times do %>
-        <i class="far fa-star"></i>
+          <i class="far fa-star"></i>
         <% end %>
       </p>
+    </div>
+    <div class="bobby">
+      <%= image_tag("bobby", :alt=> "bananadeer") %>
     </div>
   </div>
 </div>
@@ -122,19 +117,26 @@
   <%= image_tag "add.svg" %>
   <p>Add New Trail</p>
 </div>
-<div class="container snack-show-card">
-  <div class="snack-show-img">
-    <%= image_tag "lilmochi.jpeg" %>
-  </div>
+<div class="snack-show-card">
+  <%= image_tag "lilmochi.jpeg", :style => "height: 300px" %>
   <div class="snack-show-card-infos">
-    <div>
-      <h2>Title here</h2>
-      <p>Short description here!</p>
+    <h3>Best Daifuku in Meguro</h3>
+    <div class="icons" style="display: flex;
+    justify-content: space-between;">
+      <p class="snack-show-card-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+      <p class="snack-show-card-heart"><i class="far fa-heart"></i></p>
     </div>
-    <h2 class="snack-show-card-stars">£99.99</h2>
-    <div class="snack-show-card-avatar">
-      <%= image_tag "bobby.jpg", :alt=> "bobby" %>
+    <p>It is so soft and yummy I loved every moment</p>
+    <p>tag tag tag tag</p>
+    <div class="inline">
+      <div class="pic-button">
+        <i class="fas fa-camera"></i>
+      </div>
+      <div class="rate-button">
+        Rate it!
+      </div>
     </div>
+    <p>map goes here</p>
   </div>
 </div>
 <div class="section">
