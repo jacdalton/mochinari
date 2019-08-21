@@ -13,6 +13,25 @@
 @import "tag";
 @import "trail-card";
 
+h2 {
+  font-family: $headers-font;
+  color: $purple;
+  font-size: 50px;
+}
 
+p {
+  font-family: $body-font;
+  color: $purple;
+}
 
+.container {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  color: $teal;
+}
 
