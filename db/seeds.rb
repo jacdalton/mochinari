@@ -43,14 +43,14 @@ puts 'Creating test categories...'
 Category.create!(
   name: 'Taiyaki',
   description: 'Taiyaki (鯛焼き, lit. ‘baked sea bream’) is a Japanese fish-shaped cake. It imitates the shape of the tai (Japanese red seabream), which it is named after. The most common filling is red bean paste that is made from sweetened azuki beans. Other common fillings may be custard, chocolate, cheese, or sweet potato. Some shops even sell taiyaki with okonomiyaki, gyoza filling, or a sausage inside.',
-  image_path: '../app/assets/images/taiyaki.jpg'
-  )
+  image_path: 'taiyaki.jpg'
+)
 
 Category.create!(
   name: 'Mochi',
   description: 'Mochi (Japanese: 餠, もち) is Japanese rice cake made of mochigome, a short-grain japonica glutinous rice, and sometimes other ingredients such as water, sugar, and cornstarch. The rice is pounded into paste and molded into the desired shape. In Japan it is traditionally made in a ceremony called mochitsuki.[1] While also eaten year-round, mochi is a traditional food for the Japanese New Year and is commonly sold and eaten during that time.',
-  image_path: '../app/assets/images/mochi.jpg'
-  )
+  image_path: 'mochi.jpg'
+)
 
 # User - Generate 5 + test account
 # ----------------
@@ -100,7 +100,7 @@ snacks.each do |snack|
     name: snack,
     description: "This is a test description for #{snack}",
     shop_location: Faker::Address.full_address
-    )
+  )
 end
 
 # Snack Images - Generate rand (3..5) times per Snack
@@ -110,7 +110,8 @@ end
 # - comment: 'Tasty treat, looking forward to enjoying again!'
 # - user: User.all.sample
 
-sample_snack_images = ['../app/assets/images/castella.jpg', '../app/assets/images/cheesecake.jpg', '../app/assets/images/momiji.jpg', '../app/assets/images/sakuramochi.jpg', '../app/assets/images/strawmilk.jpg', '../app/assets/images/yokan.jpg']
+sample_snack_images = ['castella.jpg', 'cheesecake.jpg', 'momiji.jpg', 'sakuramochi.jpg',
+                       'strawmilk.jpg', 'yokan.jpg']
 
 puts 'Creating test snack images...'
 
@@ -120,7 +121,7 @@ Snack.all.each do |snack|
     image_path: sample_snack_images.sample,
     comment: 'Tasty treat, looking forward to enjoying again!',
     user: User.all.sample
-    )
+  )
 end
 
 # Trails - Generate rand(1..3) times per User
@@ -158,18 +159,8 @@ User.all.each do |user|
       user: user,
       snack: Snack.all.sample,
       stars: rand(1..5)
-      )
+    )
   end
 end
 
 puts 'Seeds created!'
-
-
-
-
-
-
-
-
-
-
