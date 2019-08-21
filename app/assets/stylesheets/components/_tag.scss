@@ -10,9 +10,16 @@
 .tag{
   margin-bottom: 5px;
   margin-right: 5px;
-  border:solid;
-  border-color: grey;
+  background-color:$purple;
   width:50px;
   height:30px;
-  border-radius:7px
+  border-radius:7px;
+  display:flex;
+  justify-content:center;
+}
+
+.tag p{
+  color:white;
+  padding-bottom:4px;
+  padding-right:8px;
 }

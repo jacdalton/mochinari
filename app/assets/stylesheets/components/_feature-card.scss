@@ -1,28 +1,13 @@
 .feature-cards {
-width: 140px;
-background-color: white;
+width: 148px;
+border-radius:5px;
+display:flex;
+justify-content:space-around;
 }
 
 .feature-cards img {
-  height: 100%;
-  width: 100%;
+  width: 85%;
   object-fit: cover;
+  padding:5px;
 }
 
-.feature-cards h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.feature-cards p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
-}
-
-.feature-cards .feature-cards-infos {
-  padding: 16px;
-}
