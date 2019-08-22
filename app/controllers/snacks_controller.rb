@@ -24,6 +24,10 @@ class SnacksController < ApplicationController
     end
   end
 
+  def favorites
+    @snacks = Snack.all
+  end
+
   private
 
   def snack_params

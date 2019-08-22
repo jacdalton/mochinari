@@ -17,7 +17,7 @@
   <div class="supply-img">
     <%= image_tag 'mikan.jpeg' %>
   </div>
-  <h1>Snack Index </h1>
+  <h1>Snack Index</h1>
   <br>
   <p>Stars</p>
   <div class="bobby">
@@ -28,30 +28,20 @@
 <div class="tag">
   <p>tag</p>
 </div>
-<div class="column"></div>
-<div class="category-card">
-  <p>Category card</p>
-  <div class="individual-category-card"></div>
 </div>
-</div>
-<div class="row">
-  <div class="feature-cards">
-    <%= image_tag 'namadora.jpg'%>
-  </div>
-  <div class="feature-cards">
-    <%= image_tag 'namadora.jpg'%>
-  </div>
-  <div class="feature-cards">
-    <%= image_tag 'namadora.jpg'%>
-  </div>
+<div class="feature-cards">
+  <%= image_tag 'namadora.jpg'%>
 </div>
 <div class="tag">
   <p>tag</p>
 </div>
 <div class="favorite-card">
-  <%= image_tag("cake", :alt=> "bananadeer") %>
+  <%= image_tag("cake", :alt=> "cake") %>
   <div class="card-product-infos">
-    <h2>Favorite Snack</h2>
+    <div class="info-container">
+      <h2>Favorite Snack</h2>
+      <%= image_tag "pink-heart.svg", class: "fixed-heart" %>
+    </div>
     <p>description</p>
     <br>
     <div class="tags">
@@ -74,7 +64,7 @@
   <div class="snack-index-card-infos">
     <div>
       <h1>Snack Index </h1>
-        <p>
+      <p>
         <% 4.times do %>
           <i class="fas fa-star"></i>
         <% end %>
@@ -116,31 +106,6 @@
   <%= image_tag "add.svg" %>
   <p>Add New Trail</p>
 </div>
-<style>
-  .header-container {
-    width: 100vw;
-    height: 30vh;
-    background-color: red;
-  
-  }
-  
-  img.flex-left {
-    height: 100%;
-  }
-  
-  img.flex-image {
-    object-fit: cover;
-  }
-  
-  img.flex-left {
-    width: 50%;
-  }
-  
-  .flex-right > img {
-    width: 50%;
-    height: 50%;
-  }
-</style>
 <div class="snack-show-card">
   <div class="header-container d-flex">
     <%= image_tag "lilmochi.jpeg", class: "flex-shrink-1 flex-image flex-left" %>
