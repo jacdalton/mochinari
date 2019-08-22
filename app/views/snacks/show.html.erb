@@ -4,7 +4,7 @@
       <h2>
         <%= @snack.name %>
       </h2>
-      <%= link_to "Back", category_path %>
+      <%= link_to "Back", category_path(@snack.category) %>
     </div>
   </div>
   <%= render 'shared/map' %>
