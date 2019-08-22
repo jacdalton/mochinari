@@ -1,19 +1,40 @@
-
-
-.tag {
-  margin-bottom: 5px;
-  margin-right: 5px;
-  background-color:$teal;
-  width:50px;
-  height:30px;
-  border-radius:7px;
+.tag-container {
   display:flex;
-  justify-content:center;
 }
+
+// .tag {
+
+//   display:flex;
+//   justify-content:center;
+// }
 
 
 .tag p {
-  color:white;
-  padding-bottom:4px;
-  padding-right:8px;
+  color:$purple;
+  // padding-top:6px;
+  // padding-right:5px;
 }
+
+.tag {
+ background-color:$teal;
+//  display:inline-block;
+ padding:0.35em 1.2em;
+//  border:0.1em solid #FFFFFF;
+ margin:0 0.3em 0.3em 0;
+ border-radius:8px;
+//  box-sizing: border-box;
+//  text-decoration:none;
+//  font-family:'Roboto',sans-serif;
+ font-weight:300;
+ text-align:center;
+ display:flex;
+ justify-content:center;
+ margin-right: 10px;
+}
+
+// @media all and (max-width:30em){
+//  a.button1{
+//   display:block;
+//   margin:0.4em auto;
+//  }
+// }
