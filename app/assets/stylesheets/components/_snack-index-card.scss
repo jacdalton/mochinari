@@ -12,18 +12,6 @@
   object-fit: cover;
 }
 
-.snack-index-card  h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
-.snack-index-card  p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-}
-
 
 .snack-index-card .snack-index-card-infos {
   padding: 16px;
@@ -31,7 +19,9 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  color:$purple;
 }
+
 
 .snack-index-card-infos  {
   position: absolute;
@@ -41,14 +31,16 @@
 }
 
 .info {
-  padding-left: 12px;
-  padding-top: 10px;
+  padding-left: 5px;
+  padding-top: 5px;
   color:$purple;
 }
 
 .stars{
-  padding-bottom:10px;
+  padding-left: 5px;
+  padding-top: 5px;
 }
+
 
 img.bobby{
   border-radius:50%;
