@@ -11,6 +11,8 @@ require 'faker'
 # Steps:
 
 #   Destroy all existing seeds
+puts 'Destroying all favorites...'
+Favorite.destroy_all
 
 puts 'Destoying all snack images...'
 SnackImage.destroy_all
@@ -115,6 +117,16 @@ snacks.each do |snack|
     description: "This is a test description for #{snack}",
     shop_location: Faker::Address.full_address
   )
+end
+
+# Favorites - Generate 5 per user
+
+puts 'Creating favorites for each user...'
+
+User.all.each do |user|
+  6.times do
+    user.favorite(Snack.all.sample)
+  end
 end
 
 # Snack Images - Generate rand (3..5) times per Snack
