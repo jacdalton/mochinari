@@ -2,11 +2,10 @@
   <div class="category-card">
     <p class="text-color">Category card</p>
     <div class="individual-category-card"></div>
+  </div>
+</div>
 
-<div class="category-card">
-  <p>Category card</p>
-  <div class="individual-category-card"></div>
-</div>
+
 <div class="row">
   <div class="feature-cards">
     <%= image_tag 'namadora.jpg'%>
@@ -18,41 +17,13 @@
     <%= image_tag 'namadora.jpg'%>
   </div>
 </div>
-<div class="snack-index-card">
-  <div class="supply-img">
-    <%= image_tag 'mikan.jpeg' %>
-  </div>
-  <h1>Snack Index </h1>
-  <br>
-  <p>Stars</p>
-  <div class="bobby">
-    <%= image_tag("bobby", :alt=> "bobby") %>
-  </div>
-</div>
-</div>
+
+
 <div class="tag">
   <p>tag</p>
 </div>
-<div class="column"></div>
-<div class="category-card">
-  <p>Category card</p>
-  <div class="individual-category-card"></div>
-</div>
-</div>
-<div class="row">
-  <div class="feature-cards">
-    <%= image_tag 'namadora.jpg'%>
-  </div>
-  <div class="feature-cards">
-    <%= image_tag 'namadora.jpg'%>
-  </div>
-  <div class="feature-cards">
-    <%= image_tag 'namadora.jpg'%>
-  </div>
-</div>
-<div class="tag">
-  <p>tag</p>
-</div>
+
+
 <div class="favorite-card">
   <%= image_tag("cake", :alt=> "bananadeer") %>
   <div class="card-product-infos">
@@ -74,11 +45,12 @@
     </div>
   </div>
 </div>
+
 <div class="snack-index-card">
   <%= image_tag 'mikan.jpeg' %>
   <div class="snack-index-card-infos">
     <div>
-      <h1>Snack Index </h1>
+      <h1 class="info">Snack Index </h1>
        <div class="stars">
         <% 4.times do %>
           <i class="fas fa-star"></i>
@@ -88,11 +60,12 @@
         <% end %>
       </div>
     </div>
-    <div class="bobby">
-      <%= image_tag("bobby", :alt=> "bananadeer") %>
-    </div>
+    <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
   </div>
 </div>
+
+
+
 <h2>My Mochies</h2>
 <br>
 <div class="trail-card">
@@ -121,31 +94,8 @@
   <%= image_tag "add.svg" %>
   <p>Add New Trail</p>
 </div>
-<style>
-  .header-container {
-    width: 100vw;
-    height: 30vh;
-    background-color: red;
-  
-  }
-  
-  img.flex-left {
-    height: 100%;
-  }
-  
-  img.flex-image {
-    object-fit: cover;
-  }
-  
-  img.flex-left {
-    width: 50%;
-  }
-  
-  .flex-right > img {
-    width: 50%;
-    height: 50%;
-  }
-</style>
+
+
 <div class="snack-show-card">
   <div class="header-container d-flex">
     <%= image_tag "lilmochi.jpeg", class: "flex-shrink-1 flex-image flex-left" %>
@@ -156,6 +106,8 @@
       <%= image_tag "taiyaki2.jpeg", class: "flex-image" %>
     </div>
   </div>
+
+
   <div class="snack-show-card-infos">
     <h3 style="font-size: 38px;">Best Daifuku</h3>
     <div class="icons" style="display: flex;
