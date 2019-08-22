@@ -1,3 +1,8 @@
+<div class="column">
+  <div class="category-card">
+    <p class="text-color">Category card</p>
+    <div class="individual-category-card"></div>
+
 <div class="category-card">
   <p>Category card</p>
   <div class="individual-category-card"></div>
@@ -64,14 +69,16 @@
   <div class="snack-index-card-infos">
     <div>
       <h1>Snack Index </h1>
-      <p>
+
+       <div class="stars">
+
         <% 4.times do %>
           <i class="fas fa-star"></i>
         <% end %>
         <% 1.times do %>
           <i class="far fa-star"></i>
         <% end %>
-      </p>
+      </div>
     </div>
     <div class="bobby">
       <%= image_tag("bobby", :alt=> "bananadeer") %>
@@ -136,5 +143,14 @@
       </div>
     </div>
     <p>map goes here</p>
+  </div>
+</div>
+<div class="section">
+  <%= image_tag "taiyaki2.jpeg" %>
+  <div class="four-images">
+    <%= image_tag "taiyaki2.jpeg"%>
+    <%= image_tag "taiyaki2.jpeg"%>
+    <%= image_tag "taiyaki2.jpeg"%>
+    <%= image_tag "taiyaki2.jpeg"%>
   </div>
 </div>
