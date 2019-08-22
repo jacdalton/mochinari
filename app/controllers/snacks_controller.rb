@@ -8,6 +8,10 @@ class SnacksController < ApplicationController
 
   def show
     @snack = Snack.find(params[:id])
+    @markers = [{
+      lat: @snack.latitude,
+      lng: @snack.longitude
+    }]
   end
 
   def new
