@@ -1,4 +1,5 @@
 class Category < ApplicationRecord
+  CATEGORY = Category.all
   acts_as_taggable_on :tags
 
   has_many :snacks

@@ -8,6 +8,8 @@ class SnacksController < ApplicationController
 
   def show
     @snack = Snack.find(params[:id])
+    @snack.geocode
+    @snack.save
     @marker = [{
       lat: @snack.latitude,
       lng: @snack.longitude

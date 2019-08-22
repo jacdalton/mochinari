@@ -4,7 +4,7 @@
       <h1>Add a new snack</h1>
       <%= simple_form_for @snack do |f| %>
         <%= f.input :name, placeholder: "Enter name of snack"%>
-        <%= f.select :category, Category.all.map{ |p| [p.name, p.id]} %>
+        <%= f.input :category, collection: Category.all.map{ |p| [p.name, p.id]} %>
         <%= f.input :description, placeholder: "Pls describe ur snak" %>
         <%= f.input :shop_location, placeholder: "Enter address"%>
         <%= f.button :submit, class: 'btn btn-light' %>
