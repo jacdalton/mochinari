@@ -1,4 +1,3 @@
-
 <div class="column">
   <div class="category-card">
     <p class="text-color">Category card</p>
@@ -27,8 +26,7 @@
   <br>
   <p>Stars</p>
   <div class="bobby">
-    <%= image_tag("bobby", :alt=> "bananadeer") %>
-    <small>username</small>
+    <%= image_tag("bobby", :alt=> "bobby") %>
   </div>
 </div>
 </div>
@@ -123,8 +121,41 @@
   <%= image_tag "add.svg" %>
   <p>Add New Trail</p>
 </div>
+<style>
+  .header-container {
+    width: 100vw;
+    height: 30vh;
+    background-color: red;
+  
+  }
+  
+  img.flex-left {
+    height: 100%;
+  }
+  
+  img.flex-image {
+    object-fit: cover;
+  }
+  
+  img.flex-left {
+    width: 50%;
+  }
+  
+  .flex-right > img {
+    width: 50%;
+    height: 50%;
+  }
+</style>
 <div class="snack-show-card">
-  <%= image_tag "lilmochi.jpeg", :style => "height: 300px" %>
+  <div class="header-container d-flex">
+    <%= image_tag "lilmochi.jpeg", class: "flex-shrink-1 flex-image flex-left" %>
+    <div class="d-flex flex-grow-1 flex-wrap flex-right">
+      <%= image_tag "taiyaki2.jpeg", class: "flex-image" %>
+      <%= image_tag "taiyaki2.jpeg", class: "flex-image" %>
+      <%= image_tag "taiyaki2.jpeg", class: "flex-image" %>
+      <%= image_tag "taiyaki2.jpeg", class: "flex-image" %>
+    </div>
+  </div>
   <div class="snack-show-card-infos">
     <h3 style="font-size: 38px;">Best Daifuku</h3>
     <div class="icons" style="display: flex;

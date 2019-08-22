@@ -1,3 +1,27 @@
+  .header-container {
+    width: 100vw;
+    height: 30vh;
+    background-color: red;
+
+  }
+
+  img.flex-left {
+    height: 100%;
+  }
+
+  img.flex-image {
+    object-fit: cover;
+  }
+
+  img.flex-left {
+    width: 50%;
+  }
+
+  .flex-right > img {
+    width: 50%;
+    height: 50%;
+  }
+
 .snack-show-card {
   overflow: hidden;
   background: white;
@@ -20,10 +44,10 @@
 
 .snack-show-card .snack-show-card-infos {
   padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: flex-end;
+  // position: relative;
 }
 
 // .snack-show-card-infos .snack-show-card-user {
@@ -39,20 +63,4 @@
 }
 
 
-.rate-button p {
-  color: $teal;
-}
 
-.section {
-  display: flex;
-}
-
-.four-images {
-  display: flex;
-  flex-wrap: wrap;
-
-}
-
-.four-images img {
-  flex: 0 50%;
-}
