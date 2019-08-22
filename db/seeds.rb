@@ -130,12 +130,23 @@ sample_snack_images = ['castella.jpg', 'cheesecake.jpg', 'momiji.jpg', 'sakuramo
 puts 'Creating test snack images...'
 
 Snack.all.each do |snack|
+<<<<<<< HEAD
   SnackImage.create!(
     snack: snack,
     image_path: sample_snack_images.sample,
     comment: 'Tasty treat, looking forward to enjoying again!',
     user: User.all.sample
   )
+=======
+  6.times do
+    SnackImage.create!(
+      snack: snack,
+      image_path: sample_snack_images.sample,
+      comment: 'Tasty treat, looking forward to enjoying again!',
+      user: User.all.sample
+    )
+  end
+>>>>>>> 82cb6183ab11aa1f61307efa47a770382ce1472c
 end
 
 # Trails - Generate rand(1..3) times per User

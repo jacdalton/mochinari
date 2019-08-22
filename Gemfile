@@ -20,6 +20,8 @@ gem 'webpacker'
 # custom
 gem 'pundit'
 gem 'faker'
+gem 'acts_as_favoritor'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
