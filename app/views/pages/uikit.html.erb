@@ -90,7 +90,7 @@
   </div>
 </div>
 <h2>My Mochies</h2>
-<!-- <br>
+<br>
 <div class="trail-card">
   <%= image_tag "strawmilk.jpg" %>
   <div class="trail-card-infos">
@@ -112,7 +112,7 @@
 </div>
 <br>
 <div class="submit-button">Submit</div>
-<br> -->
+<br>
 <div class="new-trail-button">
   <%= image_tag "add.svg" %>
   <p>Add New Trail</p>
@@ -120,20 +120,22 @@
 <div class="snack-show-card">
   <%= image_tag "lilmochi.jpeg", :style => "height: 300px" %>
   <div class="snack-show-card-infos">
-    <h3>Best Daifuku in Meguro</h3>
+    <h3 style="font-size: 38px;">Best Daifuku</h3>
     <div class="icons" style="display: flex;
     justify-content: space-between;">
-      <p class="snack-show-card-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-      <p class="snack-show-card-heart"><i class="far fa-heart"></i></p>
+      <h3 class="snack-show-card-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h3>
+      <h3 class="snack-show-card-heart"><i class="far fa-heart"></i></h3>
     </div>
     <p>It is so soft and yummy I loved every moment</p>
     <p>tag tag tag tag</p>
-    <div class="inline">
+    <div class="inline" >
       <div class="pic-button">
-        <i class="fas fa-camera"></i>
+        <%=  link_to root_path, class: "btn btn-mochi" do %>
+          <i class="fas fa-camera"></i>
+        <% end %>
       </div>
       <div class="rate-button">
-        Rate it!
+        <%= link_to "Rate it!", root_path, class: "btn btn-mochi" %>
       </div>
     </div>
     <p>map goes here</p>
