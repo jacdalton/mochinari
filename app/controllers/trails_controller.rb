@@ -1,6 +1,6 @@
 class TrailsController < ApplicationController
   before_action :set_trail, only: [:show, :edit, :update, :destroy]
-  def index 
+  def index
     # once pundit is implemented this will likely change
     @trails = Trail.all
   end
@@ -39,6 +39,10 @@ class TrailsController < ApplicationController
   def destroy
     @trail.destroy
     redirect_to trails_path
+  end
+
+  def my_trails
+    @trails = Trail.where(user: current_user)
   end
 
   private
