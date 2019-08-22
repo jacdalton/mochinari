@@ -25,7 +25,7 @@ class SnacksController < ApplicationController
   end
 
   def favorites
-    @snacks = Snack.all
+    @snacks = current_user.all_favorited
   end
 
   private

@@ -1,11 +1,29 @@
 <div class="container">
   <div class="row">
+    <h2>My Favs</h2>
     <% @snacks.each do |snack| %>
-      <div class="col-6">
-        <div class="favorite-card" >
-          <%= link_to snack_path(snack) do %>
-            <p><%= snack.name %></p>
-          <% end %>
+      <div class="favorite-card mt-2">
+        <%= image_tag(snack.snack_images.first.image_path, :alt=> "cake") %>
+        <div class="card-product-infos">
+          <div class="info-container">
+            <h2> <%= snack.name %></h2>
+            <%= image_tag "pink-heart.svg", class: "fixed-heart" %>
+          </div>
+          <p><%= snack.description %></p>
+          <br>
+          <div class="tags">
+            <div class="row">
+              <div class="tag">
+                <p>tag</p>
+              </div>
+              <div class="tag">
+                <p>tag</p>
+              </div>
+              <div class="tag">
+                <p>tag</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     <% end %>
