@@ -7,5 +7,5 @@
       <%= link_to "Back", category_path(@snack.category) %>
     </div>
   </div>
-  <%= render 'shared/map' %>
+  <div id="map" data-marker="<%= @marker.to_json %>"></div>
 </div>
