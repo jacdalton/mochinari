@@ -109,13 +109,15 @@ snacks = ['pink plum daifuku', 'shouyu butter senbei', 'pink salt rice crackers'
 
 snacks.map! { |snack| snack.titleize }
 
+shop_locations = ['Tokyo Skytree', 'DisneySea', 'Shake Shack Ebisu', 'Laxmi Meguro']
+
 snacks.each do |snack|
   Snack.create!(
     user: User.all.sample,
     category: Category.all.sample,
     name: snack,
     description: "This is a test description for #{snack}",
-    shop_location: Faker::Address.full_address
+    shop_location: shop_locations.sample
   )
 end
 

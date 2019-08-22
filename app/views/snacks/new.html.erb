@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1>Add a new snack</h1>
+      <%= simple_form_for @snack do |f| %>
+        <%= f.input :name, placeholder: "Enter name of snack"%>
+        <%= f.input :category, collection: Category.all.map{ |p| [p.name, p.id]} %>
+        <%= f.input :description, placeholder: "Pls describe ur snak" %>
+        <%= f.input :shop_location, placeholder: "Enter address"%>
+        <%= f.button :submit, class: 'btn btn-light' %>
+      <% end %>
+      <div class=mt-3> <%= link_to "Back Home", root_path, class: 'btn btn-light'  %> </div>
+    </div>
+  </div>
+</div>
