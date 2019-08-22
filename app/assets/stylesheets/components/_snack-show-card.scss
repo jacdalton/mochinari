@@ -10,11 +10,6 @@
   object-fit: cover;
 }
 
-.snack-show-card-infos h4 {
-  font-size: 10px;
-  font-weight: bold;
-  margin: 0;
-}
 
 .snack-show-card p {
   font-size: 14px;
@@ -31,40 +26,18 @@
   position: relative;
 }
 
-.snack-show-card-infos .snack-show-card-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-}
+// .snack-show-card-infos .snack-show-card-user {
+//   position: absolute;
+//   right: 16px;
+//   top: -20px;
+//   width: 40px;
+// }
 
 .icons {
   display: flex;
   justify-content: space-between;
 }
 
-.pic-button {
-  background-color: $purple;
-  border: none;
-  color: $teal;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 10px;
-}
-
-.rate-button {
-  background-color: $purple;
-  border: none;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius: 10px;
-}
 
 .rate-button p {
   color: $teal;
