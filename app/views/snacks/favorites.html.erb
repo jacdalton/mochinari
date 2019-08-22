@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <% @snacks.each do |snack| %>
+      <div class="col-6">
+        <div class="favorite-card" >
+          <%= link_to snack_path(snack) do %>
+            <p><%= snack.name %></p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

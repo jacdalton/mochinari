@@ -25,9 +25,12 @@
 
 
 <div class="favorite-card">
-  <%= image_tag("cake", :alt=> "bananadeer") %>
+  <%= image_tag("cake", :alt=> "cake") %>
   <div class="card-product-infos">
-    <h2>Favorite Snack</h2>
+    <div class="info-container">
+      <h2>Favorite Snack</h2>
+      <%= image_tag "pink-heart.svg", class: "fixed-heart" %>
+    </div>
     <p>description</p>
     <br>
     <div class="tags">
@@ -50,8 +53,10 @@
   <%= image_tag 'mikan.jpeg' %>
   <div class="snack-index-card-infos">
     <div>
+
       <h1 class="info">Snack Index </h1>
        <div class="stars">
+
         <% 4.times do %>
           <i class="fas fa-star"></i>
         <% end %>
@@ -94,7 +99,6 @@
   <%= image_tag "add.svg" %>
   <p>Add New Trail</p>
 </div>
-
 
 <div class="snack-show-card">
   <div class="header-container d-flex">

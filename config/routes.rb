@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get '/ui-kit', to: 'pages#uikit', as: :uikit
+  get '/snacks/favorites', to: 'snacks#favorites', as: :favorites
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :categories, only: [:index, :show]
   resources :snack_images, except: [:new, :create]
