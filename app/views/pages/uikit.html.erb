@@ -4,8 +4,6 @@
     <div class="individual-category-card"></div>
   </div>
 </div>
-
-
 <div class="row">
   <div class="feature-cards">
     <%= image_tag 'namadora.jpg'%>
@@ -17,14 +15,11 @@
     <%= image_tag 'namadora.jpg'%>
   </div>
 </div>
-
 <div class="tag-container">
   <div class="tag">
     <p>tag</p>
   </div>
 </div>
-
-
 <div class="favorite-card">
   <%= image_tag("cake", :alt=> "cake") %>
   <div class="card-product-infos">
@@ -49,29 +44,42 @@
     </div>
   </div>
 </div>
-
-<div class="snack-index-card">
-  <%= image_tag 'mikan.jpeg' %>
-  <div class="snack-index-card-infos">
-    <div>
-
-      <h1 class="info">Snack Index </h1>
-       <div class="stars">
-
-        <% 4.times do %>
-          <i class="fas fa-star"></i>
-        <% end %>
-        <% 1.times do %>
-          <i class="far fa-star"></i>
-        <% end %>
+<div class="row">
+  <div class="snack-index-card">
+    <%= image_tag 'mikan.jpeg' %>
+    <div class="snack-index-card-infos">
+      <div>
+        <h3 class="info">Snack Index </h3>
+        <div class="stars">
+          <% 4.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% 1.times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+        </div>
       </div>
+      <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
     </div>
-    <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
+  </div>
+  <div class="snack-index-card">
+    <%= image_tag 'mikan.jpeg' %>
+    <div class="snack-index-card-infos">
+      <div>
+        <h3 class="info">Snack Index </h3>
+        <div class="stars">
+          <% 4.times do %>
+            <i class="fas fa-star"></i>
+          <% end %>
+          <% 1.times do %>
+            <i class="far fa-star"></i>
+          <% end %>
+        </div>
+      </div>
+      <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
+    </div>
   </div>
 </div>
-
-
-
 <h2>My Mochies</h2>
 <br>
 <div class="trail-card">
@@ -100,7 +108,6 @@
   <%= image_tag "add.svg" %>
   <p>Add New Trail</p>
 </div>
-
 <div class="snack-show-card">
   <div class="header-container d-flex">
     <%= image_tag "lilmochi.jpeg", class: "flex-shrink-1 flex-image flex-left" %>

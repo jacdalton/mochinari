@@ -1,13 +1,15 @@
 .snack-index-card {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   position: relative;
-  height:300px;
+  height: 30vh;
+  width: 45%;
+  margin: 4px;
+  padding: 2px;
+
 }
 
 .snack-index-card  > img {
-  height: 200px;
   width: 100%;
   object-fit: cover;
 }
