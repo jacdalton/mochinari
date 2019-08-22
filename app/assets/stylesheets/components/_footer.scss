@@ -1,1 +1,19 @@
-_footer.scss
+.footer {
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+   color: $purple;
+   background-color: $light-pink;
+   z-index: 1;
+}
+
+.inline {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.inline img {
+  height: 40px;
+  margin: 10px;
+}
+

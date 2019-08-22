@@ -1,0 +1,22 @@
+.new-trail-button {
+  background-color: white;
+  border: 2px solid $teal;
+  border-radius: 10px;
+  color: $purple;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  font-size: 16px;
+  width: 200px;
+
+}
+
+.new-trail-button img {
+  height: 10px;
+  margin: 5px;
+}
+
+.new-trail-button p {
+  margin-bottom: auto;
+}

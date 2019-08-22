@@ -1,4 +1,38 @@
 // Import your components CSS files here.
 @import "alert";
 @import "avatar";
+@import "button";
 @import "navbar";
+@import "category-card";
+@import "favorite-card";
+@import "feature-card";
+@import "category-show-card";
+@import "footer";
+@import "new-trail-button";
+@import "snack-index-card"    ;
+@import "submit-button";
+@import "tag";
+@import "trail-card";
+
+h2 {
+  font-family: $headers-font;
+  color: $purple;
+  font-size: 50px;
+}
+
+p {
+  font-family: $body-font;
+  color: $purple;
+}
+
+.container {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  color: $teal;
+}
+

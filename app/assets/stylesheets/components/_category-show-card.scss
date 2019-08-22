@@ -1,0 +1,39 @@
+.category-show-card {
+  overflow: hidden;
+  background: white;
+}
+
+.category-show-card > img {
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.category-show-card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.category-show-card p {
+  font-size: 12px;
+  font-family: $body-font;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.category-show-card .category-show-card-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.category-show-card-infos .category-show-card-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}

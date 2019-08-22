@@ -1,0 +1,129 @@
+
+<div class="column">
+  <div class="category-card">
+    <p class="text-color">Category card</p>
+    <div class="individual-category-card"></div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="feature-cards">
+    <%= image_tag 'namadora.jpg'%>
+  </div>
+  <div class="feature-cards">
+    <%= image_tag 'namadora.jpg'%>
+  </div>
+  <div class="feature-cards">
+    <%= image_tag 'namadora.jpg'%>
+  </div>
+</div>
+
+<div class="tag">
+  <p>tag</p>
+</div>
+
+
+<div class="favorite-card">
+  <%= image_tag("cake", :alt=> "bananadeer") %>
+  <div class="card-product-infos">
+    <h2>Favorite Snack</h2>
+    <p>description</p>
+    <br>
+    <div class="tags">
+      <div class="row">
+        <div class="tag">
+          <p>tag</p>
+        </div>
+        <div class="tag">
+          <p>tag</p>
+        </div>
+        <div class="tag">
+          <p>tag</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="snack-index-card">
+  <%= image_tag 'mikan.jpeg' %>
+  <div class="snack-index-card-infos">
+    <div>
+      <h1 class="info">Snack Index </h1>
+       <div class="stars">
+        <% 4.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
+        <% 1.times do %>
+          <i class="far fa-star"></i>
+        <% end %>
+      </div>
+    </div>
+    <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
+  </div>
+</div>
+
+
+<h2>My Mochies</h2>
+<br>
+<div class="trail-card">
+  <%= image_tag "strawmilk.jpg" %>
+  <div class="trail-card-infos">
+    <h2> Happy Fun Trail</h2>
+    <p>Shibuya summer sweets</p>
+  </div>
+</div>
+<br>
+<div class="category-show-card">
+  <%= image_tag "taiyaki.jpg" %>
+  <div class="category-show-card-infos">
+    <div>
+      <h2>Taiyaki</h2>
+      <p>Taiyaki is a deep fried pastry shaped like a fish and usually filled with red bean or custard.</p>
+    </div>
+    <h2 class="category-show-card-pricing">tag</h2>
+    <p>tag</p>
+  </div>
+</div>
+<br>
+<div class="submit-button">Submit</div>
+<br>
+<div class="new-trail-button">
+  <%= image_tag "add.svg" %>
+  <p>Add New Trail</p>
+</div>
+<div class="snack-show-card">
+  <%= image_tag "lilmochi.jpeg", :style => "height: 300px" %>
+  <div class="snack-show-card-infos">
+    <h3 style="font-size: 38px;">Best Daifuku</h3>
+    <div class="icons" style="display: flex;
+    justify-content: space-between;">
+      <h3 class="snack-show-card-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h3>
+      <h3 class="snack-show-card-heart"><i class="far fa-heart"></i></h3>
+    </div>
+    <p>It is so soft and yummy I loved every moment</p>
+    <p>tag tag tag tag</p>
+    <div class="inline" >
+      <div class="pic-button">
+        <%=  link_to root_path, class: "btn btn-mochi" do %>
+          <i class="fas fa-camera"></i>
+        <% end %>
+      </div>
+      <div class="rate-button">
+        <%= link_to "Rate it!", root_path, class: "btn btn-mochi" %>
+      </div>
+    </div>
+    <p>map goes here</p>
+  </div>
+</div>
+<div class="section">
+  <%= image_tag "taiyaki2.jpeg" %>
+  <div class="four-images">
+    <%= image_tag "taiyaki2.jpeg"%>
+    <%= image_tag "taiyaki2.jpeg"%>
+    <%= image_tag "taiyaki2.jpeg"%>
+    <%= image_tag "taiyaki2.jpeg"%>
+  </div>
+</div>
