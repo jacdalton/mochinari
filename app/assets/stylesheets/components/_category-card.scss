@@ -13,14 +13,13 @@
   justify-content: center;
   align-items: center;
   font-size: 24px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-weight: bold;
   border-radius: 5px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  opacity:0.4;
+  opacity:0.8;
   position:relative;;
 }
 
-.category-card p {
+.text-color{
   font-weight: bold;
   position:absolute;
   left: 50%;
