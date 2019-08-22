@@ -21,6 +21,7 @@ gem 'webpacker'
 gem 'pundit'
 gem 'faker'
 gem 'acts_as_favoritor'
+gem 'geocoder'
 gem 'acts-as-taggable-on', '~> 6.0'
 
 
