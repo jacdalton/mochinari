@@ -1,2 +1,28 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<div class="container">
+  <div class="col">
+    <p>image carousel goes here</p>
+    <h2>
+      <%= @category.name %>
+    </h2>
+    <p>
+      <%= @category.description  %>
+    </p>
+    <p>tag tag tag tag</p>
+    <%= link_to "Back", categories_path %>
+    <h2>Examples of <%= @category.name %></h2>
+    <div class="snack-index-card">
+      <% @category.snack_images.each do |image| %>
+        <div class="supply-img">
+          <%= image_tag image.image_path %>
+        </div>
+        <%= link_to "show me snacky" , snack_path(image.snack)  %>
+        <h2> <%= image.snack.name %> </h2>
+        <br>
+        <%  %>
+        <p>Stars: <%= image.snack.avg_snack_stars %></p>
+        <div class="bobby">
+          <%= image_tag("bobby", :alt=> "bobby") %>
+        </div>
+      <% end %>
+    </div>
+</div>
