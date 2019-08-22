@@ -10,14 +10,9 @@
   object-fit: cover;
 }
 
-.snack-show-card-infos h2 {
-  font-size: 12px;
-  font-weight: bold;
-  margin: 0;
-}
 
 .snack-show-card p {
-  font-size: 10px;
+  font-size: 14px;
   opacity: .7;
   margin: 0;
 }
@@ -31,29 +26,33 @@
   position: relative;
 }
 
-.snack-show-card-infos .snack-show-card-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+// .snack-show-card-infos .snack-show-card-user {
+//   position: absolute;
+//   right: 16px;
+//   top: -20px;
+//   width: 40px;
+// }
+
+.icons {
+  display: flex;
+  justify-content: space-between;
 }
 
 
-#snack-show-card-avatar {
+.rate-button p {
+  color: $teal;
+}
 
-  border-radius: 50%;
-  border: 1px solid $teal;
+.section {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 65px;
-  width: 65px;
-  position: absolute;
-  right: 40px;
-  top: 468px;
-  opacity: 0.8;
-  font-weight: lighter;
-  justify-content: center;
+}
 
-  }
+.four-images {
+  display: flex;
+  flex-wrap: wrap;
 
+}
+
+.four-images img {
+  flex: 0 50%;
+}
