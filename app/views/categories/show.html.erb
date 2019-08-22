@@ -10,19 +10,16 @@
     <p>tag tag tag tag</p>
     <%= link_to "Back", categories_path %>
     <h2>Examples of <%= @category.name %></h2>
-    <div class="snack-index-card">
-      <% @category.snack_images.each do |image| %>
+    <% @category.snack_images.each do |image| %>
+      <div class="snack-index-card" style="background-image: url('<%= asset_path image.image_path %>">
         <div class="supply-img">
-          <%= image_tag image.image_path %>
+          <%#= image_tag image.image_path %>
         </div>
         <%= link_to "show me snacky" , snack_path(image.snack)  %>
         <h2> <%= image.snack.name %> </h2>
         <br>
-        <%  %>
-        <p>Stars: <%= image.snack.avg_snack_stars %></p>
-        <div class="bobby">
-          <%= image_tag("bobby", :alt=> "bobby") %>
-        </div>
-      <% end %>
-    </div>
-</div>
+        <p>Stars: <%= image.snack.avg_snack_stars %> </p>
+        <%= image_tag("bobby", :alt=> "bobby", class: "bobby") %>
+      </div>
+    <% end %>
+  </div>
