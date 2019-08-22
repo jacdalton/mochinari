@@ -25,14 +25,16 @@
     </div>
   </div>
   <div class="row">
-    <h3>Popular Tags</h3>
-    <% @tags.each do |tag| %>
-      <div class="tag">
-        <p><%= tag.name %></p>
-      </div>
-    <% end %>
+    <div class="col-8">
+      <h3>Popular Tags</h3>
+      <% @tags.each do |tag| %>
+        <div class="tag">
+          <p><%= tag.name %></p>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <h3>Pop Cat</h3>
+  <h3>Yummy Categories</h3>
   <div class="row">
     <% @categories.each do |category| %>
       <div class="col-6">
@@ -42,27 +44,27 @@
       </div>
     <% end %>
   </div>
-</div>
-<div class="row">
-  <h3>Popular Snacks</h3>
-  <% @snacks.each do |snack| %>
-    <div class="snack-index-card col-6">
-      <%= image_tag 'mikan.jpeg' %>
-      <div class="snack-index-card-infos">
-        <div>
-          <h1 class="info">Snack Index </h1>
-          <div class="stars">
-            <% (snack.avg_snack_stars).times do %>
-              <i class="fas fa-star"></i>
-            <% end %>
-            <% (1 - snack.avg_snack_stars).times do %>
-              <i class="far fa-star"></i>
-            <% end %>
+  <h3 >Popular Snacks</h3>
+  <div class="row">
+    <% @snacks.each do |snack| %>
+      <div class="snack-index-card">
+        <%= image_tag 'mikan.jpeg' %>
+        <div class="snack-index-card-infos">
+          <div>
+            <h3 class="info">Snack Index </h3>
+            <div class="stars">
+              <% (snack.avg_snack_stars).times do %>
+                <i class="fas fa-star"></i>
+              <% end %>
+              <% (1 - snack.avg_snack_stars).times do %>
+                <i class="far fa-star"></i>
+              <% end %>
+            </div>
           </div>
+          <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
         </div>
-        <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 </div>
