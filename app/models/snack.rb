@@ -1,5 +1,6 @@
 class Snack < ApplicationRecord
   acts_as_favoritable
+  geocoded_by :shop_location
   belongs_to :category
   belongs_to :user
   has_and_belongs_to_many :trails
