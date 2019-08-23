@@ -1,6 +1,5 @@
 <div class="container">
   <div class="col">
-    <p>image carousel goes here</p>
     <h2>
       <%= @category.name %>
     </h2>
@@ -9,17 +8,26 @@
     </p>
     <p>tag tag tag tag</p>
     <%= link_to "Back", categories_path %>
-    <h2>Examples of <%= @category.name %></h2>
-    <% @category.snack_images.each do |image| %>
-      <div class="snack-index-card" style="background-image: url('<%= asset_path image.image_path %>">
-        <div class="supply-img">
-          <%#= image_tag image.image_path %>
+    <h3>Examples of <%= @category.name %></h3>
+    <div class="row">
+      <% @category.snacks.each do |snack| %>
+        <div class="snack-index-card">
+          <%= image_tag snack.snack_images.sample.image_path %>
+          <div class="snack-index-card-infos">
+            <div>
+              <h3 class="info"> <%= snack.name %> </h3>
+              <div class="stars">
+                <% (snack.avg_snack_stars).times do %>
+                  <i class="fas fa-star"></i>
+                <% end %>
+                <% (1 - snack.avg_snack_stars).times do %>
+                  <i class="far fa-star"></i>
+                <% end %>
+              </div>
+            </div>
+            <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
+          </div>
         </div>
-        <%= link_to "show me snacky" , snack_path(image.snack)  %>
-        <h2> <%= image.snack.name %> </h2>
-        <br>
-        <p>Stars: <%= image.snack.avg_snack_stars %> </p>
-        <%= image_tag("bobby", :alt=> "bobby", class: "bobby") %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
