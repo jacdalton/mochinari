@@ -19,7 +19,7 @@ class TrailsController < ApplicationController
 
   def new
     @trail = Trail.new
-    @snacks = Snack.all
+    @snacks = current_user.all_favorited
   end
 
   def create
