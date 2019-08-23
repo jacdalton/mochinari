@@ -12,12 +12,10 @@
     <div class="row">
       <% @trail.snacks.each do |snack| %>
         <div class="snack-index-card">
-          <%= link_to snack_path(snack) do %>
-          <%= image_tag snack.snack_images.sample.image_path %>
-          <% end %>
+          <%= image_tag snack.snack_images[0].image_path %>
           <div class="snack-index-card-infos">
             <div>
-              <h3 class="info"><%= snack.name %> </h3>
+              <h4 class="info"> <%= snack.name %> </h4>
               <div class="stars">
                 <% (snack.avg_snack_stars).times do %>
                   <i class="fas fa-star"></i>
@@ -29,6 +27,7 @@
             </div>
             <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
           </div>
+          <%= link_to "", snack_path(snack), class: "snack-index-card-link" %>
         </div>
       <% end %>
     </div>
