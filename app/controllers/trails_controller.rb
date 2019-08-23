@@ -18,6 +18,7 @@ class TrailsController < ApplicationController
 
   def new
     @trail = Trail.new
+    @snacks = Snack.all
   end
 
   def create
@@ -57,7 +58,7 @@ class TrailsController < ApplicationController
   private
 
   def trail_params
-    params.require(:trail).permit(:name, :location)
+    params.require(:trail).permit(:name, :location, :snack_ids => [])
   end
 
   def set_trail
