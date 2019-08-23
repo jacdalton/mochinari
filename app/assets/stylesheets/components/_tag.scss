@@ -1,5 +1,11 @@
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+}
 
+// .tag {
 
+// }
 
 .tag {
   width: 10vh;
@@ -25,3 +31,10 @@
 
 }
 
+
+// @media all and (max-width:30em){
+//  a.button1{
+//   display:block;
+//   margin:0.4em auto;
+//  }
+// }
