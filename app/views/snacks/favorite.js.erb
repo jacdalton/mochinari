@@ -1,0 +1,13 @@
+var value = '<%= j @value %>'
+
+function favoriteSnack(value) {
+ const heart = document.querySelector(".snack-show-card-heart");
+  if (value === "true") {
+    heart.innerHTML = '<i class="fas fa-heart"></i>';
+  } else {
+    heart.innerHTML = '<i class="far fa-heart"></i>';
+  }
+}
+
+
+favoriteSnack(value);
