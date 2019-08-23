@@ -19,9 +19,9 @@
             justify-content: space-between;">
             <h3 class="snack-show-card-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h3>
             <%= link_to favorite_snack_path(@snack), method: :patch, remote: true do %>
-            <div class="snack-show-card-heart">
-              <i class="fa<%= "#{@icon}" %> fa-heart"></i>
-            </div>
+              <div class="snack-show-card-heart">
+                <%= image_tag @heart, alt: "alttext", class: "snack-show-fixed-heart" %>
+              </div>
             <% end %>
           </div>
           <p><%= @snack.description %></p>

@@ -3,9 +3,9 @@ var value = '<%= j @value %>'
 function favoriteSnack(value) {
  const heart = document.querySelector(".snack-show-card-heart");
   if (value === "true") {
-    heart.innerHTML = '<i class="fas fa-heart"></i>';
+    heart.innerHTML = '<%= image_tag "pink-heart.svg", alt: "alttext", class: "snack-show-fixed-heart" %>';
   } else {
-    heart.innerHTML = '<i class="far fa-heart"></i>';
+    heart.innerHTML = '<%= image_tag "like.svg", alt: "alttext", class: "snack-show-fixed-heart" %>';
   }
 }
 
