@@ -6,6 +6,14 @@ class TrailsController < ApplicationController
   end
 
   def show
+    @snacks = @trail.snacks
+    @markers = @snacks.map do |snack|
+      snack.geocode
+      {
+        lat: snack.latitude,
+        lng: snack.longitude
+      }
+    end
   end
 
   def new
@@ -15,6 +23,7 @@ class TrailsController < ApplicationController
   def create
     @trail = Trail.new(trail_params)
     @trail.user = current_user
+    @trail.geocode
     if @trail.save
       redirect_to trail_path(@trail)
     else

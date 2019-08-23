@@ -2,5 +2,6 @@
 <%= simple_form_for @trail do |f| %>
   <%= f.input :name %>
   <%= f.input :location %>
+  <%= f.input :snacks, collection: Snack.all %>
   <%= f.submit %>
 <% end %>
