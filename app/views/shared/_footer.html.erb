@@ -1,8 +1,16 @@
 <div class="footer">
   <div class="inline">
-    <%= image_tag "home.svg" %>
-    <%= image_tag "like.svg" %>
-    <%= image_tag "dango.svg" %>
-    <%= image_tag "map.svg" %>
+    <%= link_to root_path do %>
+     <%= image_tag "home.svg" %>
+    <% end %>
+    <%= link_to favorites_path do %>
+     <%= image_tag "like.svg" %>
+    <% end %>
+    <%= link_to categories_path do %>
+     <%= image_tag "dango.svg" %>
+    <% end %>
+    <%= link_to trails_path do %>
+     <%= image_tag "map.svg" %>
+    <% end %>
   </div>
 </div>
