@@ -2,7 +2,7 @@
   overflow: hidden;
   background: white;
   position: relative;
-  height: 30vh;
+  height: 35vh;
   width: 45%;
   margin: 4px;
   padding: 2px;
@@ -18,6 +18,7 @@
 
 .snack-index-card  > img {
   width: 100%;
+  height: 50%;
   object-fit: cover;
 }
 

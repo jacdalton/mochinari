@@ -8,6 +8,7 @@ class SnacksController < ApplicationController
 
   def show
     @snack = Snack.find(params[:id])
+    @icon = @snack.favorited_by?(current_user) ? "s" : "r"
     @snack.geocode
     @snack.save
     @markers = [{
@@ -32,6 +33,22 @@ class SnacksController < ApplicationController
 
   def favorites
     @snacks = current_user.all_favorited
+  end
+
+  def favorite
+    # @value = nil
+    @snack = Snack.find(params[:id])
+    @user = current_user
+    if @snack.favorited_by?(@user)
+      @user.unfavorite(@snack)
+      @value = "false"
+    else
+      @user.favorite(@snack)
+      @value = "true"
+    end
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

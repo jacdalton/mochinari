@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-snack-show">
   <div class="row">
     <div class="col">
       <h2>
@@ -18,10 +18,14 @@
           <div class="icons" style="display: flex;
             justify-content: space-between;">
             <h3 class="snack-show-card-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h3>
-            <h3 class="snack-show-card-heart"><i class="far fa-heart"></i></h3>
+            <%= link_to favorite_snack_path(@snack), method: :patch, remote: true do %>
+              <div class="snack-show-card-heart">
+                <i class="fa<%= "#{@icon}" %> fa-heart"></i>
+              </div>
+            <% end %>
           </div>
           <p><%= @snack.description %></p>
-          <div class="tag-container">
+          <div class="tag-container center">
             <div class="tag">
               <p>tag</p>
             </div>
