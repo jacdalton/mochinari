@@ -8,25 +8,18 @@
       </div>
     </div>
     <% @trails.each do |trail| %>
-      <div class="favorite-card mt-2">
-        <div class="card-product-infos">
-          <div class="info-container">
-            <h2> <%= link_to trail.name, trail_path(trail) %></h2>
-            <%= image_tag "pink-heart.svg", class: "fixed-heart" %>
-          </div>
+      <div class="trail-card mt-4">
+        <%= image_tag trail.snacks[0].snack_images[0].image_path %>
+        <div class="trail-card-infos">
+          <h2> <%= link_to trail.name, trail_path(trail) %></h2>
           <p><%= trail.location %></p>
-          <br>
           <div class="tags">
-            <div class="row">
-              <div class="tag">
-                <p>tag</p>
-              </div>
-              <div class="tag">
-                <p>tag</p>
-              </div>
-              <div class="tag">
-                <p>tag</p>
-              </div>
+            <div class="row mt-4">
+              <% trail.snacks[0].tag_list.take(4).each do |tag| %>
+                <div class="tag">
+                  <p><%= tag %></p>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
