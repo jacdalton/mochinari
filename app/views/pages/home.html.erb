@@ -50,7 +50,9 @@
   <div class="row">
     <% @snacks.each do |snack| %>
       <div class="snack-index-card">
+        <%= link_to snack_path(snack) do %>
         <%= image_tag 'mikan.jpeg' %>
+        <% end %>
         <div class="snack-index-card-infos">
           <div>
             <h3 class="info">Snack Index </h3>
