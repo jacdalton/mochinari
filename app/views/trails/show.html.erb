@@ -10,11 +10,11 @@
     </div>
     <div class="row">
       <% @trail.snacks.each do |snack| %>
-        <div class="snack-index-card col-6">
+        <div class="snack-index-card">
           <%= image_tag snack.snack_images.sample.image_path %>
           <div class="snack-index-card-infos">
             <div>
-              <h1 class="info"><%= snack.name %> </h1>
+              <h3 class="info"><%= snack.name %> </h3>
               <div class="stars">
                 <% (snack.avg_snack_stars).times do %>
                   <i class="fas fa-star"></i>
