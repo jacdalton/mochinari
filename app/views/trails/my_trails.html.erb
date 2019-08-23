@@ -4,7 +4,8 @@
       <h2>My Trails</h2>
       <div class="new-trail-button" >
         <%= image_tag "add.svg" %>
-        <p>Add New Trail</p>
+        <%= link_to 'Add New Trail', new_trail_path %>
+        <p></p>
       </div>
     </div>
     <% @trails.each do |trail| %>
