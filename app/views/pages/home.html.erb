@@ -38,9 +38,11 @@
   <div class="row">
     <% @categories.each do |category| %>
       <div class="col-6">
+        <%= link_to category_path(category) do %>
         <div class="individual-category-card" style="background-image: url('<%= asset_path category.image_path %>'); " >
           <%= link_to category.name.upcase, category_path(category) %>
         </div>
+        <% end %>
       </div>
     <% end %>
   </div>
