@@ -5,12 +5,12 @@
 
 
 .tag {
-  width: 10vh;
-  height: 5vh;
+  width: 11vh;
+  height: 6vh;
   background-color: $teal; /* Green */
   border-radius: 20px;
   color: white;
-
+  margin: 4px;
   padding-top:2px;
   padding-bottom:10px;
   padding-right:10px;
@@ -30,7 +30,9 @@
 
 
 .tag-text {
-  margin-bottom: 0 !important;
+  margin-bottom: -5px !important;
+  margin-left: 10px !important;
+
 }
 
 
