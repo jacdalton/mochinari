@@ -4,52 +4,50 @@
       <h2>
         <%= @snack.name %>
       </h2>
-        <div class="snack-show-card">
-          <div class="header-container d-flex">
-            <%= image_tag @snack.snack_images[0].image_path, class: "flex-shrink-1 flex-image flex-left" %>
-            <div class="d-flex flex-grow-1 flex-wrap flex-right">
+      <div class="snack-show-card">
+        <div class="header-container d-flex">
+          <%= image_tag @snack.snack_images[0].image_path, class: "flex-shrink-1 flex-image flex-left" %>
+          <div class="d-flex flex-grow-1 flex-wrap flex-right">
             <% @snack.snack_images[1..4].each do |s| %>
               <%= image_tag s.image_path, class: "flex-image" %>
-          <% end %>
-            </div>
-          </div>
-          <div class="snack-show-card-infos">
-            <h3 style="font-size: 38px;"><%= @snack.name %></h3>
-            <div class="icons" style="display: flex;
-            justify-content: space-between;">
-              <h3 class="snack-show-card-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h3>
-              <h3 class="snack-show-card-heart"><i class="far fa-heart"></i></h3>
-            </div>
-            <p><%= @snack.description %></p>
-
-            <div class="tag-container">
-              <div class="tag">
-                <p>tag</p>
-              </div>
-              <div class="tag">
-                <p>tag</p>
-              </div>
-              <div class="tag">
-                <p>tag</p>
-              </div>
-            </div>
-
-            <div class="inline" >
-              <div class="pic-button">
-                <%=  link_to root_path, class: "btn btn-mochi" do %>
-                  <i class="fas fa-camera"></i>
-                <% end %>
-              </div>
-              <div class="rate-button">
-                <%= link_to "Rate it!", root_path, class: "btn btn-mochi" %>
-              </div>
-            </div>
-            <p>map goes here</p>
+            <% end %>
           </div>
         </div>
-
+        <div class="snack-show-card-infos">
+          <h3 style="font-size: 38px;"><%= @snack.name %></h3>
+          <div class="icons" style="display: flex;
+            justify-content: space-between;">
+            <h3 class="snack-show-card-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></h3>
+            <h3 class="snack-show-card-heart"><i class="far fa-heart"></i></h3>
+          </div>
+          <p><%= @snack.description %></p>
+          <div class="tag-container">
+            <div class="tag">
+              <p>tag</p>
+            </div>
+            <div class="tag">
+              <p>tag</p>
+            </div>
+            <div class="tag">
+              <p>tag</p>
+            </div>
+          </div>
+          <div class="inline" >
+            <div class="pic-button">
+              <%=  link_to root_path, class: "btn btn-mochi" do %>
+                <i class="fas fa-camera"></i>
+              <% end %>
+            </div>
+            <div class="rate-button">
+              <%= link_to "Rate it!", root_path, class: "btn btn-mochi" %>
+            </div>
+          </div>
+          <div class="map-container">
+            <div id="map" data-markers="<%= @markers.to_json %>"></div>
+          </div>
+        </div>
+      </div>
       <%= link_to "Back", category_path(@snack.category) %>
     </div>
   </div>
-  <div id="map" data-markers="<%= @markers.to_json %>"></div>
 </div>
