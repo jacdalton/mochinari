@@ -32,6 +32,9 @@ User.destroy_all
 puts 'Destoying all categories...'
 Category.destroy_all
 
+'Destoying all tags...'
+ActsAsTaggableOn::Tag.destroy_all
+
 #   Create new
 
 # Category - Generate 2 (manual)
@@ -62,12 +65,6 @@ Category.create!(
 # - location ( will need to update seeds for this, once map is implemented )
 
 puts 'Generating Katy and Bobby...'
-
-User.create!(
-  email: 'katy@gmail.com',
-  password: '123123',
-  username: 'katy.smith711'
-)
 
 User.create!(
   email: 'bobby@gmail.com',
@@ -139,7 +136,7 @@ end
 # - user: User.all.sample
 
 sample_snack_images = ['castella.jpg', 'cheesecake.jpg', 'momiji.jpg', 'sakuramochi.jpg',
-                       'strawmilk.jpg', 'yokan.jpg']
+                       'strawmilk.jpg', 'yokan.jpg', 'j-apricot-thing.jpg', 'j-cafechan.jpg', 'j-cookie-sando.jpg', 'j-crepe.jpg', 'j-ichigo-kakigoori.jpg', 'j-kurozatou-dorayaki.jpg', 'j-pichan.jpg', 'j-taiyaki.jpg', 'j-takoyaki.jpg', 'j-waffle.jpg']
 
 puts 'Creating test snack images...'
 
@@ -193,4 +190,38 @@ User.all.each do |user|
   end
 end
 
+# Tags - maximum 6 each for snacks, max 3 each for categories
+
+tags_array = ['chewy', 'crunchy', 'creamy', 'sweet beans', 'green tea', 'frosted', 'hot', 'ice cream']
+
+puts 'Creating tags for snacks and categories...'
+
+Snack.all.each do |snack|
+  6.times do
+    snack.tag_list.add(tags_array.sample)
+    snack.save
+  end
+end
+
+Category.all.each do |category|
+  3.times do
+    category.tag_list.add(tags_array.sample)
+    category.save
+  end
+end
+
+User.create!(
+  email: 'katy@gmail.com',
+  password: '123123',
+  username: 'katy.smith711'
+)
+
 puts 'Seeds created!'
+
+
+
+
+
+
+
+
