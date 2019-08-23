@@ -24,24 +24,24 @@
       <% end %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-8">
-      <h3>Popular Tags</h3>
+  <div class="col-10">
+    <h3>Popular Tags</h3>
+    <div class="row center">
       <% @tags.each do |tag| %>
         <div class="tag">
-          <p><%= tag.name %></p>
+          <p class= "tag-text"><%= tag.name %></p>
         </div>
       <% end %>
     </div>
   </div>
   <h3>Yummy Categories</h3>
-  <div class="row">
+  <div class="row" >
     <% @categories.each do |category| %>
       <div class="col-6">
         <%= link_to category_path(category) do %>
-        <div class="individual-category-card" style="background-image: url('<%= asset_path category.image_path %>'); " >
-          <%= link_to category.name.upcase, category_path(category) %>
-        </div>
+          <div class="individual-category-card" style="background-image: url('<%= asset_path category.image_path %>'); " >
+            <%= link_to category.name.upcase, category_path(category) %>
+          </div>
         <% end %>
       </div>
     <% end %>
@@ -50,12 +50,10 @@
   <div class="row">
     <% @snacks.each do |snack| %>
       <div class="snack-index-card">
-        <%= link_to snack_path(snack) do %>
-        <%= image_tag 'mikan.jpeg' %>
-        <% end %>
+        <%= image_tag snack.snack_images[0].image_path %>
         <div class="snack-index-card-infos">
           <div>
-            <h3 class="info">Snack Index </h3>
+            <h4 class="info"> <%= snack.name %> </h4>
             <div class="stars">
               <% (snack.avg_snack_stars).times do %>
                 <i class="fas fa-star"></i>
@@ -67,6 +65,7 @@
           </div>
           <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
         </div>
+        <%= link_to "", snack_path(snack), class: "snack-index-card-link" %>
       </div>
     <% end %>
   </div>
