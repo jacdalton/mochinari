@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
   resources :snack_images, except: [:new, :create]
   resources :snacks, only: [:index, :show, :new, :create] do
+    member do
+      patch 'favorite', to: 'snacks#favorite'
+    end
     resources :snack_images, only: [:new, :create]
     resources :snack_ratings, only: [:show, :new, :create]
   end

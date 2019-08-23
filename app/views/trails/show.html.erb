@@ -12,7 +12,9 @@
     <div class="row">
       <% @trail.snacks.each do |snack| %>
         <div class="snack-index-card">
+          <%= link_to snack_path(snack) do %>
           <%= image_tag snack.snack_images.sample.image_path %>
+          <% end %>
           <div class="snack-index-card-infos">
             <div>
               <h3 class="info"><%= snack.name %> </h3>

@@ -9,7 +9,7 @@
       <div class="favorite-card mt-2">
         <div class="card-product-infos">
           <div class="info-container">
-            <h2> <%= trail.name %></h2>
+            <h2> <%= link_to trail.name, trail_path(trail) %></h2>
             <%= image_tag "pink-heart.svg", class: "fixed-heart" %>
           </div>
           <p><%= trail.location %></p>
