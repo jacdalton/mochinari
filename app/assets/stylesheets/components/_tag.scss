@@ -1,18 +1,13 @@
-.tag-container {
-  display:flex;
-}
-
-// .tag {
-
-// }
 
 
 
 .tag {
+  width: 10vh;
   background-color: $teal; /* Green */
   border-radius: 20px;
   color: white;
   padding: 5px 20px;
+  margin: 5px 5px 5px 5px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -25,10 +20,8 @@
   color: $purple;
 }
 
+.tag-text {
+  margin-bottom: 0 !important;
 
-// @media all and (max-width:30em){
-//  a.button1{
-//   display:block;
-//   margin:0.4em auto;
-//  }
-// }
+}
+
