@@ -1,4 +1,5 @@
 class TrailsController < ApplicationController
+  before_action :filter_snacks_params, only: [:create, :update]
   before_action :set_trail, only: [:show, :edit, :update, :destroy]
   def index
     # once pundit is implemented this will likely change
@@ -6,15 +7,27 @@ class TrailsController < ApplicationController
   end
 
   def show
+    @snacks = @trail.snacks
+    @markers = @snacks.map do |snack|
+      snack.geocode
+      {
+        lat: snack.latitude,
+        lng: snack.longitude
+      }
+    end
   end
 
   def new
     @trail = Trail.new
+    @snacks = Snack.all
   end
 
   def create
     @trail = Trail.new(trail_params)
     @trail.user = current_user
+    @trail.geocode
+    @trail.snacks = params[:trail][:snacks]
+    # binding.pry
     if @trail.save
       redirect_to trail_path(@trail)
     else
@@ -48,7 +61,11 @@ class TrailsController < ApplicationController
   private
 
   def trail_params
-    params.require(:trail).permit(:name, :location)
+    params.require(:trail).permit(:name, :location, { snacks: [] })
+  end
+
+  def filter_snacks_params
+    params[:trail][:snacks] = params[:trail][:snacks].reject(&:blank?).map { |id| Snack.find(id) }
   end
 
   def set_trail
