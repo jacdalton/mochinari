@@ -142,7 +142,7 @@ end
 # - user: User.all.sample
 
 sample_snack_images = ['castella.jpg', 'cheesecake.jpg', 'momiji.jpg', 'sakuramochi.jpg',
-                       'strawmilk.jpg', 'yokan.jpg']
+                       'strawmilk.jpg', 'yokan.jpg', 'j-apricot-thing.jpg', 'j-cafechan.jpg', 'j-cookie-sando.jpg', 'j-crepe.jpg', 'j-ichigo-kakigoori.jpg', 'j-kurozatou-dorayaki.jpg', 'j-pichan.jpg', 'j-taiyaki.jpg', 'j-takoyaki.jpg', 'j-waffle.jpg']
 
 puts 'Creating test snack images...'
 
