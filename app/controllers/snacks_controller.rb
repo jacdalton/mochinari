@@ -10,7 +10,7 @@ class SnacksController < ApplicationController
     @snack = Snack.find(params[:id])
     @snack.geocode
     @snack.save
-    @marker = [{
+    @markers = [{
       lat: @snack.latitude,
       lng: @snack.longitude
     }]
