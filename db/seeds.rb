@@ -67,12 +67,6 @@ Category.create!(
 puts 'Generating Katy and Bobby...'
 
 User.create!(
-  email: 'katy@gmail.com',
-  password: '123123',
-  username: 'katy.smith711'
-)
-
-User.create!(
   email: 'bobby@gmail.com',
   password: '123123',
   username: 'bobby3ats'
@@ -215,6 +209,12 @@ Category.all.each do |category|
     category.save
   end
 end
+
+User.create!(
+  email: 'katy@gmail.com',
+  password: '123123',
+  username: 'katy.smith711'
+)
 
 puts 'Seeds created!'
 
