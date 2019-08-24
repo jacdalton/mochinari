@@ -17,13 +17,17 @@
             <div>
               <h4 class="info"> <%= snack.name %> </h4>
               <div class="stars">
+              <% if snack.avg_snack_stars == 0 %>
+              No ratings yet!
+              <% else %>
                 <% (snack.avg_snack_stars).times do %>
                   <i class="fas fa-star"></i>
                 <% end %>
-                <% (1 - snack.avg_snack_stars).times do %>
+                <% (5 - snack.avg_snack_stars).times do %>
                   <i class="far fa-star"></i>
                 <% end %>
-              </div>
+              <% end %>
+            </div>
             </div>
             <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
           </div>
