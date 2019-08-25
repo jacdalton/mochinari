@@ -1,5 +1,5 @@
 class SnacksController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
+  skip_before_action :authenticate_user!, only: [ :index, :show, :tagged ]
 
   def index
     # once search, tags, and map are implemented this will change
@@ -51,9 +51,18 @@ class SnacksController < ApplicationController
     end
   end
 
+  def tagged
+    if params[:tag].present?
+      @tag = ActsAsTaggableOn::Tag.find(params[:tag])
+      @snacks = Snack.tagged_with(@tag)
+    else
+      @snacks = Snack.all
+    end
+  end
+
   private
 
   def snack_params
-    params.require(:snack).permit(:name, :description, :shop_name, :shop_location, :category)
+    params.require(:snack).permit(:name, :description, :shop_name, :shop_location, :category, :tag_list)
   end
 end
