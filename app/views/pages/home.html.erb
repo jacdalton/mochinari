@@ -16,58 +16,66 @@
       </div>
     </div>
   </div>
-  <div class="row">
+  <div class="row center mt-4">
     <div class="search-snacks">
-      <%= simple_form_for :search, url: snacks_path, method: "GET", html: { class: 'form-inline' } do |f| %>
-        <%= f.input :query, input_html: { value: ""}, placeholder: "Search...", name: "search", label: false %>
-        <%= f.submit "Search", class: "btn btn-mochi" %>
-      <% end %>
-    </div>
-  </div>
-  <h3>Popular Tags</h3>
-  <div class="row">
-    <div class="d-flex flex-wrap justify-content-center">
-      <% @tags.each do |tag| %>
-        <div class="tag">
-          <p class= "tag-text"><%= tag.name %></p>
+      <div class="searchform">
+        <%= simple_form_for :search, url: snacks_path, method: "GET", html: { class: 'form-inline' } do |f| %>
+          <%= f.input :query, input_html: { value: ""}, placeholder: "Try 'taiyaki'...", name: "search", label: false %>
         </div>
-      <% end %>
+        <div class="searchbutton">
+          <button type="submit", { class="btn btn-mochi" } >
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+        </div>
+        <!--    <%= f.submit "Search", { class: "btn btn-mochi" } %>
+      <% end %> -->
+      </div>
     </div>
-  </div>
-  <h3>Yummy Categories</h3>
-  <div class="row" >
-    <% @categories.each do |category| %>
-      <div class="col-6">
-        <%= link_to category_path(category) do %>
-          <div class="individual-category-card" style="background-image: url('<%= asset_path category.image_path %>'); " >
-            <%= link_to category.name.upcase, category_path(category) %>
+    <h3 class="mt-2">Popular Tags</h3>
+    <div class="row">
+      <div class="d-flex flex-wrap justify-content-center">
+        <% @tags.each do |tag| %>
+          <div class="tag">
+            <p class= "tag-text"><%= tag.name %></p>
           </div>
         <% end %>
       </div>
-    <% end %>
-  </div>
-  <h3 >Popular Snacks</h3>
-  <div class="row justify-content-center">
-    <% @snacks.each do |snack| %>
-      <div class="snack-index-card">
-        <%= image_tag snack.snack_images[0].image_path %>
-        <div class="snack-index-card-infos">
-          <div>
-            <h4 class="info"> <%= snack.name %> </h4>
-            <div class="stars">
-              <% (snack.avg_snack_stars).times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-              <% (1 - snack.avg_snack_stars).times do %>
-                <i class="far fa-star"></i>
-              <% end %>
+    </div>
+    <h3 class="mt-4">Yummy Categories</h3>
+    <div class="row" >
+      <% @categories.each do |category| %>
+        <div class="col-6">
+          <%= link_to category_path(category) do %>
+            <div class="individual-category-card" style="background-image: url('<%= asset_path category.image_path %>'); " >
+              <%= link_to category.name.upcase, category_path(category) %>
             </div>
-          </div>
-          <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
+          <% end %>
         </div>
-        <%= link_to "", snack_path(snack), class: "snack-index-card-link" %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+    <h3 class="mt-4">Popular Snacks</h3>
+    <div class="row justify-content-center">
+      <% @snacks.each do |snack| %>
+        <div class="snack-index-card">
+          <%= image_tag snack.snack_images[0].image_path %>
+          <div class="snack-index-card-infos">
+            <div>
+              <h4 class="info"> <%= snack.name %> </h4>
+              <div class="stars">
+                <% (snack.avg_snack_stars).times do %>
+                  <i class="fas fa-star"></i>
+                <% end %>
+                <% (1 - snack.avg_snack_stars).times do %>
+                  <i class="far fa-star"></i>
+                <% end %>
+              </div>
+            </div>
+            <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
+          </div>
+          <%= link_to "", snack_path(snack), class: "snack-index-card-link" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 </div>
