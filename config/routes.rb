@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get '/tagged', to: 'snacks#tagged', as: :tagged
   get '/ui-kit', to: 'pages#uikit', as: :uikit
   get '/map', to: 'pages#user_map', as: :user_map
   get '/snacks/favorites', to: 'snacks#favorites', as: :favorites
