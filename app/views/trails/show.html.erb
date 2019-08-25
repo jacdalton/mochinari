@@ -9,7 +9,7 @@
     <div class="row mt-3">
       <h3>Snacks to Snack</h3>
     </div>
-    <div class="row">
+    <!--     <div class="row">
       <% @trail.snacks.each do |snack| %>
         <div class="snack-index-card">
           <%= image_tag snack.snack_images[0].image_path %>
@@ -28,6 +28,35 @@
             <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
           </div>
           <%= link_to "", snack_path(snack), class: "snack-index-card-link" %>
+        </div>
+      <% end %>
+    </div> -->
+    <div class="row justify-content-center">
+      <% @trail.snacks.each do |snack| %>
+        <div class="snack-index-card-2">
+          <div class="snack-index-card-2-image">
+            <%= image_tag snack.snack_images[0].image_path %>
+          </div>
+          <div class="snack-index-sub-card-2">
+            <div class="sub-title mt-3">
+              <h4> <%= snack.name %> </h4>
+            </div>
+            <div class="bottom-info">
+              <div class="stars">
+                <% if snack.avg_snack_stars == 0 %>
+                  No ratings yet!
+                <% else %>
+                  <% (snack.avg_snack_stars).times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                  <% (5 - snack.avg_snack_stars).times do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
+                <% end %>
+              </div>
+              <%= image_tag("bobby", :alt=> "avatar", class: "bobby") %>
+            </div>
+          </div>
         </div>
       <% end %>
     </div>
