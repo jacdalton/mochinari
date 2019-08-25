@@ -1,9 +1,6 @@
 <div class="container-snack-show">
   <div class="row">
     <div class="col">
-      <h2>
-        <%= @snack.name %>
-      </h2>
       <div class="snack-show-card">
         <div class="header-container d-flex">
           <%= image_tag @snack.snack_images[0].image_path, class: "flex-shrink-1 flex-image flex-left" %>
@@ -19,7 +16,7 @@
             justify-content: space-between;">
             <h3 class="snack-show-card-stars">
               <% if @snack.avg_snack_stars == 0 %>
-              No ratings yet!
+                No ratings yet!
               <% else %>
                 <% (@snack.avg_snack_stars).times do %>
                   <i class="fas fa-star"></i>
@@ -35,7 +32,7 @@
               </div>
             <% end %>
           </div>
-          <p><%= @snack.description %></p>
+          <p class="mb-3"><%= @snack.description %></p>
           <div class="tag-container center">
             <div class="tag">
               <p>tag</p>
@@ -57,9 +54,9 @@
               <%= link_to "Rate it!", root_path, class: "btn btn-mochi" %>
             </div>
           </div>
-          <div class="map-container">
-            <div id="map" data-markers="<%= @markers.to_json %>"></div>
-          </div>
+        </div>
+        <div class="map-container mt-3">
+          <div id="map" data-markers="<%= @markers.to_json %>"></div>
         </div>
       </div>
       <%= link_to "Back", category_path(@snack.category) %>
