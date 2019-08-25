@@ -1,14 +1,15 @@
 .favorite-card {
-  height: 20vh;
+  height: 25vh;
   width: 100%;
   display: flex;
   position: relative;
   margin-bottom:10px;
+  background-color: white;
 }
 
 .favorite-card img {
   height: 100%;
-  width: 30%;
+  width: 35%;
   object-fit: cover;
 }
 
