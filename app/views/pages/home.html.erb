@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-4">
-      <div class="feature-card" style="background-image: url('<%= asset_path 'namadora.jpg' %>')">
+      <div class="feature-card" style="background-image: url('<%= asset_path 'mikan.jpeg' %>')">
         Popular
       </div>
     </div>
@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="col-4">
-      <div class="feature-card" style="background-image: url('<%= asset_path 'namadora.jpg' %>')">
+      <div class="feature-card" style="background-image: url('<%= asset_path 'kakigori.jpg' %>')">
         New
       </div>
     </div>
@@ -62,11 +62,15 @@
             <div>
               <h4 class="info"> <%= snack.name %> </h4>
               <div class="stars">
-                <% (snack.avg_snack_stars).times do %>
-                  <i class="fas fa-star"></i>
-                <% end %>
-                <% (1 - snack.avg_snack_stars).times do %>
-                  <i class="far fa-star"></i>
+                <% if snack.avg_snack_stars == 0 %>
+                  No ratings yet!
+                <% else %>
+                  <% (snack.avg_snack_stars).times do %>
+                    <i class="fas fa-star"></i>
+                  <% end %>
+                  <% (5 - snack.avg_snack_stars).times do %>
+                    <i class="far fa-star"></i>
+                  <% end %>
                 <% end %>
               </div>
             </div>

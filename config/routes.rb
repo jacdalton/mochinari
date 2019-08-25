@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   get '/ui-kit', to: 'pages#uikit', as: :uikit
+  get '/map', to: 'pages#user_map', as: :user_map
   get '/snacks/favorites', to: 'snacks#favorites', as: :favorites
   get '/my_trails', to: 'trails#my_trails', as: :my_trails
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
