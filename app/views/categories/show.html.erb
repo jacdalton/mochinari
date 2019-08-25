@@ -6,7 +6,17 @@
     <p>
       <%= @category.description  %>
     </p>
-    <p>tag tag tag tag</p>
+    <div class="tag-container center">
+      <div class="tag">
+        <p>chewy</p>
+      </div>
+      <div class="tag">
+        <p>creamy</p>
+      </div>
+      <div class="tag">
+        <p>sweet</p>
+      </div>
+    </div>
     <%= link_to "Back", categories_path %>
     <h3>Examples of <%= @category.name %></h3>
     <div class="row">
@@ -17,13 +27,17 @@
             <div>
               <h4 class="info"> <%= snack.name %> </h4>
               <div class="stars">
+              <% if snack.avg_snack_stars == 0 %>
+              No ratings yet!
+              <% else %>
                 <% (snack.avg_snack_stars).times do %>
                   <i class="fas fa-star"></i>
                 <% end %>
-                <% (1 - snack.avg_snack_stars).times do %>
+                <% (5 - snack.avg_snack_stars).times do %>
                   <i class="far fa-star"></i>
                 <% end %>
-              </div>
+              <% end %>
+            </div>
             </div>
             <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
           </div>
