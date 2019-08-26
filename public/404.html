@@ -57,10 +57,18 @@
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
   <div class="dialog">
-    <div>
-      <img src="images/mochinarilogo.png" alt="logo">
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+
+      <div class="crying" style="display: flex; position: relative;">
+        <div class="imagelogo" style="display: flex; position: relative;">
+        <img src="images/mochinarilogo.png" alt="logo" width="300px" height="auto">
+        </div>
+        <div class="teardrop" style="position: absolute; top: 50px; right: 50px;">
+       <i class="fas fa-tint" style="height: 200px; width: auto;"></i>
+      </div>
+    </div>
+
+      <h1 style="color: #57435B;">The mochies you are looking for don't exist!</h1>
+      <p>Maybe you typed it wrong accidentally? Maybe they moved to a new home? Good luck!</p>
     </div>
     <p>If you are the application owner check the logs for more information.</p>
   </div>
