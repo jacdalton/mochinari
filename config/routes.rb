@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get '/my_bio', to: 'pages#my_bio', as: :my_bio
+  get '/my_mochies', to: 'pages#my_mochies', as: :my_mochies
   get '/tagged', to: 'snacks#tagged', as: :tagged
   get '/ui-kit', to: 'pages#uikit', as: :uikit
   get '/map', to: 'pages#user_map', as: :user_map
