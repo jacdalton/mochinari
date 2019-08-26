@@ -34,17 +34,13 @@
           </div>
           <p class="mb-3"><%= @snack.description %></p>
           <div class="tag-container center">
-            <div class="tag">
-              <p>tag</p>
-            </div>
-            <div class="tag">
-              <p>tag</p>
-            </div>
-            <div class="tag">
-              <p>tag</p>
-            </div>
+            <% @tags.take(3).each  do |tag| %>
+              <div class="tag">
+                <p><%= tag %></p>
+              </div>
+            <% end %>
           </div>
-          <div class="inline" >
+          <div class="inline mt-2" >
             <div class="pic-button">
               <%=  link_to root_path, class: "btn btn-mochi" do %>
                 <i class="fas fa-camera"></i>
