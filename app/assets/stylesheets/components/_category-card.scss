@@ -21,9 +21,13 @@
   position:relative;;
 }
 
-.individual-category-card a {
+.category-cards a {
   color: white;
+  &:hover {
+    text-decoration: none;
+  }
 }
+
 
 .text-color{
   font-weight: bold;

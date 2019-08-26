@@ -1,0 +1,9 @@
+  <% @categories.each do |category| %>
+  <div class="col-xs-12 col-sm-6 mt-2">
+    <%= link_to category_path(category) do %>
+      <div class="individual-category-card" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url('<%= asset_path category.image_path %>'); " >
+        <%= category.name.upcase %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

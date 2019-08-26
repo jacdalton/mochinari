@@ -8,7 +8,13 @@ class SnacksController < ApplicationController
 
   def show
     @snack = Snack.find(params[:id])
-    @heart = @snack.favorited_by?(current_user) ? "pink-heart.svg" : "like.svg"
+    @heart =
+      if !current_user.nil?
+        @snack.favorited_by?(current_user) ? "pink-heart.svg" : "like.svg"
+      else
+        "like.svg"
+      end
+
     @snack.geocode
     @snack.save
     @markers = [{
