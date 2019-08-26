@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-4">
-      <div class="feature-card" style="background-image: url('<%= asset_path 'strawmilk.jpg' %>')">
+      <div class="feature-card" style="background-image: radial-gradient(circle, rgba(249,214,217, 0.5), rgba(240,210,195, 0.5), rgba(219,209,181, 0.5), rgba(190,209,181, 0.5), rgba(161,206,193, 0.5)), url('<%= asset_path 'strawmilk.jpg' %>')">
         POPULAR
       </div>
     </div>
@@ -45,45 +45,11 @@
     </div>
     <h3 class="mt-4">Yummy Categories</h3>
     <div class="row" >
-      <% @categories.each do |category| %>
-        <div class="col-6">
-          <%= link_to category_path(category) do %>
-            <div class="individual-category-card" style="background-image: url('<%= asset_path category.image_path %>'); " >
-              <%= link_to category.name.upcase, category_path(category) %>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
+      <%= render "categories/card" %>
     </div>
     <h3 class="mt-4">Popular Snacks</h3>
-    <div class="row justify-content-center">
-      <% @snacks.each do |snack| %>
-        <div class="snack-index-card-2">
-          <div class="snack-index-card-2-image">
-            <%= image_tag snack.snack_images[0].image_path %>
-          </div>
-          <div class="snack-index-sub-card-2">
-            <div class="sub-title mt-3">
-              <h4> <%= snack.name %> </h4>
-            </div>
-            <div class="bottom-info">
-              <div class="stars">
-                <% if snack.avg_snack_stars == 0 %>
-                  No ratings yet!
-                <% else %>
-                  <% (snack.avg_snack_stars).times do %>
-                    <i class="fas fa-star"></i>
-                  <% end %>
-                  <% (5 - snack.avg_snack_stars).times do %>
-                    <i class="far fa-star"></i>
-                  <% end %>
-                <% end %>
-              </div>
-              <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
-            </div>
-          </div>
-        </div>
-      <% end %>
+    <div class="row d-flex">
+      <%= render "snacks/index-card", snacks: @snacks %>
     </div>
   </div>
 </div>

@@ -1,9 +1,3 @@
-<div class="container">
-  <% @categories.each do |category| %>
-    <div class="col">
-      <div class="individual-category-card" style="background-image: url('<%= asset_path category.image_path %>'); " >
-        <%= link_to category.name.upcase, category_path(category) %>
-      </div>
-    </div>
-  <% end %>
+<div class="category-cards">
+  <%= render "card" %>
 </div>
