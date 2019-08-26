@@ -65,6 +65,43 @@ img.fixed-heart {
   margin-left:2px;
 }
 
+.play-heartAnimation {
+  animation: colorChangeAndCrazy 1s;
+  //animation-iteration-count: 1;
+}
+
+@keyframes colorChangeAndCrazy {
+  0% {
+    transform: scale(1);
+    color:black;
+  }
+
+  69% {
+    transform:scale(1.6);
+    color:pink;
+  }
+
+  70% {
+    transform: rotate(20deg)  scale(1.6);
+    color:pink;
+  }
+
+  80% {
+    transform: rotate(-20deg)  scale(1.6);
+    color:pink;
+  }
+
+  90% {
+    transform: rotate(20deg)  scale(1.6 );
+    color:pink;
+  }
+
+  100% {
+    transform: scale(1);
+    color:pink;
+  }
+
+}
 
 
 
