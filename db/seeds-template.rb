@@ -10,13 +10,17 @@ Category.create!(
   # image_path should be 'image.png' if in base assets/images folder
   # should include folder structure if nested, i.e. 'snackoverflow/taiyaki/taiyaki-choco1.jpeg'
   image_path: 'Image path goes here'
-)
+).tap do |cat|
+  # if you want to add specific tags to a category, replace the word "tag" with the relevant word(s) you want to use as tags
+  cat.tag_list.add "tag", "tag", "tag"
+end
 
 ######################
 #       Snacks       #
 ######################
 
-Snack.create!(
+# snack variable name will maybe need to be changed for each new snack created
+snack = Snack.create!(
   # User must be present (Can be randomly sampled, try not to set to specific id though because ids will change everytime seed is run)
   # Must be instance of User
   user: User.all.sample,
@@ -32,16 +36,26 @@ Snack.create!(
   # Shop_location must be present
   # Please check that the location can be geocoded before adding - this is a bit tricky to check - the best way would be to go to Google Maps and search for the location by name (if it can autocomplete most likely it can be geocoded)
   shop_location: 'Location goes here'
-)
+).tap do |s|
+  # if you want to add specific tags to a snack, replace the word "tag" with the relevant word(s) you want to use as tags
+  s.tag_list.add "tag", "tag", "tag"
+end
 
 ######################
 #    Snack Images    #
 ######################
 
-SnackImage.create!(
-  # Snack must be an instance of a snack
-  snack: Snack.find_by_name("Snack name goes here"),
-  image_path: sample_snack_images.sample,
-  comment: 'Tasty treat, looking forward to enjoying again!',
+# remember to update the snack variable name to match whatever you called your new snack
+snack.snack_images << SnackImage.create!(
+  # snack here also needs to be replaced with the variable name, i.e. snack: second_snack
+  snack: snack,
+  # same notes about image path as for category image path
+  image_path: 'Image path goes here',
+  # Comments have no requirements, and can be blank tbh
+  comment: 'Leave a comment with the image',
+  # User must exist
   user: User.all.sample
 )
+
+
+
