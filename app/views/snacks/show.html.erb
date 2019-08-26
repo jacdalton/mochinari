@@ -51,7 +51,27 @@
               <% end %>
             </div>
             <div class="rate-button">
-              <%= link_to "Rate it!", new_snack_snack_rating_path(@snack), class: "btn btn-mochi" %>
+              <%#= link_to "Rate it!", new_snack_snack_rating_path(@snack), remote: true, class: "btn btn-mochi" %>
+              <button type="button" class="btn btn-mochi" data-toggle="modal" data-target="#exampleModal">
+                Rate it!
+              </button>
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Rate <%= @snack.name %>:</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <%= render 'snack_ratings/new' %>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -63,3 +83,10 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+

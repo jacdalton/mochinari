@@ -1,0 +1,6 @@
+  <%= simple_form_for([@snack, @snack_rating]) do |f| %>
+    <%= f.input :stars %>
+    <div class="modal-footer actions">
+      <%= f.submit "Rate!", class: 'btn btn-mochi' %>
+    </div>
+  <% end %>

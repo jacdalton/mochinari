@@ -1,6 +1,0 @@
-<h1>Rate the <%= @snack.name %></h1>
-
-<%= simple_form_for(@snack_rating, as: :snack_rating, method: :post, url: snack_snack_ratings_path) do |f| -%>
-  <%= f.input :stars %>
-  <%= f.submit "Rate!" %>
-<% end -%>
