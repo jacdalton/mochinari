@@ -2,6 +2,7 @@
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "crosshair.svg" %>
   <% end %>
+  <%= image_tag("mochinarilogo.svg", :alt=> "logo", class: "logo") %>
   <% if user_signed_in? %>
     <div class="nav-item dropdown">
       <%= image_tag "katy.jpeg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
