@@ -1,5 +1,3 @@
-import GMaps from 'gmaps/gmaps.js';
-
 function initMap() {
   const mapElement = document.getElementById('user-map');
   const infoWindow = new google.maps.InfoWindow;
@@ -8,12 +6,11 @@ function initMap() {
     const map = new google.maps.Map(
       mapElement, 
       {
-        zoom: 4, 
+        zoom: 16, 
         center: {lat: 0, lng: 0}
       }
     );
     const markers = JSON.parse(mapElement.dataset.markers);
-    console.log(markers);
     markers.forEach(marker => {
       new google.maps.Marker(
         {
@@ -22,14 +19,6 @@ function initMap() {
         }
       )
     });
-    if (markers.length === 0) {
-      map.setZoom(2);
-    } else if (markers.length === 1) {
-      map.setCenter(markers[0].lat, markers[0].lng);
-      map.setZoom(14);
-    } else {
-      map.fitLatLngBounds(markers);
-    }
     // Try HTML5 geolocation.
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(function(position) {
