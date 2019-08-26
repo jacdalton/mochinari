@@ -1,4 +1,4 @@
-  <%= simple_form_for([@snack, @snack_rating]) do |f| %>
+  <%= simple_form_for([@snack, @snack_rating], remote: true, format: :js) do |f| %>
     <div class="modal-footer actions justify-content-center">
       <%= f.input :stars, collection: (1..5).to_a, label: false, class: 'btn btn-mochi' %>
       <%= f.submit "Rate it!", class: 'btn btn-rate'%>

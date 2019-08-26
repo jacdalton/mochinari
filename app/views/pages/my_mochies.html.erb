@@ -1,8 +1,27 @@
-<h2>My Mochies</h2>
-<div class="row center">
-  <div class="mochies">
-    <h3>Snacks I've Added</h3>
-    <h3>Pics I've taken</h3>
-    <h3>Snacks I've rated</h3>
+<ul class="nav nav-pills" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">ADDED<i class="fas fa-2x fa-cookie-bite"></i> </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">PICS <br>
+      <i class="far fa-2x fa-images"></i>
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">RATED<i class="far fa-2x fa-star"></i></a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="row no-gutters">
+      <%= render "snacks/index-card", snacks: current_user.snacks %>
+    </div>
+  </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...
+  </div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+    <div class="row no-gutters">
+      <%= render "snacks/index-card", snacks: current_user.rated_snacks, user_rating: true %>
+    </div>
   </div>
 </div>

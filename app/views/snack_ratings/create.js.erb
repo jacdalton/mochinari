@@ -1,0 +1,12 @@
+function refreshForm(innerHTML) {
+  const newReviewForm = document.getElementById('snack-rating-div');
+  newReviewForm.innerHTML = innerHTML;
+}
+
+<% if @snack_rating.errors.any? %>
+  refreshForm('<%= j render "snack_ratings/new"%>');
+  initStarRating();
+<% else %>
+  console.log('hello')
+  document.querySelector(".close").click();
+<% end %>

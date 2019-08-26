@@ -1,20 +1,19 @@
-<div class="row center">
-  <div class="bio">
-    <div class="bio-info">
-      <h3>My Bio</h3>
-      <i class="far fa-edit"></i>
-    </div>
-    <p class="bigbio"><u>Username: </u></p>
-    <p><%= current_user.username %></p>
-    <p class="bigbio"><u>Email:</u></p>
-    <p class="bigbio"><%= current_user.email %></p>
-    <% if current_user.location.nil? %>
-      <p>Tell Us Your Location!</p>
-    <% else %>
-      <p class="bigbio"><u>Location:</u></p>
-      <p><%= current_user.location %></p>
-    <% end %>
-    <p class="bigbio"><u>About Me:</u></p>
-    <p>La la la la la</p>
+  
+<div class="bio">
+  <div class="bio-info">
+    <h3>My Bio</h3>
+    <i class="far fa-edit"></i>
   </div>
+  <p class="bigbio"><u>Username: </u></p>
+  <p><%= current_user.username %></p>
+  <p class="bigbio"><u>Email:</u></p>
+  <p class="bigbio"><%= current_user.email %></p>
+  <% if current_user.location.nil? %>
+    <p>Tell Us Your Location!</p>
+  <% else %>
+    <p class="bigbio"><u>Location:</u></p>
+    <p><%= current_user.location %></p>
+  <% end %>
+  <p class="bigbio"><u>About Me:</u></p>
+  <p>La la la la la</p>
 </div>
