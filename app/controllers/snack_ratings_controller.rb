@@ -15,9 +15,14 @@ class SnackRatingsController < ApplicationController
     @snack_rating.snack = @snack
     @snack_rating.user = current_user
     if @snack_rating.save
-      redirect_to snack_path(@snack)
+      # flash[:notice] = 'Snack successfully rated!'
+      respond_to do |format|
+        format.js
+      end
     else
-      render "snack/show"
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
