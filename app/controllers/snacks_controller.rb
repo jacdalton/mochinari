@@ -21,6 +21,8 @@ class SnacksController < ApplicationController
                   lat: @snack.latitude,
                   lng: @snack.longitude
     }]
+    @snack_rating = SnackRating.new
+
     @tags = @snack.tag_list
   end
 
