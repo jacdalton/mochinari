@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :uikit, :map, :my_bio, :my_location, :my_mochies]
+  skip_before_action :authenticate_user!, only: [:home, :uikit, :user_map]
 
   def home
     @tags = ActsAsTaggableOn::Tag.most_used(8)
