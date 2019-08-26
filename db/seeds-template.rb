@@ -12,7 +12,18 @@ Category.create!(
   image_path: 'Image path goes here'
 ).tap do |cat|
   # if you want to add specific tags to a category, replace the word "tag" with the relevant word(s) you want to use as tags
+  # to see a list of existing tags, go into rails console and type ActsAsTaggableOn::Tag.all.map { |t| t.name }
   cat.tag_list.add "tag", "tag", "tag"
+end
+
+##### Sample Category #####
+
+Category.create!(
+  name: 'Taiyaki',
+  description: 'Taiyaki (鯛焼き, lit. ‘baked sea bream’) is a Japanese fish-shaped cake. It imitates the shape of the tai (Japanese red seabream), which it is named after. The most common filling is red bean paste that is made from sweetened azuki beans. Other common fillings may be custard, chocolate, cheese, or sweet potato. Some shops even sell taiyaki with okonomiyaki, gyoza filling, or a sausage inside.',
+  image_path: 'taiyaki.jpg'
+).tap do |cat|
+  cat.tag_list.add 'creamy', 'hot', 'chewy'
 end
 
 ######################
@@ -41,6 +52,17 @@ snack = Snack.create!(
   s.tag_list.add "tag", "tag", "tag"
 end
 
+##### Sample Snack #####
+sample_snack = Snack.create!(
+  user: User.first,
+  category: Category.find_by_name("Taiyaki"),
+  name: 'Custard & Choco Taiyaki',
+  description: 'Chocolate taiyaki shell with a standard custard filling',
+  shop_location: 'Shibuya 109'
+).tap do |s|
+  s.tag_list.add 'creamy', 'chewy', 'hot'
+end
+
 ######################
 #    Snack Images    #
 ######################
@@ -57,5 +79,10 @@ snack.snack_images << SnackImage.create!(
   user: User.all.sample
 )
 
-
-
+##### Sample Snack Image #####
+sample_snack.snack_images << SnackImage.create!(
+  snack: sample_snack,
+  image_path: 'snackoverflow/taiyaki/taiyaki-choco2.jpeg',
+  comment: 'Wow chocolate and custard is so good together',
+  user: User.first
+)
