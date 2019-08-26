@@ -11,5 +11,15 @@ class PagesController < ApplicationController
   end
 
   def user_map
+    @snacks = Snack.all
+    @markers = []
+    @snacks.each do |snack|
+      snack.geocode
+      snack.save
+      @markers << {
+        lat: snack.latitude,
+        lng: snack.longitude
+      }
+    end
   end
 end
