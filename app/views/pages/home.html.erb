@@ -27,8 +27,8 @@
             <i class="fa fa-search" aria-hidden="true"></i>
           </button>
         </div>
-        <!--    <%= f.submit "Search", { class: "btn btn-mochi" } %>
-      <% end %> -->
+        <!--    <%=# f.submit "Search", { class: "btn btn-mochi" } %>
+      <%# end %> -->
       </div>
     </div>
     <h3 class="mt-2">Popular Tags</h3>
@@ -58,11 +58,15 @@
     <h3 class="mt-4">Popular Snacks</h3>
     <div class="row justify-content-center">
       <% @snacks.each do |snack| %>
-        <div class="snack-index-card">
-          <%= image_tag snack.snack_images[0].image_path %>
-          <div class="snack-index-card-infos">
-            <div>
-              <h4 class="info"> <%= snack.name %> </h4>
+        <div class="snack-index-card-2">
+          <div class="snack-index-card-2-image">
+            <%= image_tag snack.snack_images[0].image_path %>
+          </div>
+          <div class="snack-index-sub-card-2">
+            <div class="sub-title mt-3">
+              <h4> <%= snack.name %> </h4>
+            </div>
+            <div class="bottom-info">
               <div class="stars">
                 <% if snack.avg_snack_stars == 0 %>
                   No ratings yet!
@@ -75,10 +79,9 @@
                   <% end %>
                 <% end %>
               </div>
+              <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
             </div>
-            <%= image_tag("bobby", :alt=> "bananadeer", class: "bobby") %>
           </div>
-          <%= link_to "", snack_path(snack), class: "snack-index-card-link" %>
         </div>
       <% end %>
     </div>
