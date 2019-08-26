@@ -33,3 +33,15 @@ Snack.create!(
   # Please check that the location can be geocoded before adding - this is a bit tricky to check - the best way would be to go to Google Maps and search for the location by name (if it can autocomplete most likely it can be geocoded)
   shop_location: 'Location goes here'
 )
+
+######################
+#    Snack Images    #
+######################
+
+SnackImage.create!(
+  # Snack must be an instance of a snack
+  snack: Snack.find_by_name("Snack name goes here"),
+  image_path: sample_snack_images.sample,
+  comment: 'Tasty treat, looking forward to enjoying again!',
+  user: User.all.sample
+)
