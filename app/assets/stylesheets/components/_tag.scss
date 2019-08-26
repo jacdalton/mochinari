@@ -25,6 +25,11 @@
   align-items: center;
 }
 
+.tag:active{
+  transform: translateY(4px);
+}
+
+
 .tag p {
   color: $purple;
 }
