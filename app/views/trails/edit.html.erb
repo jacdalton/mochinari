@@ -1,27 +1,6 @@
 <div class="container">
   <div class="col">
     <h3><%= @trail.name %>: Edit</h3>
-    <!--     <div class="row">
-      <% @snacks.each do |snack| %>
-        <div class="snack-index-card col-6">
-          <%= image_tag 'mikan.jpeg' %>
-          <div class="snack-index-card-infos">
-            <div>
-              <h1 class="info">Snack Index </h1>
-              <div class="stars">
-                <% (snack.avg_snack_stars).times do %>
-                  <i class="fas fa-star"></i>
-                <% end %>
-                <% (1 - snack.avg_snack_stars).times do %>
-                  <i class="far fa-star"></i>
-                <% end %>
-              </div>
-            </div>
-            <%= image_tag("bobby", :alt=> "bobby", class: "bobby") %>
-          </div>
-        </div>
-      <% end %>
-    </div> -->
     <div class="row justify-content-center">
       <% @snacks.each do |snack| %>
         <div class="snack-index-card-2">
