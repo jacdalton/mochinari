@@ -97,4 +97,7 @@ img.bobby{
 
 .snack-index-card-2 a {
   color: $purple;
+  &:hover {
+    text-decoration: none;
+  }
 }

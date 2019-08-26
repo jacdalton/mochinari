@@ -5,6 +5,12 @@
 
   }
 
+  @media only screen and (min-width: 600px) {
+    .header-container {
+      height: 50vh;
+    }
+  }
+
   img.flex-left {
     height: 100%;
   }

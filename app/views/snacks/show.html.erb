@@ -1,5 +1,5 @@
 <div class="container-snack-show">
-  <div class="row">
+  <div class="row no-gutters">
     <div class="col">
       <div class="snack-show-card">
         <div class="header-container d-flex">
@@ -33,13 +33,7 @@
             <% end %>
           </div>
           <p class="mb-3"><%= @snack.description %></p>
-          <div class="tag-container center">
-            <% @tags.take(3).each  do |tag| %>
-              <div class="tag">
-                <p><%= tag %></p>
-              </div>
-            <% end %>
-          </div>
+          <%= render "shared/tags", tags: @tags %>
           <div class="inline mt-2" >
             <div class="pic-button">
               <%=  link_to root_path, class: "btn btn-mochi" do %>
