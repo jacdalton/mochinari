@@ -17,7 +17,7 @@ class SnackRatingsController < ApplicationController
     if @snack_rating.save
       redirect_to snack_path(@snack)
     else
-      render :new
+      render "snack/show"
     end
   end
 
