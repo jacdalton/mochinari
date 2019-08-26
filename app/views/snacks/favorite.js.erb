@@ -4,8 +4,10 @@ function favoriteSnack(value) {
  const heart = document.querySelector(".snack-show-card-heart");
   if (value === "true") {
     heart.innerHTML = '<%= image_tag "pink-heart.svg", alt: "alttext", class: "snack-show-fixed-heart" %>';
+    heart.classList.add( 'play-heartAnimation' )
   } else {
     heart.innerHTML = '<%= image_tag "like.svg", alt: "alttext", class: "snack-show-fixed-heart" %>';
+    heart.classList.remove( 'play-heartAnimation' )
   }
 }
 
