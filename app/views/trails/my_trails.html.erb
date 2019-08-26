@@ -9,22 +9,19 @@
       </div>
     </div>
     <% @trails.each do |trail| %>
-      <div class="trail-card mt-4">
-        <%= image_tag trail.snacks[0].snack_images[0].image_path %>
-        <div class="trail-card-infos">
-          <h2 id="trail-name"> <%= link_to trail.name, trail_path(trail) %></h2>
-          <p><%= trail.location %></p>
-          <div class="tags">
-            <div class="row mt-4">
-              <% trail.snacks[0].tag_list.take(4).each do |tag| %>
-                <div class="tag">
-                  <p><%= tag %></p>
-                </div>
-              <% end %>
+      <%= link_to trail do %>
+        <div class="trail-card mt-4">
+          <%= image_tag trail.snacks[0].snack_images[0].image_path %>
+          <div class="trail-card-infos">
+            <h2 id="trail-name"> <%= trail.name%></h2>
+            <p><%= trail.location %></p>
+            <div class="tags">
+              <div class="row mt-4">
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

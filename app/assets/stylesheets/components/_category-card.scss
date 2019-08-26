@@ -23,7 +23,8 @@
 }
 
 .individual-category-card a {
-  text-decoration: none;
+  &:hover { text-decoration: none;
+  }
 }
 
 

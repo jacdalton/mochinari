@@ -1,16 +1,16 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-4">
+  <div class="row no-gutters">
+    <div class="col-4 px-1">
       <div class="feature-card" style="background-image: radial-gradient(circle, rgba(249,214,217, 0.5), rgba(240,210,195, 0.5), rgba(219,209,181, 0.5), rgba(190,209,181, 0.5), rgba(161,206,193, 0.5)), url('<%= asset_path 'strawmilk.jpg' %>')">
         POPULAR
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-4 px-1">
       <div class="feature-card" style="background-image: radial-gradient(circle, rgba(249,214,217, 0.5), rgba(240,210,195, 0.5), rgba(219,209,181, 0.5), rgba(190,209,181, 0.5), rgba(161,206,193, 0.5)), url('<%= asset_path 'mikan.jpg' %>')">
         SEASONAL
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-4 px-1">
       <div class="feature-card" style="background-image: radial-gradient(circle, rgba(249,214,217, 0.5), rgba(240,210,195, 0.5), rgba(219,209,181, 0.5), rgba(190,209,181, 0.5), rgba(161,206,193, 0.5)), url('<%= asset_path 'namadora.jpg' %>')">
         NEW
       </div>
@@ -33,15 +33,7 @@
     </div>
     <h3 class="mt-2">Popular Tags</h3>
     <div class="row center">
-      <div class="d-flex flex-wrap justify-content-center">
-        <% @tags.each do |tag| %>
-          <%= link_to tagged_path(tag: tag) do  %>
-            <div class="tag">
-              <p class= "tag-text"><%= tag %></p>
-            </div>
-          <% end %>
-        <% end %>
-      </div>
+      <%= render "shared/tags", tags: @tags %>
     </div>
     <h3 class="mt-4">Yummy Categories</h3>
     <div class="row" >

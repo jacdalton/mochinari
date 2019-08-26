@@ -3,10 +3,22 @@
   display: flex;
   justify-content: center;
   padding: 2px;
+  width: 100vw;
 }
 
 .searchform {
   padding: 2px;
-  width: auto;
+  width: inherit;
 }
 
+@media (min-width: 576px) {
+.form-inline .form-control {
+  width: 100%;
+}
+}
+.searchform .form-group {
+  width: 100%;
+}
+a:hover {
+  text-decoration: none;
+}

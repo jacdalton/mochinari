@@ -34,7 +34,7 @@ img.fixed-heart {
   width: 80%;
 }
 
-.favorite-card p {
+p.favorite {
   font-size: 18px;
   line-height: 1.4;
   opacity: .7;
@@ -43,27 +43,12 @@ img.fixed-heart {
   padding-left: 10px;
 }
 
-.favorite-cards a {
-  color:$purple;
-  &:hover {
-    text-decoration: none;
-  }
-}
 
-.favorite-card-infos {
-  display: flex;
-  justify-content: space-between;
-}
-
-.favorite-card .favorite-card {
-  padding: 16px;
-}
-
-.tags {
-  padding-left:25px;
-  padding-bottom:2px;
-  margin-left:2px;
-}
+// .favorite-card-infos {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: flex-start;
+// }
 
 
 

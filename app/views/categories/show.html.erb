@@ -1,17 +1,7 @@
 <div class="col">
   <h2><%= @category.name %></h2>
   <p> <%= @category.description  %> </p>
-  <div class="tag-container center">
-    <div class="tag">
-      <p>chewy</p>
-    </div>
-    <div class="tag">
-      <p>creamy</p>
-    </div>
-    <div class="tag">
-      <p>sweet</p>
-    </div>
-  </div>
+  <%= render "shared/tags", tags: @category.tag_list %>
   <%= link_to "Back", categories_path %>
   <h3>Examples of <%= @category.name %></h3>
   <div class="row d-flex">
