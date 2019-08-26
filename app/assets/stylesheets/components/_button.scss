@@ -1,17 +1,40 @@
 .btn {
   padding: 8px 15px;
   text-align: center;
-  width: 40vw;
+}
+
+.btn:active {
+transform: translateY(4px);
 }
 
 .btn-mochi {
   border-radius: 10px;
   background-color: $light-pink;
   color: $purple;
+    width: 40vw;
+
+}
+
+.btn-mochi:active {
+  background-color: $light-pink;
+  transform: translateY(4px);
 }
 
 .btn-teal {
   border-radius: 10px;
   background-color: $teal;
   color: $purple;
+    width: 40vw;
+
+}
+
+.btn-search {
+  border-radius: 10px;
+  background-color: $light-pink;
+  color: $purple;
+}
+
+.btn-teal:active {
+  background-color: $teal;
+  transform: translateY(4px);
 }
