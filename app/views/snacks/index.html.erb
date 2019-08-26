@@ -1,1 +1,2 @@
-<p>search results</p>
+<p>search results for <%= params[:search][:query] %></p>
+<%= render "snacks/index-card", snacks: @snacks %>
