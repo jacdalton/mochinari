@@ -4,9 +4,10 @@ class User < ApplicationRecord
   acts_as_favoritor
   geocoded_by :location
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+    :recoverable, :rememberable, :validatable
   has_many :trails, dependent: :destroy
   has_many :snack_ratings, dependent: :destroy
+  has_many :rated_snacks, through: :snack_ratings, source: :snack
   has_many :snack_images, dependent: :destroy
   has_many :snacks
 
