@@ -1,6 +1,6 @@
 class SnackRatingsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
-  before_action :set_snack, only: [:show, :create]
+  before_action :set_snack, only: [:show, :create, :new]
 
   def show
     @snack_stars = @snack.avg_snack_stars
@@ -15,7 +15,7 @@ class SnackRatingsController < ApplicationController
     @snack_rating.snack = @snack
     @snack_rating.user = current_user
     if @snack_rating.save
-      redirect_to @snack.show
+      redirect_to snack_path(@snack)
     else
       render :new
     end
@@ -28,6 +28,6 @@ class SnackRatingsController < ApplicationController
   end
 
   def snack_ratings_params
-    params.require(:snack_ratings).permit(:stars, :snack_id, :user_id)
+    params.require(:snack_rating).permit(:stars, :snack_id, :user_id)
   end
 end
