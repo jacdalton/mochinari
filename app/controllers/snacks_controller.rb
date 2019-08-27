@@ -3,7 +3,14 @@ class SnacksController < ApplicationController
 
   def index
     # once search, tags, and map are implemented this will change
-    @snacks = Snack.all
+    tags_arr = ActsAsTaggableOn::Tag.all.map { |t| t.name }
+    if params[:search][:query].present? && tags_arr.include?(params[:search][:query])
+      @snacks = Snack.tag_search(params[:search][:query])
+    elsif params[:search][:query].present?
+      @snacks = Snack.search_by_name_and_description(params[:search][:query])
+    else
+      @snacks = Snack.all
+    end
   end
 
   def show
@@ -18,10 +25,10 @@ class SnacksController < ApplicationController
     @snack.geocode
     @snack.save
     @markers = [{
-                  lat: @snack.latitude,
-                  lng: @snack.longitude
+      lat: @snack.latitude,
+      lng: @snack.longitude
     }]
-    @snack_rating = SnackRating.new
+    @snack_rating = current_user.snack_ratings.find_by(snack: @snack) || SnackRating.new
 
     @tags = @snack.tag_list
   end

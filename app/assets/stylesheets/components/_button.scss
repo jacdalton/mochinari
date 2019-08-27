@@ -4,7 +4,7 @@
 }
 
 .btn:active {
-transform: translateY(4px);
+  transform: translateY(4px);
 }
 
 .btn-mochi {
@@ -17,7 +17,6 @@ transform: translateY(4px);
 
 .btn-mochi:active {
   background-color: $light-pink;
-  transform: translateY(4px);
 }
 
 .btn-teal {
@@ -25,7 +24,6 @@ transform: translateY(4px);
   background-color: $teal;
   color: $purple;
     width: 40vw;
-
 }
 
 .btn-search {
@@ -33,6 +31,13 @@ transform: translateY(4px);
   background-color: $light-pink;
   color: $purple;
 }
+
+.btn-ratestar {
+  border-radius: 10px;
+  background-color: $light-pink;
+
+}
+
 
 .btn-teal:active {
   background-color: $teal;

@@ -1,4 +1,22 @@
 require 'faker'
+# require 'csv'
+
+# csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
+# filepath    = 'snackseeds.csv'
+
+# CSV.foreach(filepath, csv_options) do |row|
+#   " It's a #{row["Snack Category"]}, a kind of #{row['Snack "name"']} with #{row["# of Photos"]} photo. #{row["Description"]}"
+#   Category.create(
+#     name: row["Snack Category"],
+#     description: row["description"],
+#     image_path: row["# of Photos"]
+#   )
+#   dir =  Rails.root.join('app', 'assets', 'images', row["Snack Category"])
+#   p dir.glob("*").first
+
+
+# end
+
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
@@ -217,11 +235,3 @@ User.create!(
 )
 
 puts 'Seeds created!'
-
-
-
-
-
-
-
-

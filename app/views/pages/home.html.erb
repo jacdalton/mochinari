@@ -22,6 +22,7 @@
         <%= simple_form_for :search, url: snacks_path, method: "GET", html: { class: 'form-inline' } do |f| %>
           <%= f.input :query, input_html: { value: ""}, placeholder: "Try 'taiyaki'...", name: "search", label: false %>
         </div>
+        
         <div class="searchbutton">
           <button type="submit", { class="btn btn-search" } >
             <i class="fa fa-search" aria-hidden="true"></i>

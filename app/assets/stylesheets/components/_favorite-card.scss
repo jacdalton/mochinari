@@ -1,5 +1,5 @@
 .favorite-card {
-  height: 25vh;
+  height: 100%;
   width: 100%;
   display: flex;
   position: relative;
@@ -12,6 +12,7 @@
   width: 35%;
   object-fit: cover;
 }
+
 
 img.fixed-heart {
   display: flex;

@@ -1,0 +1,39 @@
+.bio {
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
+  margin: 30px;
+}
+
+ .bigbio u {
+  font-size: larger;
+}
+
+.bio-info {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.far, .fas {
+  color: $purple;
+  margin-top: 10px;
+}
+
+.mochies {
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
+  margin: 30px;
+}
+
+.tab-content > .tab-pane {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tab-pane p {
+  font-size: 20px;
+  padding: 20px;
+}
