@@ -1,6 +1,7 @@
 <ul class="nav nav-pills" id="myTab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">ADDED<i class="fas fa-2x fa-cookie-bite"></i> </a>
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">ADDED <br>
+      <i class="fas fa-2x fa-cookie-bite"></i> </a>
   </li>
   <li class="nav-item">
     <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">PICS <br>
@@ -8,20 +9,30 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">RATED<i class="far fa-2x fa-star"></i></a>
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">RATED <br>
+      <i class="far fa-2x fa-star"></i></a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="row no-gutters">
-      <%= render "snacks/index-card", snacks: current_user.snacks %>
+      <% if current_user.snacks.empty? %>
+        <p>Add your first snack!</p>
+      <% else %>
+        <%= render "snacks/index-card", snacks: current_user.snacks %>
+      <% end %>
     </div>
   </div>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <p>Take Your First Pic!</p>
   </div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
     <div class="row no-gutters">
-      <%= render "snacks/index-card", snacks: current_user.rated_snacks, user_rating: true %>
+      <% if current_user.rated_snacks.empty? %>
+        <p>Rate Your First Snack!</p>
+      <% else %>
+        <%= render "snacks/index-card", snacks: current_user.rated_snacks, user_rating: true %>
+      <% end %>
     </div>
   </div>
 </div>

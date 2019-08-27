@@ -36,7 +36,7 @@
           <%= render "shared/tags", tags: @tags %>
           <div class="inline mt-2" >
             <div class="pic-button">
-              <%=  link_to root_path, class: "btn btn-mochi" do %>
+              <%=  link_to root_path, class: "btn btn-mochi" do %>Take a Pic! <br>
                 <i class="fas fa-camera"></i>
               <% end %>
             </div>
@@ -44,13 +44,14 @@
               <%#= link_to "Rate it!", new_snack_snack_rating_path(@snack), remote: true, class: "btn btn-mochi" %>
               <% if @snack_rating.id %>
                 <button type="button" class="btn btn-mochi" style="cursor: not-allowed;">My Rating: <br>
-                    <% @snack_rating.stars.times do %>
+                  <% @snack_rating.stars.times do %>
                     <i class="fas fa-star"></i>
                   <% end %>
                 </button>
               <% else %>
                 <button type="button" class="btn btn-mochi" data-toggle="modal" data-target="#exampleModal">
-                  Rate it!
+                  Rate it! <br>
+                  <i class="far fa-star"></i>
                 </button>
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
