@@ -1,5 +1,5 @@
 class TrailsController < ApplicationController
-  before_action :filter_snacks_params, only: [:create, :update]
+  before_action :filter_snacks_params, only: [ :update]
   before_action :set_trail, only: [:show, :edit, :update, :destroy]
   def index
     # once pundit is implemented this will likely change
@@ -26,7 +26,7 @@ class TrailsController < ApplicationController
     @trail = Trail.new(trail_params)
     @trail.user = current_user
     @trail.geocode
-    @trail.snacks = params[:trail][:snacks]
+    # @trail.snacks = params[:trail][:snacks]
     # binding.pry
     if @trail.save
       redirect_to trail_path(@trail)
@@ -56,6 +56,8 @@ class TrailsController < ApplicationController
 
   def my_trails
     @trails = Trail.where(user: current_user)
+    @trail = Trail.new
+    # @trail_image == trail.snacks.exists? ? trail.snacks[0].snack_images[0].image_path : "mochinarilogo.png"
   end
 
   private
