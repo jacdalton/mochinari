@@ -2,16 +2,38 @@
   <div class="row">
     <div class="maintitle">
       <h2>My Trails</h2>
-      <div class="new-trail-button" >
-        <%= image_tag "add.svg" %>
-        <%= link_to 'Add New Trail', new_trail_path %>
-        <p></p>
-      </div>
+        <button type="button" class="new-trail-button" data-toggle="modal" data-target="#exampleModal">
+          <%= image_tag "add.svg" %>
+          Add New Trail
+        </button>
     </div>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="exampleModalLabel">Create New Trail</h2>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true" aria-label="Close">
+                &times;
+              </button>
+            </div>
+            <div class="modal-body">
+              <%= render 'new', trail: @trail %>
+            </div>
+            <!-- <div class="modal-footer">
+              <button type="button" class="btn btn-teal" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-teal">Save</button>
+            </div> -->
+          </div>
+        </div>
+      </div>
     <% @trails.each do |trail| %>
       <%= link_to trail do %>
         <div class="trail-card mt-4">
-          <%= image_tag trail.snacks[0].snack_images[0].image_path %>
+          <% if trail.snacks.exists? %>
+            <%= image_tag trail.snacks[0].snack_images[0].image_path %>
+          <% else %>
+            <%= image_tag "mochinarilogo.png" %>
+          <% end %>
           <div class="trail-card-infos">
             <h2 id="trail-name"> <%= trail.name%></h2>
             <p><%= trail.location %></p>
