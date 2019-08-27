@@ -1,7 +1,12 @@
 function refreshForm(innerHTML) {
   const newReviewForm = document.getElementById('snack-rating-div');
   newReviewForm.innerHTML = innerHTML;
-}
+};
+
+function ratingButton() {
+ const button = document.getElementById('rating-button');
+ button.innerHTML = "<button type="button" class="btn btn-mochi" style="cursor: not-allowed;">My Rating: <br><% @snack_rating.stars.times do %><i class="fas fa-star"></i><% end %></button>"
+};
 
 <% if @snack_rating.errors.any? %>
   refreshForm('<%= j render "snack_ratings/new"%>');
@@ -9,4 +14,11 @@ function refreshForm(innerHTML) {
 <% else %>
   console.log('hello')
   document.querySelector(".close").click();
+  ratingButton();
 <% end %>
+
+
+
+
+
+

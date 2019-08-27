@@ -43,16 +43,19 @@
             <div class="rate-button">
               <%#= link_to "Rate it!", new_snack_snack_rating_path(@snack), remote: true, class: "btn btn-mochi" %>
               <% if @snack_rating.id %>
-                <button type="button" class="btn btn-mochi" style="cursor: not-allowed;">My Rating: <br>
-                  <% @snack_rating.stars.times do %>
-                    <i class="fas fa-star"></i>
-                  <% end %>
-                </button>
+                <div id="rating-button">
+                  <button type="button" class="btn btn-mochi" style="cursor: not-allowed;">My Rating: <br>
+                    <% @snack_rating.stars.times do %>
+                      <i class="fas fa-star"></i>
+                    <% end %>
+                  </button>
+                </div>
               <% else %>
-                <button type="button" class="btn btn-mochi" data-toggle="modal" data-target="#exampleModal">
-                  Rate it! <br>
-                  <i class="far fa-star"></i>
-                </button>
+                <div id="rating-button">
+                  <button type="button" class="btn btn-mochi" data-toggle="modal" data-target="#exampleModal">
+                    Rate it!
+                  </button>
+                </div>
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
