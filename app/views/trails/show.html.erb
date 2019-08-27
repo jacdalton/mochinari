@@ -1,5 +1,11 @@
 <div class="col">
   <h3><%= @trail.name %></h3>
+  <%= link_to edit_trail_path(@trail) do %>
+    <i class="far fa-edit"></i>
+  <% end %>
+  <%= link_to trail_path(@trail), method: :delete, data: { confirm: "Are you sure?" } do %>
+    <i class="fa fa-trash-alt"></i>
+  <% end %>
   <div class="row">
     <div class="map-container">
       <div id="map" data-markers="<%= @markers.to_json %>"></div>
