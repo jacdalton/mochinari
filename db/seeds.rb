@@ -1,57 +1,58 @@
 require 'faker'
 require 'csv'
 
+
+
+
+# # Steps:
+
+#   Destroy all existing seeds
+puts 'Destroying all favorites...'
+Favorite.destroy_all
+
+puts 'Destoying all snack images...'
+SnackImage.destroy_all
+
+puts 'Destoying all snack ratings...'
+SnackRating.destroy_all
+
+puts 'Destoying all snacks...'
+Snack.destroy_all
+
+puts 'Destoying all trails...'
+Trail.destroy_all
+
+puts 'Destoying all users...'
+User.destroy_all
+
+puts 'Destoying all categories...'
+Category.destroy_all
+
+puts 'Destoying all tags...'
+ActsAsTaggableOn::Tag.destroy_all
+
+
+
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 filepath    = 'snackseeds.csv'
 
 CSV.foreach(filepath, csv_options) do |row|
-  " It's a #{row["Snack Category"]}, a kind of #{row['Snack "name"']} with #{row["# of Photos"]} photo. #{row["Description"]}"
-  Category.create(
-    name: row["Snack Category"],
-    description: row["description"],
-    image_path: row["# of Photos"]
-  )
-  dir =  Rails.root.join('app', 'assets', 'images', row["Snack Category"])
-  p dir.glob("*").first
+  # p " category: #{row["Snack Category"]}, snack:  #{row['Snack "name"']} photos:  #{row["# of Photos"]} description: #{row["Description"]}"
+  cat =  Category.find_or_create_by(name: row["Snack Category"])
+  if cat.new_record?
+    Category.create(
+      name: row["Snack Category"],
+      description: row["Description"],
+      image_path: "#{row["Snack Category"]}/#{row["Snack Category"]}1.jpeg"
+    )
+  end
+
+  puts cat
+
+  # p dir =  Rails.root.join('app', 'assets', 'images', row["Snack Category"]).glob("*").first.open
 
 
 end
-
-
-# # This file should contain all the record creation needed to seed the database with its default values.
-# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-# #
-# # Examples:
-# #
-# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-# #   Character.create(name: 'Luke', movie: movies.first)
-
-# # Steps:
-
-# #   Destroy all existing seeds
-# puts 'Destroying all favorites...'
-# Favorite.destroy_all
-
-# puts 'Destoying all snack images...'
-# SnackImage.destroy_all
-
-# puts 'Destoying all snack ratings...'
-# SnackRating.destroy_all
-
-# puts 'Destoying all snacks...'
-# Snack.destroy_all
-
-# puts 'Destoying all trails...'
-# Trail.destroy_all
-
-# puts 'Destoying all users...'
-# User.destroy_all
-
-# puts 'Destoying all categories...'
-# Category.destroy_all
-
-# 'Destoying all tags...'
-# ActsAsTaggableOn::Tag.destroy_all
 
 # #   Create new
 

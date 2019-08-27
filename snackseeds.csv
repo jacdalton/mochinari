@@ -24,9 +24,9 @@ imagawayaki,redbean,5,
 kakigori,kakigori,5,"Kakigōri is a shaved ice dessert flavored with syrup and a sweetener, often condensed milk."
 kakigori,pink,6,
 kakigori,green,5,
-kakitotane,kakinotane,5,"Kaki no tane are a common snack in Japan. The two elements of kaki-pi are kaki-no-tane, small crescent-shaped fragments of senbei, and peanuts. They are often consumed with beer and are sometimes a bar snack. Kaki-pi has several different types of flavors, such as wasabi, pepper, amongst others."
+kakinotane,kakinotane,5,"Kaki no tane are a common snack in Japan. The two elements of kaki-pi are kaki-no-tane, small crescent-shaped fragments of senbei, and peanuts. They are often consumed with beer and are sometimes a bar snack. Kaki-pi has several different types of flavors, such as wasabi, pepper, amongst others."
 karinto,karinto ,5,"Karintō is a traditional  snack food. Sweet and deep-fried, it is made primarily of flour, yeast, and brown sugar. It has a deep brown and pitted appearance, and takes the form of a bite-sized pillow or short cylinder."
-kazumochi,kazumochi,12,"Kuzumochi are mochi cakes made of kuzuko. It is local special dish in special wards of Tokyo. Those are traditionally served chilled, topped with kuromitsu and kinako."
+kuzumochi,kuzumochi,12,"Kuzumochi are mochi cakes made of kuzuko. It is local special dish in special wards of Tokyo. Those are traditionally served chilled, topped with kuromitsu and kinako."
 manju,redbean,5,
 manju,creamy,1,
 manju,cute,3,
@@ -50,7 +50,7 @@ monaka,round,5,"Monaka is a sweet made of azuki bean jam filling sandwiched betw
 monaka,flower,5,
 monaka,square,8,
 monaka,waffle,1,
-shiruko,shiruko,11,"Shiruko is a traditional dessert. It is a sweet porridge of azuki beans boiled and crushed, served in a bowl with mochi."
+oshiruko,oshiruko,11,"Oshiruko is a traditional dessert. It is a sweet porridge of azuki beans boiled and crushed, served in a bowl with mochi."
 roll cake,roll cake,2,"A roll cake a type of sponge cake roll filled with whipped cream, jam, or icing."
 roll cake,matcha,5,
 roll cake,strawberry,5,
@@ -67,9 +67,6 @@ taiyaki,sandwich,1,
 warabi,warabi,5,"Warabimochi s a jelly-like confection made from bracken starch and covered or dipped in kinako. It differs from true mochi made from glutinous rice. It is popular in the summertime, there are many variations of warabimochi according to local taste."
 warabi,matcha,5,
 warabi,no sauce,5,
-,,,
-,,,
-Categories? Tags?,Kind of Snack,# of Photos,Description
 anko,anpan,2,"Anko is a sweet paste made of red beans. The paste is prepared by boiling the beans, then mashing or grinding them. It is a very popular and delicious flavor."
 anko,daifuku,1,
 anko,dango,3,
