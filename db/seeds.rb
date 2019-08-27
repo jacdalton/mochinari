@@ -219,23 +219,23 @@ end
 
 # Tags - maximum 6 each for snacks, max 3 each for categories
 
-# tags_array = ['chewy', 'crunchy', 'creamy', 'sweet beans', 'green tea', 'frosted', 'hot', 'ice cream']
+tags_array = ['chewy', 'crunchy', 'creamy', 'sweet beans', 'green tea', 'frosted', 'hot', 'ice cream']
 
-# puts 'Creating tags for snacks and categories...'
+puts 'Creating tags for snacks and categories...'
 
-# Snack.all.each do |snack|
-#   6.times do
-#     snack.tag_list.add(tags_array.sample)
-#     snack.save
-#   end
-# end
+Snack.all.each do |snack|
+  6.times do
+    snack.tag_list.add(tags_array.sample)
+    snack.save
+  end
+end
 
-# Category.all.each do |category|
-#   3.times do
-#     category.tag_list.add(tags_array.sample)
-#     category.save
-#   end
-# end
+Category.all.each do |category|
+  3.times do
+    category.tag_list.add(tags_array.sample)
+    category.save
+  end
+end
 
 User.create!(
   email: 'katy@gmail.com',
