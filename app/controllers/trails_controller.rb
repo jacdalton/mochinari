@@ -29,7 +29,7 @@ class TrailsController < ApplicationController
     # @trail.snacks = params[:trail][:snacks]
     # binding.pry
     if @trail.save
-      redirect_to trail_path(@trail)
+      redirect_to edit_trail_path(@trail)
     else
       render :new
     end
@@ -39,18 +39,9 @@ class TrailsController < ApplicationController
     @snacks = current_user.all_favorited
   end
 
-  def update
-    # not sure how to implement this correctly
-    if @trail.update(trail_params)
-      redirect_to trail_path(@trail)
-    else
-      render :show
-    end
-  end
-
   def destroy
     @trail.destroy
-    redirect_to trails_path
+    redirect_to my_trails_path
   end
 
   def my_trails
