@@ -2,7 +2,7 @@
 <div class="col">
   <h3>Edit <%= @trail.name %></h3>
   <div class="row d-flex">
-    <%= render "trail_edit_card", snacks: Snack.all %>
+    <%= render "trail_edit_card", snacks: @snacks %>
   </div>
   <div class="container justify-content-center">
     <%= link_to "View Trail", trail_path(@trail), class: 'btn btn-teal' %>

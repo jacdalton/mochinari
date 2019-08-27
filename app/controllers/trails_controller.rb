@@ -36,8 +36,7 @@ class TrailsController < ApplicationController
   end
 
   def edit
-    # this will need to change once the favoritable gem is installed
-    @snacks = Snack.all
+    @snacks = current_user.all_favorited
   end
 
   def update
