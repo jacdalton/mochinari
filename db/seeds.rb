@@ -1,10 +1,5 @@
 require 'faker'
-require 'csv'
-
-
-
-
-# # Steps:
+# require 'csv'
 
 #   Destroy all existing seeds
 puts 'Destroying all favorites...'
@@ -66,8 +61,6 @@ usernames.each do |un|
 end
 
 
-
-
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 filepath    = 'snackseeds.csv'
 
@@ -110,24 +103,22 @@ CSV.foreach(filepath, csv_options) do |row|
 
   # p snack.errors.messages
   # p dir =  Rails.root.join('app', 'assets', 'images', row["Snack Category"]).glob("*").first.open
-
-
 end
 
-# #   Create new
+#   Create new
 
-# # Category - Generate 2 (manual)
-# # ----------------
-# # - name
-# # - description
-# # - image
+# Category - Generate 2 (manual)
+# ----------------
+# - name
+# - description
+# - image
 
 # puts 'Creating test categories...'
 
 # Category.create!(
-#   name: 'Taiyaki',
-#   description: 'Taiyaki (鯛焼き, lit. ‘baked sea bream’) is a Japanese fish-shaped cake. It imitates the shape of the tai (Japanese red seabream), which it is named after. The most common filling is red bean paste that is made from sweetened azuki beans. Other common fillings may be custard, chocolate, cheese, or sweet potato. Some shops even sell taiyaki with okonomiyaki, gyoza filling, or a sausage inside.',
-#   image_path: 'taiyaki.jpg'
+  # name: 'Taiyaki',
+  # description: 'Taiyaki (鯛焼き, lit. ‘baked sea bream’) is a Japanese fish-shaped cake. It imitates the shape of the tai (Japanese red seabream), which it is named after. The most common filling is red bean paste that is made from sweetened azuki beans. Other common fillings may be custard, chocolate, cheese, or sweet potato. Some shops even sell taiyaki with okonomiyaki, gyoza filling, or a sausage inside.',
+  # image_path: 'taiyaki.jpg'
 # )
 
 # Category.create!(
@@ -135,16 +126,6 @@ end
 #   description: 'Mochi (Japanese: 餠, もち) is Japanese rice cake made of mochigome, a short-grain japonica glutinous rice, and sometimes other ingredients such as water, sugar, and cornstarch. The rice is pounded into paste and molded into the desired shape. In Japan it is traditionally made in a ceremony called mochitsuki.[1] While also eaten year-round, mochi is a traditional food for the Japanese New Year and is commonly sold and eaten during that time.',
 #   image_path: 'mochi.jpg'
 # )
-
-# # Snacks - Generate 10
-# # ----------------
-# # - sample User.all
-# # - sample Category.all
-# # - name
-# # - description
-# # - shop name (optionally - we need a set a default for this column)
-# # - shop_location
-
 
 # puts 'Creating test snacks...'
 
@@ -174,12 +155,12 @@ end
 #   end
 # end
 
-# # Snack Images - Generate rand (3..5) times per Snack
-# # ----------------
-# # - snack: snack
-# # - image_path: (array of asset image paths).sample
-# # - comment: 'Tasty treat, looking forward to enjoying again!'
-# # - user: User.all.sample
+# Snack Images - Generate rand (3..5) times per Snack
+# ----------------
+# - snack: snack
+# - image_path: (array of asset image paths).sample
+# - comment: 'Tasty treat, looking forward to enjoying again!'
+# - user: User.all.sample
 
 # sample_snack_images = ['castella.jpg', 'cheesecake.jpg', 'momiji.jpg', 'sakuramochi.jpg',
 #                        'strawmilk.jpg', 'yokan.jpg', 'j-apricot-thing.jpg', 'j-cafechan.jpg', 'j-cookie-sando.jpg', 'j-crepe.jpg', 'j-ichigo-kakigoori.jpg', 'j-kurozatou-dorayaki.jpg', 'j-pichan.jpg', 'j-taiyaki.jpg', 'j-takoyaki.jpg', 'j-waffle.jpg']
@@ -197,11 +178,11 @@ end
 #   end
 # end
 
-# # Trails - Generate rand(1..3) times per User
-# # ----------------
-# # - name
-# # - trails.snacks_trails.snack = Snack.all.sample
-# # - location
+# Trails - Generate rand(1..3) times per User
+# ----------------
+# - name
+# - trails.snacks_trails.snack = Snack.all.sample
+# - location
 
 # trail_names = ['Hungry Hungover Trail', 'Mochi Mochi Hungry Desu', 'Taiyaki Day']
 
@@ -219,10 +200,10 @@ end
 #   end
 # end
 
-# # Snack Ratings - Generate rand(1..5) times per User
-# # ----------------
-# # - sample Snack.all
-# # - stars: rand(1..5)
+# Snack Ratings - Generate rand(1..5) times per User
+# ----------------
+# - sample Snack.all
+# - stars: rand(1..5)
 
 # puts 'Creating test snack ratings...'
 
@@ -236,7 +217,7 @@ end
 #   end
 # end
 
-# # Tags - maximum 6 each for snacks, max 3 each for categories
+# Tags - maximum 6 each for snacks, max 3 each for categories
 
 # tags_array = ['chewy', 'crunchy', 'creamy', 'sweet beans', 'green tea', 'frosted', 'hot', 'ice cream']
 
@@ -257,9 +238,9 @@ end
 # end
 
 User.create!(
-   email: 'katy@gmail.com',
-   password: '123123',
-   username: 'katy.smith711'
- )
+  email: 'katy@gmail.com',
+  password: '123123',
+  username: 'katy.smith711'
+)
 
-# puts 'Seeds created!'
+puts 'Seeds created!'
