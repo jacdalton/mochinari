@@ -1,6 +1,6 @@
 class TrailsController < ApplicationController
   before_action :filter_snacks_params, only: [:create, :update]
-  before_action :set_trail, only: [:show, :edit, :update, :destroy]
+  before_action :set_trail, only: [:show, :edit, :update, :destroy, :toggle_edit]
   def index
     # once pundit is implemented this will likely change
     @trails = Trail.all
@@ -56,6 +56,21 @@ class TrailsController < ApplicationController
 
   def my_trails
     @trails = Trail.where(user: current_user)
+  end
+
+  def toggle_edit
+    @snack = Snack.find(params[:snack])
+
+    if @trail.snacks.include?(@snack)
+      @trail.snacks.delete(@snack)
+      @value = "false"
+    else
+      @trail.snacks << @snack
+      @value = "true"
+    end
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
