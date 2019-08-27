@@ -256,10 +256,10 @@ end
 #   end
 # end
 
-# User.create!(
-#   email: 'katy@gmail.com',
-#   password: '123123',
-#   username: 'katy.smith711'
-# )
+User.create!(
+   email: 'katy@gmail.com',
+   password: '123123',
+   username: 'katy.smith711'
+ )
 
 # puts 'Seeds created!'
