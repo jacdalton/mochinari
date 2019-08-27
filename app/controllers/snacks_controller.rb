@@ -28,7 +28,7 @@ class SnacksController < ApplicationController
       lat: @snack.latitude,
       lng: @snack.longitude
     }]
-    @snack_rating = current_user.snack_ratings.find_by(snack: @snack) || SnackRating.new
+    @snack_rating = !current_user.nil? ? current_user.snack_ratings.find_by(snack: @snack) : SnackRating.new
 
     @tags = @snack.tag_list
   end
