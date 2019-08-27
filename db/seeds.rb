@@ -32,6 +32,41 @@ puts 'Destoying all tags...'
 ActsAsTaggableOn::Tag.destroy_all
 
 
+# User - Generate 5 + test account
+# ----------------
+# - email
+# - password
+# - username
+# - location ( will need to update seeds for this, once map is implemented )
+
+puts 'Generating Katy and Bobby...'
+
+User.create!(
+  email: 'bobby@gmail.com',
+  password: '123123',
+  username: 'bobby3ats'
+)
+
+puts 'Creating test users...'
+
+usernames = [
+  "mitch-sensei",
+  "tanaka-san",
+  "brykka",
+  "jacque.desu",
+  "doug-sempai",
+]
+
+usernames.each do |un|
+  User.create!(
+    email: Faker::Internet.email,
+    password: "123123",
+    username: un
+  )
+end
+
+
+
 
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 filepath    = 'snackseeds.csv'
@@ -47,8 +82,32 @@ CSV.foreach(filepath, csv_options) do |row|
     )
   end
 
-  puts cat
 
+  snack =  Snack.find_or_create_by(name: row["Snack Name"])
+  if snack.new_record?
+    Snack.create(
+      name: row["Snack Name"],
+      description: cat.description,
+      shop_location: ['Tokyo Skytree', 'DisneySea', 'Shake Shack Ebisu', 'Laxmi Meguro'].sample,
+      category: cat,
+      user: User.all.sample
+    )
+  end
+
+  # p row["# of Photos"]
+
+  if snack.persisted?
+    row["# of Photos"].to_i.times do |i|
+      SnackImage.create!(
+        user: User.all.sample,
+        snack: snack,
+        image_path: "#{snack.category.name}/#{snack.name}#{i + 1}.jpeg"
+      )
+    end
+
+  end
+
+  # p snack.errors.messages
   # p dir =  Rails.root.join('app', 'assets', 'images', row["Snack Category"]).glob("*").first.open
 
 
@@ -75,39 +134,6 @@ end
 #   description: 'Mochi (Japanese: 餠, もち) is Japanese rice cake made of mochigome, a short-grain japonica glutinous rice, and sometimes other ingredients such as water, sugar, and cornstarch. The rice is pounded into paste and molded into the desired shape. In Japan it is traditionally made in a ceremony called mochitsuki.[1] While also eaten year-round, mochi is a traditional food for the Japanese New Year and is commonly sold and eaten during that time.',
 #   image_path: 'mochi.jpg'
 # )
-
-# # User - Generate 5 + test account
-# # ----------------
-# # - email
-# # - password
-# # - username
-# # - location ( will need to update seeds for this, once map is implemented )
-
-# puts 'Generating Katy and Bobby...'
-
-# User.create!(
-#   email: 'bobby@gmail.com',
-#   password: '123123',
-#   username: 'bobby3ats'
-# )
-
-# puts 'Creating test users...'
-
-# usernames = [
-#   "mitch-sensei",
-#   "tanaka-san",
-#   "brykka",
-#   "jacque.desu",
-#   "doug-sempai",
-# ]
-
-# usernames.each do |un|
-#   User.create!(
-#     email: Faker::Internet.email,
-#     password: "123123",
-#     username: un
-#   )
-# end
 
 # # Snacks - Generate 10
 # # ----------------
