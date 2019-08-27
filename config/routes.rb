@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  get '/my_bio', to: 'pages#my_bio', as: :my_bio
+  get '/my_mochies', to: 'pages#my_mochies', as: :my_mochies
   get '/tagged', to: 'snacks#tagged', as: :tagged
   get '/ui-kit', to: 'pages#uikit', as: :uikit
   get '/map', to: 'pages#user_map', as: :user_map
@@ -16,6 +18,10 @@ Rails.application.routes.draw do
     resources :snack_images, only: [:new, :create]
     resources :snack_ratings, only: [:show, :new, :create]
   end
-  resources :trails
+  resources :trails do
+    member do
+      patch 'toggle_edit', to: 'trails#toggle_edit'
+    end
+  end
 
 end

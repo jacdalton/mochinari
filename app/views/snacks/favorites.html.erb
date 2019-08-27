@@ -1,14 +1,16 @@
 <div class="row no-gutters">
   <h2>My Favs</h2>
   <% @snacks.each do |snack| %>
-    <%= link_to snack do %>
+    <%= link_to snack, class: "mb-2" do %>
       <div class="favorite-card mt-2">
         <%= image_tag(snack.snack_images.first.image_path, :alt=> "cake") %>
-        <div class="favorite-card-infos">
-          <h2> <%= snack.name %></h2>
-          <%= image_tag "pink-heart.svg", class: "fixed-heart" %>
-          <p class="favorite"><%= snack.description %></p>
-          <div class="d-flex flex-wrap justify-content-center">
+        <div class="favorite-card-infos" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="fav-info-stuff">
+            <h2> <%= snack.name %></h2>
+            <%= image_tag "pink-heart.svg", class: "fixed-heart" %>
+            <p class="favorite"><%= snack.description %></p>
+          </div>
+          <div class="d-flex flex-wrap justify-content-center" style="margin-bottom: 5px;">
             <% snack.tag_list.sample(2).each do |tag| %>
               <div class="tag">
                 <p class= "tag-text"><%= tag %></p>

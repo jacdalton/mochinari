@@ -1,0 +1,13 @@
+var value = '<%= j @value %>'
+var snack_id = '<%= j @snack.id.to_s %>'
+
+function toggleEdit() {
+ const button = document.querySelector(`#toggle-button-${snack_id}`);
+  if (value === "true") {
+    button.innerHTML = '<i class="fas fa-minus-circle"></i>';
+  } else {
+    button.innerHTML = '<i class="fas fa-plus-circle"></i>';
+  }
+}
+
+toggleEdit();
