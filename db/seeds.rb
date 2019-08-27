@@ -75,16 +75,11 @@ CSV.foreach(filepath, csv_options) do |row|
   # p " category: #{row["Snack Category"]}, snack:  #{row['Snack "name"']} photos:  #{row["# of Photos"]} description: #{row["Description"]}"
   cat =  Category.find_or_create_by(name: row["Snack Category"])
   if cat.new_record?
-    Category.create(
+    cat = Category.create(
       name: row["Snack Category"],
       description: row["Description"],
       image_path: "#{row["Snack Category"]}/#{row["Snack Category"]}1.jpeg"
     )
-  end
-
-
-  snack =  Snack.find_or_create_by(name: row["Snack Name"])
-  if snack.new_record?
     Snack.create(
       name: row["Snack Name"],
       description: cat.description,
@@ -94,17 +89,23 @@ CSV.foreach(filepath, csv_options) do |row|
     )
   end
 
+
+  snack = Snack.create(
+    name: row["Snack Name"],
+    description: cat.description,
+    shop_location: ['Tokyo Skytree', 'DisneySea', 'Shake Shack Ebisu', 'Laxmi Meguro'].sample,
+    category: cat,
+    user: User.all.sample
+  )
+
   # p row["# of Photos"]
 
-  if snack.persisted?
-    row["# of Photos"].to_i.times do |i|
-      SnackImage.create!(
-        user: User.all.sample,
-        snack: snack,
-        image_path: "#{snack.category.name}/#{snack.name}#{i + 1}.jpeg"
-      )
-    end
-
+  row["# of Photos"].to_i.times do |i|
+    p SnackImage.create!(
+      user: User.all.sample,
+      snack: snack,
+      image_path: "#{snack.category.name}/#{snack.name}#{i + 1}.jpeg"
+    )
   end
 
   # p snack.errors.messages
