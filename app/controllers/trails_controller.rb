@@ -59,8 +59,6 @@ class TrailsController < ApplicationController
   end
 
   def toggle_edit
-    p params
-    p @trail
     @snack = Snack.find(params[:snack])
 
     if @trail.snacks.include?(@snack)
