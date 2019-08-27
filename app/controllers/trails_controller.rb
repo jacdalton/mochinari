@@ -38,7 +38,6 @@ class TrailsController < ApplicationController
   def edit
     # this will need to change once the favoritable gem is installed
     @snacks = Snack.all
-    @sign = @trail.snacks.include?(@snack) ? "pink-heart.svg" : "like.svg"
   end
 
   def update
