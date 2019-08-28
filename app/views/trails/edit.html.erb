@@ -1,15 +1,14 @@
-
 <div class="col">
-  <h3>Edit trail: <em><%= @trail.name %></em></h3>
-  <h5>Favorited snacks 5km within <%= @trail.location %>: </h5>
-  <div class="row d-flex">
+  <h2 style="font-size: 34px; text-align: center;"> <%= @trail.name %></h2>
+  <h3 style="font-size: 22px; text-align: center; margin-top: 30px">Add <%= image_tag "pink-heart.svg", style: "height: 30px;" %> snacks near you <%#= @trail.location %></h3>
+  <div class="row d-flex mt-3">
     <% if @near_favorited_snacks.any? %>
       <%= render "trail_edit_card", snacks: @near_favorited_snacks %>
     <% else %>
       <p>No favorite snacks near trail location!</p>
     <% end %>
   </div>
-  <h5>Other favorited snacks: </h5>
+  <h3 style="font-size: 22px; margin-top: 10px; text-align: center;">Other <%= image_tag "pink-heart.svg", style: "height: 40px;" %> snacks: </h3>
   <div class="row d-flex">
     <% if @near_favorited_snacks.any? %>
       <%= render "trail_edit_card", snacks: @far_favorited_snacks %>
