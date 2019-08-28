@@ -19,10 +19,6 @@
             <div class="modal-body">
               <%= render 'new', trail: @trail %>
             </div>
-            <!-- <div class="modal-footer">
-              <button type="button" class="btn btn-teal" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-teal">Save</button>
-            </div> -->
           </div>
         </div>
       </div>
@@ -30,7 +26,7 @@
       <%= link_to trail do %>
         <div class="trail-card mt-4">
           <% if trail.snacks.exists? %>
-            <%= image_tag trail.snacks[0].snack_images[0].image_path %>
+            <%= cl_image_tag trail.snacks[0].snack_images[0].image_path %>
           <% else %>
             <%= image_tag "mochinarilogo.png" %>
           <% end %>

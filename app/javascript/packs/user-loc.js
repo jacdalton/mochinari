@@ -116,24 +116,23 @@ const styles = [
     }
 ];
 
+var map;
+
 function initMap() {
   const mapElement = document.getElementById('user-map');
   const infoWindow = new google.maps.InfoWindow;
 
   if (mapElement) { // don't try to build a map if there's no div#map to inject in
-    const map = new google.maps.Map(
+     map = new google.maps.Map(
       mapElement,
       {
         zoom: 16,
-        center: {lat: 35.6804, lng: 139.7690},
-        styles: styles
+        center: {lat: 0, lng: 0}
       }
     );
 
-console.log(map);
     const markers = JSON.parse(mapElement.dataset.markers);
     const icon = mapElement.dataset.icon;
-
     markers.forEach(marker => {
       new google.maps.Marker(
         {
@@ -155,6 +154,7 @@ console.log(map);
         infoWindow.open(map);
         map.setCenter(pos);
       }, function() {
+        console.log(map)
         handleLocationError(true, infoWindow, map.getCenter());
       });
     } else {
@@ -173,3 +173,5 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: Your browser doesn\'t support geolocation.');
   infoWindow.open(map);
 }
+
+
