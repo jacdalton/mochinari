@@ -116,65 +116,62 @@ const styles = [
 ];
 
 var map;
+
 function initMap() {
-const mapElement = document.getElementById('user-map');
-console.log(33, mapElement)
-const infoWindow = new google.maps.InfoWindow;
+  const mapElement = document.getElementById('user-map');
+  const infoWindow = new google.maps.InfoWindow;
 
-if (mapElement) { // don't try to build a map if there's no div#map to inject in
-   map = new google.maps.Map(
-    mapElement,
-    {
-      zoom: 14,
-      styles: styles
-    }
-  );
-
-console.log(map);
+  if (mapElement) { // don't try to build a map if there's no div#map to inject in
   const markers = JSON.parse(mapElement.dataset.markers);
-  console.log(222, markers)
-
-  const icon = mapElement.dataset.icon;
-
-  markers.forEach(marker => {
-    new google.maps.Marker(
+  map = new google.maps.Map(
+      mapElement,
       {
-        position: marker,
-        map: map,
-        icon: icon
+        zoom: 16,
+        center: {lat: markers[0].lat, lng: markers[0].lng}, 
+        styles: styles
       }
-    )
-  });
-  map.setCenter(markers[0].lat, markers[0].lng);
+    );
 
-
-  // Try HTML5 geolocation.
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      var pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-      infoWindow.setPosition(pos);
-      infoWindow.setContent('You are here');
-      infoWindow.open(map);
-      map.setCenter(pos);
-    }, function() {
-      handleLocationError(true, infoWindow, map.getCenter());
+    const icon = mapElement.dataset.icon;
+    markers.forEach(marker => {
+      new google.maps.Marker(
+        {
+          position: marker,
+          map: map,
+          icon: icon
+        }
+      )
     });
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        infoWindow.setPosition(pos);
+        infoWindow.setContent('You are here');
+        infoWindow.open(map);
+        map.setCenter(pos);
+      }, function() {
+        console.log(map)
+        handleLocationError(true, infoWindow, map.getCenter());
+      });
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
   }
-}
 }
 
 initMap();
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-infoWindow.setPosition(pos);
-infoWindow.setContent(browserHasGeolocation ?
-                      'Error: The Geolocation service failed.' :
-                      'Error: Your browser doesn\'t support geolocation.');
-infoWindow.open(map);
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+                        'Error: The Geolocation service failed.' :
+                        'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.open(map);
 }
+
+
