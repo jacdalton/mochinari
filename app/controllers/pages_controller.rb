@@ -18,6 +18,8 @@ class PagesController < ApplicationController
         lng: snack.longitude
       }
     end
+    @icon = helpers.asset_url("map marker.png")
+
   end
 
   def my_bio

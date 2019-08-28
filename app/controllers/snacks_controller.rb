@@ -25,19 +25,21 @@ class SnacksController < ApplicationController
     @snack.geocode
     @snack.save
     @markers = [{
-      lat: @snack.latitude,
-      lng: @snack.longitude
+                  lat: @snack.latitude,
+                  lng: @snack.longitude
     }]
+    @icon = helpers.asset_url("map marker.png")
+
     @snack_rating =
-      if !current_user.nil?
-        if !current_user.snack_ratings.find_by(snack: @snack).nil?
-          current_user.snack_ratings.find_by(snack: @snack)
-        else
-          SnackRating.new
-        end
+    if !current_user.nil?
+      if !current_user.snack_ratings.find_by(snack: @snack).nil?
+        current_user.snack_ratings.find_by(snack: @snack)
       else
         SnackRating.new
       end
+    else
+      SnackRating.new
+    end
 
     @tags = @snack.tag_list
   end

@@ -14,12 +14,13 @@ function initMap() {
     );
 
     const markers = JSON.parse(mapElement.dataset.markers);
+    const icon = mapElement.dataset.icon;
     markers.forEach(marker => {
       new google.maps.Marker(
         {
           position: marker,
           map: map,
-          icon: "https://res.cloudinary.com/dh9izywry/image/upload/v1566961193/map_marker_vkn0cj.png"
+          icon: icon
         }
       )
     });
