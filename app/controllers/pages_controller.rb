@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     @tags = ActsAsTaggableOn::Tag.most_used(8)
     @categories = Category.all.take(4)
+    @tags = @tags.map { |tag| tag.name }
     @snacks = Snack.all
   end
 
