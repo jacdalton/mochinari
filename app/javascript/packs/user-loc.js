@@ -115,22 +115,25 @@ const styles = [
   }
 ];
 
+var map;
 function initMap() {
 const mapElement = document.getElementById('user-map');
+console.log(33, mapElement)
 const infoWindow = new google.maps.InfoWindow;
 
 if (mapElement) { // don't try to build a map if there's no div#map to inject in
-  const map = new google.maps.Map(
+   map = new google.maps.Map(
     mapElement,
     {
-      zoom: 16,
-      center: {lat: 35.6804, lng: 139.7690},
+      zoom: 14,
       styles: styles
     }
   );
 
 console.log(map);
   const markers = JSON.parse(mapElement.dataset.markers);
+  console.log(222, markers)
+
   const icon = mapElement.dataset.icon;
 
   markers.forEach(marker => {
@@ -142,6 +145,9 @@ console.log(map);
       }
     )
   });
+  map.setCenter(markers[0].lat, markers[0].lng);
+
+
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
