@@ -26,7 +26,7 @@
       <%= link_to trail do %>
         <div class="trail-card mt-4">
           <% if trail.snacks.exists? %>
-            <%= image_tag trail.snacks[0].snack_images[0].image_path %>
+            <%= cl_image_tag trail.snacks[0].snack_images[0].image_path %>
           <% else %>
             <%= image_tag "mochinarilogo.png" %>
           <% end %>
