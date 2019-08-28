@@ -1,0 +1,9 @@
+<h1>Add a supply to rent out</h1>
+  <%= simple_form_for @snack_image do |f| %>
+    <%= f.input :comment, placeholder: "Enter some descriptive text about your photo..." %>
+    <!-- <%# <%= f.input :image_path, type: 'file', accept: 'image/*' %> %>
+    <%# <%= f.input :image_path_cache, as: :hidden %> %> -->
+    <%= f.button :submit, class: 'btn btn-light' %>
+  <% end %>
+
+  <input type="file" accept="image/*">

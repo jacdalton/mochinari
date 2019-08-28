@@ -3,12 +3,16 @@
     <div class="col">
       <div class="snack-show-card">
         <div class="header-container d-flex">
-          <%= image_tag @snack.snack_images[0].image_path, class: "flex-shrink-1 flex-image flex-left" %>
-          <div class="d-flex flex-grow-1 flex-wrap flex-right">
-            <% @snack.snack_images[1..4].each do |s| %>
-              <%= image_tag s.image_path, class: "flex-image" %>
-            <% end %>
-          </div>
+          <% if @snack.snack_images.empty? %>
+            <%= image_tag "cake.jpg", class: "flex-shrink-1 flex-image flex-left" %>
+          <% else %>
+            <%= cl_image_tag @snack.snack_images[0].image_path, class: "flex-shrink-1 flex-image flex-left" %>
+            <div class="d-flex flex-grow-1 flex-wrap flex-right">
+              <% @snack.snack_images[1..4].each do |s| %>
+                <%= cl_image_tag s.image_path, class: "flex-image" %>
+              <% end %>
+            </div>
+          <% end %>
         </div>
         <div class="snack-show-card-infos">
           <h3 style="font-size: 38px;"><%= @snack.name %></h3>
@@ -53,14 +57,15 @@
               <% else %>
                 <div id="rating-button">
                   <button type="button" class="btn btn-mochi" data-toggle="modal" data-target="#exampleModal">
-                    Rate it!
+                    Rate it! <br>
+                    <i class="fas fa-star"></i>
                   </button>
                 </div>
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Rate !<%= @snack.name %>:</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Rate <%= @snack.name %>!</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>

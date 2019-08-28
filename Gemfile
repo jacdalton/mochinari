@@ -25,7 +25,8 @@ gem 'geocoder'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'pg_search', '~> 2.3.0'
 gem 'owlcarousel-rails'
-
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
 
 
 group :development do
