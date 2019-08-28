@@ -1,9 +1,13 @@
 <div class="d-flex flex-wrap justify-content-center">
-  <% tags.each do |tag| %>
-    <%= link_to tagged_path(tag: tag) do  %>
-      <div class="tag">
-        <p class= "tag-text"><%= tag %></p>
-      </div>
+  <% if tags.any? %>
+    <% tags.each do |tag| %>
+      <%= link_to tagged_path(tag: tag) do  %>
+        <div class="tag">
+          <p class= "tag-text"><%= tag %></p>
+        </div>
+      <% end %>
     <% end %>
+  <% else %>
+    <p>No snacks tagged</p>
   <% end %>
 </div>
