@@ -4,7 +4,6 @@ class Snack < ApplicationRecord
   acts_as_taggable_on :tags
   acts_as_favoritable
   geocoded_by :shop_location
-  after_validation :geocode, if: :will_save_change_to_shop_location?
 
   belongs_to :category
   belongs_to :user
@@ -16,6 +15,8 @@ class Snack < ApplicationRecord
   validates :description, presence: true, length: { minimum: 20 }
   validates :shop_location, presence: true
   validates :category, presence: true
+
+  after_validation :geocode, if: :will_save_change_to_shop_location?
 
   pg_search_scope :search_by_name_and_description,
     against: [ :name, :description ],

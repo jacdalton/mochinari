@@ -9,7 +9,6 @@ class TrailsController < ApplicationController
   def show
     @snacks = @trail.snacks
     @markers = @snacks.map do |snack|
-      snack.geocode
       {
         lat: snack.latitude,
         lng: snack.longitude
@@ -25,9 +24,6 @@ class TrailsController < ApplicationController
   def create
     @trail = Trail.new(trail_params)
     @trail.user = current_user
-    @trail.geocode
-    # @trail.snacks = params[:trail][:snacks]
-    # binding.pry
     if @trail.save
       redirect_to edit_trail_path(@trail)
     else
@@ -36,7 +32,11 @@ class TrailsController < ApplicationController
   end
 
   def edit
-    @snacks = current_user.all_favorited
+    favorited_snacks = current_user.all_favorited
+    all_near_snacks = Snack.near(@trail.to_coordinates, 5, units: :km)
+
+    @near_favorited_snacks = all_near_snacks.select { |snack| snack.favorited_by?(current_user) }
+    @far_favorited_snacks = favorited_snacks - @near_favorited_snacks
   end
 
   def destroy

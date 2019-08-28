@@ -3,7 +3,11 @@
   <div class="snack-index-card-2">
     <%= link_to snack_path(snack) do %>
       <div class="snack-index-card-2-image">
-        <%= image_tag snack.snack_images.empty? ? "cake.jpg" : snack.snack_images[0].image_path %>
+        <% if snack.snack_images.empty? %>
+          <%= image_tag "cake.jpg" %>
+        <% else %>
+          <%= cl_image_tag snack.snack_images[0].image_path %>
+        <% end %>
       </div>
       <div class="snack-index-sub-card-2">
         <div class="sub-title mt-3">
@@ -30,7 +34,8 @@
               <% end %>
             <% end %>
           </div>
-          <%= image_tag("bobby", class: "bobby") unless user_rating %>
+          <% user_avatar = ["avatar/man1.jpeg", "avatar/man2.jpeg", "avatar/man3.jpeg", "avatar/man4.jpeg", "avatar/man5.jpeg", "avatar/man6.jpeg", "avatar/man7.jpeg", "avatar/woman1.jpeg", "avatar/woman2.jpeg", "avatar/woman3.jpeg", "avatar/woman4.jpeg", "avatar/woman5.jpeg", "avatar/woman6.jpeg", "avatar/woman7.jpeg", "avatar/woman8.jpeg", "avatar/woman9.jpeg", "avatar/woman10.jpeg", "avatar/woman11.jpeg"] %>
+          <%= image_tag asset_path(user_avatar.sample), class: "user_avatar" unless user_rating %>
         </div>
       </div>
     <% end %>

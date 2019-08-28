@@ -1,8 +1,21 @@
 
 <div class="col">
-  <h3>Edit <%= @trail.name %></h3>
+  <h3>Edit trail: <em><%= @trail.name %></em></h3>
+  <h5>Favorited snacks 5km within <%= @trail.location %>: </h5>
   <div class="row d-flex">
-    <%= render "trail_edit_card", snacks: @snacks %>
+    <% if @near_favorited_snacks.any? %>
+      <%= render "trail_edit_card", snacks: @near_favorited_snacks %>
+    <% else %>
+      <p>No favorite snacks near trail location!</p>
+    <% end %>
+  </div>
+  <h5>Other favorited snacks: </h5>
+  <div class="row d-flex">
+    <% if @near_favorited_snacks.any? %>
+      <%= render "trail_edit_card", snacks: @far_favorited_snacks %>
+    <% else %>
+      <p>No favorite snacks outside of trail location!</p>
+    <% end %>
   </div>
   <div class="container justify-content-center">
     <%= link_to "View Trail", trail_path(@trail), class: 'btn btn-teal' %>

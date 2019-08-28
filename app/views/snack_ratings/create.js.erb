@@ -5,7 +5,7 @@ function refreshForm(innerHTML) {
 
 function ratingButton() {
  const button = document.getElementById('rating-button');
- button.innerHTML = "<button type="button" class="btn btn-mochi" style="cursor: not-allowed;">My Rating: <br><% @snack_rating.stars.times do %><i class="fas fa-star"></i><% end %></button>"
+ button.innerHTML = "<button type='button' class='btn btn-mochi' style='cursor: not-allowed;'>My Rating: <br><% @snack_rating.stars.times do %><i class='fas fa-star'></i><% end %></button>"
 };
 
 <% if @snack_rating.errors.any? %>
