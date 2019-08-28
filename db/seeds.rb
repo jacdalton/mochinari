@@ -1,72 +1,124 @@
 require 'faker'
-require 'csv'
+# require 'csv'
+
+#   Destroy all existing seeds
+puts 'Destroying all favorites...'
+Favorite.destroy_all
+
+puts 'Destoying all snack images...'
+SnackImage.destroy_all
+
+puts 'Destoying all snack ratings...'
+SnackRating.destroy_all
+
+puts 'Destoying all snacks...'
+Snack.destroy_all
+
+puts 'Destoying all trails...'
+Trail.destroy_all
+
+puts 'Destoying all users...'
+User.destroy_all
+
+puts 'Destoying all categories...'
+Category.destroy_all
+
+puts 'Destoying all tags...'
+ActsAsTaggableOn::Tag.destroy_all
+
+
+# User - Generate 5 + test account
+# ----------------
+# - email
+# - password
+# - username
+# - location ( will need to update seeds for this, once map is implemented )
+
+puts 'Generating Katy and Bobby...'
+
+User.create!(
+  email: 'bobby@gmail.com',
+  password: '123123',
+  username: 'bobby3ats'
+)
+
+puts 'Creating test users...'
+
+usernames = [
+  "mitch-sensei",
+  "tanaka-san",
+  "brykka",
+  "jacque.desu",
+  "doug-sempai",
+]
+
+usernames.each do |un|
+  User.create!(
+    email: Faker::Internet.email,
+    password: "123123",
+    username: un
+  )
+end
+
 
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 filepath    = 'snackseeds.csv'
 
 CSV.foreach(filepath, csv_options) do |row|
-  " It's a #{row["Snack Category"]}, a kind of #{row['Snack "name"']} with #{row["# of Photos"]} photo. #{row["Description"]}"
-  Category.create(
-    name: row["Snack Category"],
-    description: row["description"],
-    image_path: row["# of Photos"]
+  # p " category: #{row["Snack Category"]}, snack:  #{row['Snack "name"']} photos:  #{row["# of Photos"]} description: #{row["Description"]}"
+  cat =  Category.find_or_create_by(name: row["Snack Category"])
+  if cat.new_record?
+    cat = Category.create(
+      name: row["Snack Category"],
+      description: row["Description"],
+      image_path: "#{row["Snack Category"]}/#{row["Snack Category"]}1.jpeg"
+    )
+    Snack.create(
+      name: row["Snack Name"],
+      description: cat.description,
+      shop_location: ['Tokyo Skytree', 'DisneySea', 'Shake Shack Ebisu', 'Laxmi Meguro'].sample,
+      category: cat,
+      user: User.all.sample
+    )
+  end
+
+
+  snack = Snack.create(
+    name: row["Snack Name"],
+    description: cat.description,
+    shop_location: ['Tokyo Skytree', 'DisneySea', 'Shake Shack Ebisu', 'Laxmi Meguro'].sample,
+    category: cat,
+    user: User.all.sample
   )
-  dir =  Rails.root.join('app', 'assets', 'images', row["Snack Category"])
-  p dir.glob("*").first
 
+  # p row["# of Photos"]
 
+  row["# of Photos"].to_i.times do |i|
+    p SnackImage.create!(
+      user: User.all.sample,
+      snack: snack,
+      image_path: "#{snack.category.name}/#{snack.name}#{i + 1}.jpeg"
+    )
+  end
+
+  # p snack.errors.messages
+  # p dir =  Rails.root.join('app', 'assets', 'images', row["Snack Category"]).glob("*").first.open
 end
 
+#   Create new
 
-# # This file should contain all the record creation needed to seed the database with its default values.
-# # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-# #
-# # Examples:
-# #
-# #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-# #   Character.create(name: 'Luke', movie: movies.first)
-
-# # Steps:
-
-# #   Destroy all existing seeds
-# puts 'Destroying all favorites...'
-# Favorite.destroy_all
-
-# puts 'Destoying all snack images...'
-# SnackImage.destroy_all
-
-# puts 'Destoying all snack ratings...'
-# SnackRating.destroy_all
-
-# puts 'Destoying all snacks...'
-# Snack.destroy_all
-
-# puts 'Destoying all trails...'
-# Trail.destroy_all
-
-# puts 'Destoying all users...'
-# User.destroy_all
-
-# puts 'Destoying all categories...'
-# Category.destroy_all
-
-# 'Destoying all tags...'
-# ActsAsTaggableOn::Tag.destroy_all
-
-# #   Create new
-
-# # Category - Generate 2 (manual)
-# # ----------------
-# # - name
-# # - description
-# # - image
+# Category - Generate 2 (manual)
+# ----------------
+# - name
+# - description
+# - image
 
 # puts 'Creating test categories...'
 
 # Category.create!(
-#   name: 'Taiyaki',
-#   description: 'Taiyaki (鯛焼き, lit. ‘baked sea bream’) is a Japanese fish-shaped cake. It imitates the shape of the tai (Japanese red seabream), which it is named after. The most common filling is red bean paste that is made from sweetened azuki beans. Other common fillings may be custard, chocolate, cheese, or sweet potato. Some shops even sell taiyaki with okonomiyaki, gyoza filling, or a sausage inside.',
-#   image_path: 'taiyaki.jpg'
+  # name: 'Taiyaki',
+  # description: 'Taiyaki (鯛焼き, lit. ‘baked sea bream’) is a Japanese fish-shaped cake. It imitates the shape of the tai (Japanese red seabream), which it is named after. The most common filling is red bean paste that is made from sweetened azuki beans. Other common fillings may be custard, chocolate, cheese, or sweet potato. Some shops even sell taiyaki with okonomiyaki, gyoza filling, or a sausage inside.',
+  # image_path: 'taiyaki.jpg'
 # )
 
 # Category.create!(
@@ -74,49 +126,6 @@ end
 #   description: 'Mochi (Japanese: 餠, もち) is Japanese rice cake made of mochigome, a short-grain japonica glutinous rice, and sometimes other ingredients such as water, sugar, and cornstarch. The rice is pounded into paste and molded into the desired shape. In Japan it is traditionally made in a ceremony called mochitsuki.[1] While also eaten year-round, mochi is a traditional food for the Japanese New Year and is commonly sold and eaten during that time.',
 #   image_path: 'mochi.jpg'
 # )
-
-# # User - Generate 5 + test account
-# # ----------------
-# # - email
-# # - password
-# # - username
-# # - location ( will need to update seeds for this, once map is implemented )
-
-# puts 'Generating Katy and Bobby...'
-
-# User.create!(
-#   email: 'bobby@gmail.com',
-#   password: '123123',
-#   username: 'bobby3ats'
-# )
-
-# puts 'Creating test users...'
-
-# usernames = [
-#   "mitch-sensei",
-#   "tanaka-san",
-#   "brykka",
-#   "jacque.desu",
-#   "doug-sempai",
-# ]
-
-# usernames.each do |un|
-#   User.create!(
-#     email: Faker::Internet.email,
-#     password: "123123",
-#     username: un
-#   )
-# end
-
-# # Snacks - Generate 10
-# # ----------------
-# # - sample User.all
-# # - sample Category.all
-# # - name
-# # - description
-# # - shop name (optionally - we need a set a default for this column)
-# # - shop_location
-
 
 # puts 'Creating test snacks...'
 
@@ -146,12 +155,12 @@ end
 #   end
 # end
 
-# # Snack Images - Generate rand (3..5) times per Snack
-# # ----------------
-# # - snack: snack
-# # - image_path: (array of asset image paths).sample
-# # - comment: 'Tasty treat, looking forward to enjoying again!'
-# # - user: User.all.sample
+# Snack Images - Generate rand (3..5) times per Snack
+# ----------------
+# - snack: snack
+# - image_path: (array of asset image paths).sample
+# - comment: 'Tasty treat, looking forward to enjoying again!'
+# - user: User.all.sample
 
 # sample_snack_images = ['castella.jpg', 'cheesecake.jpg', 'momiji.jpg', 'sakuramochi.jpg',
 #                        'strawmilk.jpg', 'yokan.jpg', 'j-apricot-thing.jpg', 'j-cafechan.jpg', 'j-cookie-sando.jpg', 'j-crepe.jpg', 'j-ichigo-kakigoori.jpg', 'j-kurozatou-dorayaki.jpg', 'j-pichan.jpg', 'j-taiyaki.jpg', 'j-takoyaki.jpg', 'j-waffle.jpg']
@@ -169,11 +178,11 @@ end
 #   end
 # end
 
-# # Trails - Generate rand(1..3) times per User
-# # ----------------
-# # - name
-# # - trails.snacks_trails.snack = Snack.all.sample
-# # - location
+# Trails - Generate rand(1..3) times per User
+# ----------------
+# - name
+# - trails.snacks_trails.snack = Snack.all.sample
+# - location
 
 # trail_names = ['Hungry Hungover Trail', 'Mochi Mochi Hungry Desu', 'Taiyaki Day']
 
@@ -191,10 +200,10 @@ end
 #   end
 # end
 
-# # Snack Ratings - Generate rand(1..5) times per User
-# # ----------------
-# # - sample Snack.all
-# # - stars: rand(1..5)
+# Snack Ratings - Generate rand(1..5) times per User
+# ----------------
+# - sample Snack.all
+# - stars: rand(1..5)
 
 # puts 'Creating test snack ratings...'
 
@@ -208,30 +217,30 @@ end
 #   end
 # end
 
-# # Tags - maximum 6 each for snacks, max 3 each for categories
+# Tags - maximum 6 each for snacks, max 3 each for categories
 
-# tags_array = ['chewy', 'crunchy', 'creamy', 'sweet beans', 'green tea', 'frosted', 'hot', 'ice cream']
+tags_array = ['chewy', 'crunchy', 'creamy', 'sweet beans', 'green tea', 'frosted', 'hot', 'ice cream']
 
-# puts 'Creating tags for snacks and categories...'
+puts 'Creating tags for snacks and categories...'
 
-# Snack.all.each do |snack|
-#   6.times do
-#     snack.tag_list.add(tags_array.sample)
-#     snack.save
-#   end
-# end
+Snack.all.each do |snack|
+  6.times do
+    snack.tag_list.add(tags_array.sample)
+    snack.save
+  end
+end
 
-# Category.all.each do |category|
-#   3.times do
-#     category.tag_list.add(tags_array.sample)
-#     category.save
-#   end
-# end
+Category.all.each do |category|
+  3.times do
+    category.tag_list.add(tags_array.sample)
+    category.save
+  end
+end
 
-# User.create!(
-#   email: 'katy@gmail.com',
-#   password: '123123',
-#   username: 'katy.smith711'
-# )
+User.create!(
+  email: 'katy@gmail.com',
+  password: '123123',
+  username: 'katy.smith711'
+)
 
-# puts 'Seeds created!'
+puts 'Seeds created!'

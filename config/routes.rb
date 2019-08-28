@@ -18,6 +18,10 @@ Rails.application.routes.draw do
     resources :snack_images, only: [:new, :create]
     resources :snack_ratings, only: [:show, :new, :create]
   end
-  resources :trails
+  resources :trails do
+    member do
+      patch 'toggle_edit', to: 'trails#toggle_edit'
+    end
+  end
 
 end
