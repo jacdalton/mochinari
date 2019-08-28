@@ -12,16 +12,15 @@ class PagesController < ApplicationController
   end
 
   def user_map
-    @snacks = Snack.all
-    @markers = []
-    @snacks.each do |snack|
-      snack.geocode
-      snack.save
-      @markers << {
+    @snacks = Snack.geocoded
+    @markers = @snacks.map do |snack|
+      {
         lat: snack.latitude,
         lng: snack.longitude
       }
     end
+    @icon = helpers.asset_url("map marker.png")
+
   end
 
   def my_bio

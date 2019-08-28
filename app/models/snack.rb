@@ -16,21 +16,21 @@ class Snack < ApplicationRecord
   validates :shop_location, presence: true
   validates :category, presence: true
 
-  after_validation :geocode
+  after_validation :geocode, if: :will_save_change_to_shop_location?
 
   pg_search_scope :search_by_name_and_description,
     against: [ :name, :description ],
-    using: {
-      tsearch: { prefix: true, any_word: true }
-    }
+  using: {
+    tsearch: { prefix: true, any_word: true }
+  }
 
   pg_search_scope :tag_search,
-    associated_against: {
-      tags: [:name]
-    },
-    using: {
-      tsearch: { prefix: true, any_word: true }
-    }
+  associated_against: {
+    tags: [:name]
+  },
+  using: {
+    tsearch: { prefix: true, any_word: true }
+  }
 
   def avg_snack_stars
     return 0 if snack_ratings.empty?

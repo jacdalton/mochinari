@@ -83,7 +83,7 @@
           </div>
         </div>
         <div class="map-container mt-3">
-          <div id="map" data-markers="<%= @markers.to_json %>"></div>
+          <div id="map" data-markers="<%= @markers.to_json %>" data-icon="<%= @icon %>"></div>
         </div>
       </div>
       <%= link_to "Back", category_path(@snack.category) %>
