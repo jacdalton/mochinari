@@ -37,11 +37,10 @@ class TrailsController < ApplicationController
 
   def edit
     favorited_snacks = current_user.all_favorited
-    all_near_snacks = Snack.near(@trail.to_coordinates, 10, units: :km)
+    all_near_snacks = Snack.near(@trail.to_coordinates, 5, units: :km)
 
     @near_favorited_snacks = all_near_snacks.select { |snack| snack.favorited_by?(current_user) }
     @far_favorited_snacks = favorited_snacks - @near_favorited_snacks
-    raise
   end
 
   def destroy
