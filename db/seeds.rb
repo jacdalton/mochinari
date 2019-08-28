@@ -90,14 +90,13 @@ CSV.foreach(filepath, csv_options) do |row|
     category: cat,
     user: User.all.sample
   )
-
-  # p row["# of Photos"]
+  p Pathname.new(Rails.root.join("app/assets/images/#{snack.category.name}/#{snack.name}#{1}.jpeg")).open
 
   row["# of Photos"].to_i.times do |i|
-    p SnackImage.create!(
+     SnackImage.create!(
       user: User.all.sample,
       snack: snack,
-      image_path: "#{snack.category.name}/#{snack.name}#{i + 1}.jpeg"
+      image_path: Pathname.new(Rails.root.join("app/assets/images/#{snack.category.name}/#{snack.name}#{i + 1}.jpeg")).open
     )
   end
 
