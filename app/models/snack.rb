@@ -4,7 +4,8 @@ class Snack < ApplicationRecord
   acts_as_taggable_on :tags
   acts_as_favoritable
   geocoded_by :shop_location
-  
+  after_validation :geocode, if: :will_save_change_to_shop_location?
+
   belongs_to :category
   belongs_to :user
   has_and_belongs_to_many :trails
@@ -18,17 +19,17 @@ class Snack < ApplicationRecord
 
   pg_search_scope :search_by_name_and_description,
     against: [ :name, :description ],
-    using: {
-      tsearch: { prefix: true, any_word: true }
-    }
+  using: {
+    tsearch: { prefix: true, any_word: true }
+  }
 
   pg_search_scope :tag_search,
-    associated_against: {
-      tags: [:name]
-    },
-    using: {
-      tsearch: { prefix: true, any_word: true }
-    }
+  associated_against: {
+    tags: [:name]
+  },
+  using: {
+    tsearch: { prefix: true, any_word: true }
+  }
 
   def avg_snack_stars
     return 0 if snack_ratings.empty?
