@@ -1,19 +1,25 @@
 <div class="container-fluid">
   <div class="row no-gutters">
     <div class="col-4 px-1">
+      <%= link_to tagged_path(tag: 'popular') do  %>
       <div class="feature-card" style="background-image: radial-gradient(circle, rgba(249,214,217, 0.5), rgba(240,210,195, 0.5), rgba(219,209,181, 0.5), rgba(190,209,181, 0.5), rgba(161,206,193, 0.5)), url('<%= asset_path 'strawmilk.jpg' %>')">
         POPULAR
       </div>
+      <% end %>
     </div>
     <div class="col-4 px-1">
+      <%= link_to tagged_path(tag: 'seasonal') do  %>
       <div class="feature-card" style="background-image: radial-gradient(circle, rgba(249,214,217, 0.5), rgba(240,210,195, 0.5), rgba(219,209,181, 0.5), rgba(190,209,181, 0.5), rgba(161,206,193, 0.5)), url('<%= asset_path 'mikan.jpg' %>')">
         SEASONAL
       </div>
+      <% end %>
     </div>
     <div class="col-4 px-1">
+      <%= link_to tagged_path(tag: 'new') do  %>
       <div class="feature-card" style="background-image: radial-gradient(circle, rgba(249,214,217, 0.5), rgba(240,210,195, 0.5), rgba(219,209,181, 0.5), rgba(190,209,181, 0.5), rgba(161,206,193, 0.5)), url('<%= asset_path 'namadora.jpg' %>')">
         NEW
       </div>
+      <% end %>
     </div>
   </div>
   <div class="row center mt-4">
@@ -22,7 +28,7 @@
         <%= simple_form_for :search, url: snacks_path, method: "GET", html: { class: 'form-inline' } do |f| %>
           <%= f.input :query, input_html: { value: ""}, placeholder: "Try 'taiyaki'...", name: "search", label: false %>
         </div>
-        
+
         <div class="searchbutton">
           <button type="submit", { class="btn btn-search" } >
             <i class="fa fa-search" aria-hidden="true"></i>

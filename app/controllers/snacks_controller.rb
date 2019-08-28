@@ -78,7 +78,7 @@ class SnacksController < ApplicationController
 
   def tagged
     if params[:tag].present?
-      @tag = ActsAsTaggableOn::Tag.find(params[:tag])
+      @tag = params[:tag]
       @snacks = Snack.tagged_with(@tag)
     else
       @snacks = Snack.all
