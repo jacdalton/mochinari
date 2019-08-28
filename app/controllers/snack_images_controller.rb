@@ -15,6 +15,7 @@ class SnackImagesController < ApplicationController
   end
 
   def create
+    @snack = Snack.find(params[:snack_id])
     @snack_image = SnackImage.new(snack_image_params)
     @snack_image.snack = @snack
     @snack_image.user = current_user
@@ -44,7 +45,7 @@ class SnackImagesController < ApplicationController
   private
 
   def snack_image_params
-    params.require(:snack_image).permit(:snack, :image_path, :comment)
+    params.require(:snack_image).permit(:image_path, :comment)
   end
 
   def set_snack_image
