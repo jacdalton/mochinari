@@ -117,19 +117,19 @@ const styles = [
 ];
 
 const mapElement = document.getElementById('map');
+
 if (mapElement) { // don't try to build a map if there's no div#map to inject in
   const map = new GMaps({ el: '#map', lat: 0, lng: 0 });
   const markers = JSON.parse(mapElement.dataset.markers);
   const icon = mapElement.dataset.icon;
   console.log(icon)
-  map.addMarkers(markers);
-   // markers.forEach(marker => {
-   //    map.addMarker({
-   //      lat: marker.lat,
-   //      lng: marker.lng,
-   //      icon: icon
-   //    })
-   //  });
+   markers.forEach(marker => {
+      map.addMarker({
+        lat: marker.lat,
+        lng: marker.lng,
+        icon: icon
+      })
+    });
   console.log(markers)
   map.addStyle({
   styles: styles,
