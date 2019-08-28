@@ -22,7 +22,6 @@
         <%= simple_form_for :search, url: snacks_path, method: "GET", html: { class: 'form-inline' } do |f| %>
           <%= f.input :query, input_html: { value: ""}, placeholder: "Try 'taiyaki'...", name: "search", label: false %>
         </div>
-        
         <div class="searchbutton">
           <button type="submit", { class="btn btn-search" } >
             <i class="fa fa-search" aria-hidden="true"></i>
@@ -39,6 +38,11 @@
     <h3 class="mt-4">Yummy Categories</h3>
     <div class="row" >
       <%= render "categories/card" %>
+    </div>
+    <div class="row center">
+      <%= link_to categories_path do %>
+        <div class="btn btn-see-more">See More Yummy Categories!</div>
+      <% end %>
     </div>
     <h3 class="mt-4">Popular Snacks</h3>
     <div class="row d-flex">
