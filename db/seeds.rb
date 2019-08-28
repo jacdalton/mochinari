@@ -64,6 +64,8 @@ end
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 filepath    = 'snackseeds.csv'
 
+shop_location_array = ['Ramen Jiro Meguro', 'Mos Burger Meguro', 'OGGI Meguro', 'Jojoen Meguro', 'Burari Meguro', 'Otori Park', 'Tonkatsu Tonki', 'Peanuts Cafe Meguro', 'Shibuya 109', 'Shibuya Tsutaya', 'Shibuya Loft', 'Tower Records Shibuya', 'Shibuya Loft', 'Whoopi Goldburger', 'Uobei Shibuya', 'Onigily Cafe Meguro', "Moke's Bread & Breakfast Nakameguro", 'Hacienda Del Cielo', 'The Works Meguro']
+
 CSV.foreach(filepath, csv_options) do |row|
   # p " category: #{row["Snack Category"]}, snack:  #{row['Snack "name"']} photos:  #{row["# of Photos"]} description: #{row["Description"]}"
   cat =  Category.find_or_create_by(name: row["Snack Category"])
@@ -76,7 +78,7 @@ CSV.foreach(filepath, csv_options) do |row|
     Snack.create(
       name: row["Snack Name"],
       description: cat.description,
-      shop_location: ['Tokyo Skytree', 'DisneySea', 'Shake Shack Ebisu', 'Laxmi Meguro'].sample,
+      shop_location: shop_location_array.sample,
       category: cat,
       user: User.all.sample
     )
@@ -86,11 +88,11 @@ CSV.foreach(filepath, csv_options) do |row|
   snack = Snack.create(
     name: row["Snack Name"],
     description: cat.description,
-    shop_location: ['Tokyo Skytree', 'DisneySea', 'Shake Shack Ebisu', 'Laxmi Meguro'].sample,
+    shop_location: shop_location_array.sample,
     category: cat,
     user: User.all.sample
   )
-  
+
   p Pathname.new(Rails.root.join("app/assets/images/#{snack.category.name}/#{snack.name}#{1}.jpeg")).open
 
   row["# of Photos"].to_i.times do |i|
@@ -205,17 +207,17 @@ end
 # - sample Snack.all
 # - stars: rand(1..5)
 
-# puts 'Creating test snack ratings...'
+puts 'Creating test snack ratings...'
 
-# User.all.each do |user|
-#   rand(1..5).times do
-#     SnackRating.create!(
-#       user: user,
-#       snack: Snack.all.sample,
-#       stars: rand(1..5)
-#     )
-#   end
-# end
+User.all.each do |user|
+  10.times do
+    SnackRating.create!(
+      user: user,
+      snack: Snack.all.sample,
+      stars: rand(1..5)
+    )
+  end
+end
 
 # Tags - maximum 6 each for snacks, max 3 each for categories
 
