@@ -11,9 +11,12 @@ class TrailsController < ApplicationController
     @markers = @snacks.map do |snack|
       {
         lat: snack.latitude,
-        lng: snack.longitude
+        lng: snack.longitude,
+        infoWindow: { content: render_to_string(partial: "/snacks/info_window", locals: { snack: snack }) },
+        icon: helpers.asset_url("map marker.png")
       }
     end
+    @icon = helpers.asset_url("map marker.png")
   end
 
   def new
