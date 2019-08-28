@@ -111,3 +111,8 @@ img.bobby{
   padding-right: 4px;
   object-fit: cover;
 }
+
+
+.owl-item > * {
+  width: auto !important;
+}

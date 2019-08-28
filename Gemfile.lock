@@ -102,6 +102,7 @@ GEM
     nokogiri (1.10.4)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
+    owlcarousel-rails (2.2.3.5)
     pg (0.21.0)
     pg_search (2.3.0)
       activerecord (>= 4.2)
@@ -214,6 +215,7 @@ DEPENDENCIES
   geocoder
   jbuilder (~> 2.0)
   listen (~> 3.0.5)
+  owlcarousel-rails
   pg (~> 0.21)
   pg_search (~> 2.3.0)
   pry-byebug

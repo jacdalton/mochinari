@@ -24,6 +24,8 @@ gem 'acts_as_favoritor'
 gem 'geocoder'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'pg_search', '~> 2.3.0'
+gem 'owlcarousel-rails'
+
 
 
 group :development do

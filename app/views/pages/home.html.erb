@@ -2,23 +2,23 @@
   <div class="row no-gutters">
     <div class="col-4 px-1">
       <%= link_to tagged_path(tag: 'popular') do  %>
-      <div class="feature-card" style="background-image: radial-gradient(circle, rgba(249,214,217, 0.5), rgba(240,210,195, 0.5), rgba(219,209,181, 0.5), rgba(190,209,181, 0.5), rgba(161,206,193, 0.5)), url('<%= asset_path 'strawmilk.jpg' %>')">
-        POPULAR
-      </div>
+        <div class="feature-card" style="background-image: radial-gradient(circle, rgba(249,214,217, 0.5), rgba(240,210,195, 0.5), rgba(219,209,181, 0.5), rgba(190,209,181, 0.5), rgba(161,206,193, 0.5)), url('<%= asset_path 'strawmilk.jpg' %>')">
+          POPULAR
+        </div>
       <% end %>
     </div>
     <div class="col-4 px-1">
       <%= link_to tagged_path(tag: 'seasonal') do  %>
-      <div class="feature-card" style="background-image: radial-gradient(circle, rgba(249,214,217, 0.5), rgba(240,210,195, 0.5), rgba(219,209,181, 0.5), rgba(190,209,181, 0.5), rgba(161,206,193, 0.5)), url('<%= asset_path 'mikan.jpg' %>')">
-        SEASONAL
-      </div>
+        <div class="feature-card" style="background-image: radial-gradient(circle, rgba(249,214,217, 0.5), rgba(240,210,195, 0.5), rgba(219,209,181, 0.5), rgba(190,209,181, 0.5), rgba(161,206,193, 0.5)), url('<%= asset_path 'mikan.jpg' %>')">
+          SEASONAL
+        </div>
       <% end %>
     </div>
     <div class="col-4 px-1">
       <%= link_to tagged_path(tag: 'new') do  %>
-      <div class="feature-card" style="background-image: radial-gradient(circle, rgba(249,214,217, 0.5), rgba(240,210,195, 0.5), rgba(219,209,181, 0.5), rgba(190,209,181, 0.5), rgba(161,206,193, 0.5)), url('<%= asset_path 'namadora.jpg' %>')">
-        NEW
-      </div>
+        <div class="feature-card" style="background-image: radial-gradient(circle, rgba(249,214,217, 0.5), rgba(240,210,195, 0.5), rgba(219,209,181, 0.5), rgba(190,209,181, 0.5), rgba(161,206,193, 0.5)), url('<%= asset_path 'namadora.jpg' %>')">
+          NEW
+        </div>
       <% end %>
     </div>
   </div>
@@ -52,8 +52,33 @@
     </div>
     <h3 class="mt-4">Popular Snacks</h3>
     <div class="row d-flex">
+      <%#= render "snacks/index-card", snacks: @snacks %>
+    </div>
+    <div class="owl-carousel">
       <%= render "snacks/index-card", snacks: @snacks %>
     </div>
   </div>
 </div>
 </div>
+<%= content_for(:after_js) do %>
+  <script type="text/javascript">
+    $(function() {
+       $('.owl-carousel').owlCarousel({
+    loop:true,
+    // margin:1,
+    stagePadding: 10,
+    responsive:{
+        0:{
+            items:2
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:5
+        }
+    }
+    })
+    });
+  </script>
+<% end %>
