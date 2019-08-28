@@ -10,7 +10,7 @@
             <div class="d-flex flex-grow-1 flex-wrap flex-right">
             <% 4.times do |i| %>
                 <% if @snack.snack_images[i+1].nil?  %>
-                <%= image_tag "cake.jpg", class: "flex-image" %> 
+                <%= image_tag "placeholder.png", class: "flex-image" %>
                 <% else %>
                 <%=  cl_image_tag @snack.snack_images[i].image_path, class: "flex-image" %>
             <% end %>

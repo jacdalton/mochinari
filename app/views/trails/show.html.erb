@@ -1,20 +1,26 @@
 <div class="col">
   <h3><%= @trail.name %></h3>
-  <%= link_to edit_trail_path(@trail) do %>
-    <i class="far fa-edit"></i>
-  <% end %>
-  <%= link_to trail_path(@trail), method: :delete, data: { confirm: "Are you sure?" } do %>
-    <i class="fa fa-trash-alt"></i>
-  <% end %>
-  <div class="row">
-    <div class="map-container">
-      <div id="map" data-markers="<%= @markers.to_json %>" data-icon="<%= @icon %>"></div>
+    <div class="row justify-content-center" >
+      <div class="col">
+        <%= link_to edit_trail_path(@trail), class: 'btn btn-trail-edit' do %>
+          <i class="far fa-edit" style="margin-top: 0px;">    </i>
+        <% end %>
+      </div>
+      <div class="col">
+        <%= link_to trail_path(@trail), class: 'btn btn-trail-edit', method: :delete, data: { confirm: "Are you sure?" } do %>
+        <i class="fa fa-trash-alt"></i>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div class="row mt-3">
+  <div class="row mt-3 ml-1">
     <h3>Snacks to Snack</h3>
   </div>
-  <div class="row d-flex">
-    <%= render "snacks/index-card", snacks: @trail.snacks %>
-  </div>
+    <div class="row d-flex">
+      <%= render "snacks/index-card", snacks: @trail.snacks %>
+    </div>
+    <div class="row">
+      <div class="map-container">
+        <div id="map" data-markers="<%= @markers.to_json %>"></div>
+      </div>
+    </div>
 </div>
