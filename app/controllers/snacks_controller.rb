@@ -22,8 +22,6 @@ class SnacksController < ApplicationController
       "like.svg"
     end
 
-    @snack.geocode
-    @snack.save
     @markers = [{
       lat: @snack.latitude,
       lng: @snack.longitude
