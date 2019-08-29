@@ -12,9 +12,11 @@
         </div>
       <% end %>
       <%= link_to toggle_show_trail_path(snack: snack, trail: @trail), method: :patch, remote: true do %>
+      <div class="toggle-button-background">
         <div class="toggle-edit-trail-button" id="toggle-button-<%= snack.id %>">
           <i class="fas fa-<%= @trail.snacks.include?(snack) ? "minus" : "plus" %>-circle"></i>
         </div>
+      </div>
       <% end %>
         <div class="snack-index-sub-card-2">
           <div class="sub-title mt-3">
