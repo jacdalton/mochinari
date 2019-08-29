@@ -64,7 +64,7 @@ end
 csv_options = { col_sep: ',', quote_char: '"', headers: :first_row }
 filepath    = 'snackseeds.csv'
 
-shop_location_array = ['Ramen Jiro Meguro', 'Mos Burger Meguro', 'OGGI Meguro', 'Jojoen Meguro', 'Burari Meguro', 'Otori Park', 'Tonkatsu Tonki', 'Peanuts Cafe Meguro', 'Shibuya 109', 'Shibuya Tsutaya', 'Shibuya Loft', 'Tower Records Shibuya', 'Shibuya Loft', 'Whoopi Goldburger', 'Uobei Shibuya', 'Onigily Cafe Meguro', "Moke's Bread & Breakfast Nakameguro", 'Hacienda Del Cielo', 'The Works Meguro']
+shop_location_array = ['Ramen Jiro Meguro', 'Mos Burger Meguro', 'OGGI Meguro', 'Jojoen Meguro', 'Burari Meguro', 'Otori Park', 'Tonkatsu Tonki', 'Peanuts Cafe Meguro', 'Shibuya 109', 'Shibuya Tsutaya', 'Shibuya Loft', 'Tower Records Shibuya', 'Shibuya Loft', 'Whoopi Goldburger', 'Uobei Shibuya', 'Onigily Cafe Meguro', "Moke's Bread & Breakfast Nakameguro", 'Hacienda Del Cielo Shibuya', 'The Works Meguro']
 
 CSV.foreach(filepath, csv_options) do |row|
   # p " category: #{row["Snack Category"]}, snack:  #{row['Snack "name"']} photos:  #{row["# of Photos"]} description: #{row["Description"]}"
@@ -75,32 +75,27 @@ CSV.foreach(filepath, csv_options) do |row|
       description: row["Description"],
       image_path: "#{row["Snack Category"]}/#{row["Snack Category"]}1.jpeg"
     )
-    Snack.create(
-      name: row["Snack Name"],
-      description: cat.description,
-      shop_location: shop_location_array.sample,
-      category: cat,
-      user: User.all.sample
-    )
+
   end
 
 
   snack = Snack.create(
     name: row["Snack Name"],
-    description: cat.description,
+    description: row["Description"],
     shop_location: shop_location_array.sample,
     category: cat,
     user: User.all.sample
   )
 
-  p Pathname.new(Rails.root.join("app/assets/images/#{snack.category.name}/#{snack.name}#{1}.jpeg")).open
+  Pathname.new(Rails.root.join("app/assets/images/#{snack.category.name}/#{row["Snack Slug"]}#{1}.jpeg")).open
 
   row["# of Photos"].to_i.times do |i|
-     SnackImage.create(
+    image = SnackImage.create!(
       user: User.all.sample,
       snack: snack,
-      image_path: Pathname.new(Rails.root.join("app/assets/images/#{snack.category.name}/#{snack.name}#{i + 1}.jpeg")).open
+      image_path: Pathname.new(Rails.root.join("app/assets/images/#{snack.category.name}/#{row["Snack Slug"]}#{i + 1}.jpeg")).open
     )
+    p image
   end
 
   # p snack.errors.messages
@@ -118,9 +113,9 @@ end
 # puts 'Creating test categories...'
 
 # Category.create!(
-  # name: 'Taiyaki',
-  # description: 'Taiyaki (鯛焼き, lit. ‘baked sea bream’) is a Japanese fish-shaped cake. It imitates the shape of the tai (Japanese red seabream), which it is named after. The most common filling is red bean paste that is made from sweetened azuki beans. Other common fillings may be custard, chocolate, cheese, or sweet potato. Some shops even sell taiyaki with okonomiyaki, gyoza filling, or a sausage inside.',
-  # image_path: 'taiyaki.jpg'
+# name: 'Taiyaki',
+# description: 'Taiyaki (鯛焼き, lit. ‘baked sea bream’) is a Japanese fish-shaped cake. It imitates the shape of the tai (Japanese red seabream), which it is named after. The most common filling is red bean paste that is made from sweetened azuki beans. Other common fillings may be custard, chocolate, cheese, or sweet potato. Some shops even sell taiyaki with okonomiyaki, gyoza filling, or a sausage inside.',
+# image_path: 'taiyaki.jpg'
 # )
 
 # Category.create!(
