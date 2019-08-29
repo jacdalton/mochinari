@@ -10,13 +10,16 @@
         <% end %>
       </div>
     <% end %>
-    <% if !@trail.snacks.include?(snack) %>
       <%= link_to toggle_edit_trail_path(snack: snack, trail: @trail), method: :patch, remote: true do %>
         <div id="toggle-button-<%= snack.id %>">
-          <i class="fas fa-plus-circle toggle-edit-trail-button"></i>
+          <i class='fas fa-<%= @trail.snacks.include?(snack) ? 'check-square' : 'plus-circle' %> style="<%= @trail.snacks.include?(snack) ? 'cursor: not-allowed;' : '' %>" toggle-edit-trail-button'></i>
+          <% if @trail.snacks.include?(snack) %>
+            <i class='fas fa-check-square toggle-edit-trail-button' style="cursor: not-allowed;"></i>
+          <% else %>
+            <i class='fas fa-plus-circle toggle-edit-trail-button'></i>
+          <% end %>
         </div>
       <% end %>
-    <% end %>
       <div class="snack-index-sub-card-2">
         <div class="sub-title mt-3">
           <h4> <%= snack.name %> </h4>
