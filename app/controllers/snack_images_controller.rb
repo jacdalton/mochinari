@@ -19,6 +19,7 @@ class SnackImagesController < ApplicationController
     @snack_image = SnackImage.new(snack_image_params)
     @snack_image.snack = @snack
     @snack_image.user = current_user
+    @snack_image.auto_orient
     if @snack_image.save
       redirect_to snack_path(@snack)
     else

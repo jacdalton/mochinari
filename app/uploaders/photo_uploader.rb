@@ -2,12 +2,12 @@ class PhotoUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
   include CarrierWave::MiniMagick
 
-  process :fix_exif_rotation
+  process :rotate_according_to_exif
 
-  def fix_exif_rotation 
+  def rotate_according_to_exif
     manipulate! do |img|
-      img.tap(&:auto_orient!)
-      img
+      image = MiniMagick::Image.open(img)
+      image.tap(&:auto_orient)
     end
   end
 end
