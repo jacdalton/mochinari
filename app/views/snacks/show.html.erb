@@ -43,13 +43,10 @@
           </div>
           <p class="mb-3"><%= @snack.description %></p>
           <%= render "shared/tags", tags: @tags %>
+          <% if user_signed_in? %>
           <div class="inline mt-2" >
             <div class="pic-button">
-              <!-- <%#=  link_to root_path, class: "btn btn-mochi" do %>Take a Pic! <br>
-                <i class="fas fa-camera"></i>
-              <%# end %> -->
               <%= simple_form_for [@snack, @snack_image] do |f| %>
-                <!--<input type="file" accept="image/*" name="snack_image[image_path]" capture="camera" />-->
                 <label class="btn btn-mochi">
                   Take a pic! <br>
                   <i class="fas fa-camera"></i>
@@ -57,11 +54,9 @@
                     <%= f.file_field :image_path, capture: "camera", accept: "image/*" %>
                   </span>
                 </label>
-                <%#= f.button :submit %>
               <% end %>
             </div>
             <div class="rate-button">
-              <%#= link_to "Rate it!", new_snack_snack_rating_path(@snack), remote: true, class: "btn btn-mochi" %>
               <% if @snack_rating.id %>
                 <div id="rating-button">
                   <button type="button" class="btn btn-mochi" style="cursor: not-allowed;">My Rating: <br>
@@ -97,6 +92,7 @@
               <% end %>
             </div>
           </div>
+          <% end %>
         </div>
         <div class="map-container mt-3">
           <div id="map" data-markers="<%= @markers.to_json %>" data-icon="<%= @icon %>"></div>
