@@ -1,12 +1,38 @@
 class PhotoUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
   include CarrierWave::MiniMagick
+  include CarrierWave::RMagick
 
-  process :auto_orient
+ 
+  process :strip!
 
-  def auto_orient 
-    manipulate! do |img| 
-      img.auto_orient!
-    end 
-  end
+
+  # version :stripped do 
+  #   process :strip, if: image?
+  # end
+
+  # def strip
+  #   manipulate! do |img|
+  #     img.strip!
+  #     img = yield(img) if block_given?
+  #     img
+  #   end
+  # end
+
+  # private 
+  # def image? 
+  #   true
+  # end
+
+  # process :remove_animation
+
+  # def remove_animation
+  #   manipulate! do |img|
+  #     if img.mime_type.match /gif/
+  #       img.collapse!
+  #     end
+  #     img.strip!
+  #     img
+  #   end
+  # end
 end
