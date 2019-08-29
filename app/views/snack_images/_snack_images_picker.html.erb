@@ -1,0 +1,12 @@
+<div class="image-picker">
+  <div class="main-image-container">
+    <div class="main-image">
+      <%= cl_image_tag @snack_images.first.image_path %>
+    </div>
+  </div>
+  <div class="bottom-image-container">
+    <% @snack_images.each do |img| %>
+      <%= cl_image_tag img.image_path, class: "bottom-image" %>
+    <% end %>
+  </div>
+</div>

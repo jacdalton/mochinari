@@ -15,33 +15,30 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <!-- <div class="row no-gutters"> -->
+    <div class="row no-gutters">
       <% if current_user.snacks.empty? %>
         <p>Add your first snack!</p>
       <% else %>
         <%= render "snacks/index-card", snacks: current_user.snacks %>
       <% end %>
-<!--     </div> -->
+    </div>
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
     <!-- <div class="row no-gutters"> -->
-
-      <% if current_user.snack_images.empty? %>
-        <p>No images added yet!</p>
-      <% else %>
-        <%= render "snack_images/index", snack_images: current_user.snack_images %>
-      <% end %>
-<!--     </div> -->
-
+    <% if current_user.snack_images.empty? %>
+      <p>No images added yet!</p>
+    <% else %>
+      <%= render "snack_images/index", snack_images: current_user.snack_images %>
+    <% end %>
+    <!--     </div> -->
   </div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-<!--     <div class="row no-gutters"> -->
+    <div class="row no-gutters">
       <% if current_user.rated_snacks.empty? %>
         <p>Rate Your First Snack!</p>
       <% else %>
         <%= render "snacks/index-card", snacks: current_user.rated_snacks, user_rating: true %>
       <% end %>
-<!--     </div> -->
+    </div>
   </div>
 </div>
