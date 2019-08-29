@@ -90,6 +90,15 @@ img.bobby{
 
 }
 
+.sub-title h4 {
+  height: 58px;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .bottom-info {
   display: flex;
   justify-content: space-between;
@@ -115,4 +124,8 @@ img.bobby{
 
 .owl-item > * {
   width: auto !important;
+}
+
+.owl-carousel .stars i, .owl-carousel .stars {
+  font-size: 12px;
 }
