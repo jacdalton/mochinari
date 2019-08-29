@@ -12,7 +12,7 @@
                 <% if @snack.snack_images[i+1].nil?  %>
                 <%= image_tag "placeholder.png", class: "flex-image" %>
                 <% else %>
-                <%=  cl_image_tag @snack.snack_images[i].image_path, class: "flex-image" %>
+                <%=  cl_image_tag @snack.snack_images[i+1].image_path, class: "flex-image" %>
             <% end %>
             <% end %>
 
@@ -45,13 +45,19 @@
           <%= render "shared/tags", tags: @tags %>
           <div class="inline mt-2" >
             <div class="pic-button">
-              <%=  link_to root_path, class: "btn btn-mochi" do %>Take a Pic! <br>
+              <!-- <%#=  link_to root_path, class: "btn btn-mochi" do %>Take a Pic! <br>
                 <i class="fas fa-camera"></i>
-              <% end %>
+              <%# end %> -->
               <%= simple_form_for [@snack, @snack_image] do |f| %>
                 <!--<input type="file" accept="image/*" name="snack_image[image_path]" capture="camera" />-->
-                <%= f.input :image_path, capture: "camera", accept: "image/*" %>
-                <%= f.button :submit %>
+                <label class="btn btn-mochi">
+                  Take a pic! <br>
+                  <i class="fas fa-camera"></i>
+                  <span style="display: none;">
+                    <%= f.file_field :image_path, capture: "camera", accept: "image/*", onchange: 'onUpload(event)' %>
+                  </span>
+                </label>
+                <%#= f.button :submit %>
               <% end %>
             </div>
             <div class="rate-button">
