@@ -47,6 +47,7 @@
   border-radius: 10px;
   background-color: $light-pink;
   width: 20vw;
+  color: $purple;
 }
 
 .btn-see-more {
@@ -57,4 +58,24 @@
   height: auto;
   padding: 15px;
   margin: 20px;
+}
+
+.btn-trail-edit {
+  border-radius: 10px;
+  background-color: $teal;
+  color: $purple;
+  width: 20vw;
+  height: auto;
+  margin: 3px;
+}
+
+.fa-edit {
+  margin-top: 0px;
+}
+
+.btn-teal-new-snack {
+  border-radius: 10px;
+  background-color: $teal;
+  color: $purple;
+  width: 100%;
 }

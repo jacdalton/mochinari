@@ -15,6 +15,7 @@ class SnacksController < ApplicationController
 
   def show
     @snack = Snack.find(params[:id])
+    @snack_image = SnackImage.new
     @heart =
     if !current_user.nil?
       @snack.favorited_by?(current_user) ? "pink-heart.svg" : "like.svg"

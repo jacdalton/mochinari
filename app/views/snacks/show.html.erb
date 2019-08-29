@@ -4,13 +4,18 @@
       <div class="snack-show-card">
         <div class="header-container d-flex">
           <% if @snack.snack_images.empty? %>
-            <%= image_tag "cake.jpg", class: "flex-shrink-1 flex-image flex-left" %>
+            <%= image_tag "cake.jpg", class: "flex-grow-1 flex-image flex-left" %>
           <% else %>
             <%= cl_image_tag @snack.snack_images[0].image_path, class: "flex-shrink-1 flex-image flex-left" %>
             <div class="d-flex flex-grow-1 flex-wrap flex-right">
-              <% @snack.snack_images[1..4].each do |s| %>
-                <%= cl_image_tag s.image_path, class: "flex-image" %>
-              <% end %>
+            <% 4.times do |i| %>
+                <% if @snack.snack_images[i+1].nil?  %>
+                <%= image_tag "placeholder.png", class: "flex-image" %>
+                <% else %>
+                <%=  cl_image_tag @snack.snack_images[i+1].image_path, class: "flex-image" %>
+            <% end %>
+            <% end %>
+
             </div>
           <% end %>
         </div>
@@ -38,14 +43,20 @@
           </div>
           <p class="mb-3"><%= @snack.description %></p>
           <%= render "shared/tags", tags: @tags %>
+          <% if user_signed_in? %>
           <div class="inline mt-2" >
             <div class="pic-button">
-              <%=  link_to root_path, class: "btn btn-mochi" do %>Take a Pic! <br>
-                <i class="fas fa-camera"></i>
+              <%= simple_form_for [@snack, @snack_image] do |f| %>
+                <label class="btn btn-mochi">
+                  Take a pic! <br>
+                  <i class="fas fa-camera"></i>
+                  <span style="display: none;">
+                    <%= f.file_field :image_path, capture: "camera", accept: "image/*" %>
+                  </span>
+                </label>
               <% end %>
             </div>
             <div class="rate-button">
-              <%#= link_to "Rate it!", new_snack_snack_rating_path(@snack), remote: true, class: "btn btn-mochi" %>
               <% if @snack_rating.id %>
                 <div id="rating-button">
                   <button type="button" class="btn btn-mochi" style="cursor: not-allowed;">My Rating: <br>
@@ -81,12 +92,17 @@
               <% end %>
             </div>
           </div>
+          <% end %>
         </div>
         <div class="map-container mt-3">
           <div id="map" data-markers="<%= @markers.to_json %>" data-icon="<%= @icon %>"></div>
         </div>
       </div>
-      <%= link_to "Back", category_path(@snack.category) %>
     </div>
   </div>
 </div>
+<script>
+  document.getElementById('snack_image_image_path').onchange = () => {
+  document.getElementById('new_snack_image').submit();
+  };
+</script>

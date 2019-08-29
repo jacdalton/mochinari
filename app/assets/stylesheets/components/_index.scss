@@ -20,6 +20,7 @@
 @import "tabs";
 @import "trail-toggle-edit-button";
 @import "carousel";
+@import "info-window";
 
 h2 {
   font-family: $headers-font;
@@ -55,3 +56,13 @@ a {
   width: 100vw;
   text-align: center;
   }
+
+.dropdown-item {
+  font-family: $body-font;
+  color: $purple;
+  font-size: 16;
+}
+
+h5 {
+  color: $purple;
+}

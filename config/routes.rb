@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :trails do
     member do
       patch 'toggle_edit', to: 'trails#toggle_edit'
+      patch 'toggle_show', to: 'trails#toggle_show'
     end
   end
 

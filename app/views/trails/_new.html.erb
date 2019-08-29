@@ -2,6 +2,7 @@
 <%= simple_form_for trail do |f| %>
   <%= f.input :name %>
   <%= f.input :location %>
-  <%#= f.input :snacks, collection: @snacks, input_html: { multiple: true } %>
-  <%= f.button :submit, class: "btn btn-teal" %>
+  <div class="modal-footer justify-content-center">
+    <%= f.button :submit, class: "btn btn-teal" %>
+  </div>
 <% end %>

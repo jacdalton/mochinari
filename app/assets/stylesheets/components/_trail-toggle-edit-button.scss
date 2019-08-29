@@ -1,7 +1,22 @@
 .fa-plus-circle {
-  color: green;
+  color: $teal;
+  transition: color 0.3s;
+  &:hover {
+    color: $green;
+  }
 }
 
 .fa-minus-circle {
-  color: red;
+  color: $light-pink;
+  transition: color 0.3s;
+  &:hover {
+    color: $red;
+  }
+}
+
+.toggle-edit-trail-button {
+  font-size: 32px;
+  position: absolute;
+  top: 0;
+  right: 10px;
 }

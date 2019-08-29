@@ -3,7 +3,11 @@
   <% @snacks.each do |snack| %>
     <%= link_to snack, class: "mb-2" do %>
       <div class="favorite-card mt-2">
-        <%= cl_image_tag(snack.snack_images.first.image_path, :alt=> "cake") %>
+        <% if snack.snack_images.empty? %>
+          <%= image_tag "cake.jpg", class: "flex-grow-1 flex-image flex-left" %>
+        <% else %>
+          <%= cl_image_tag(snack.snack_images.first.image_path, :alt=> "cake") %>
+        <% end %>
         <div class="favorite-card-infos" style="display: flex; flex-direction: column; justify-content: space-between;">
           <div class="fav-info-stuff">
             <h2> <%= snack.name %></h2>
