@@ -27,6 +27,7 @@ gem 'pg_search', '~> 2.3.0'
 gem 'owlcarousel-rails'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 1.2'
+gem 'mini_magick'
 
 
 group :development do
