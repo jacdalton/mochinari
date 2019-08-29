@@ -5,7 +5,7 @@ const styles = [
         "elementType": "geometry",
         "stylers": [
             {
-                "color": "#d3c0d9"
+                "color": "#e7dbe6"
             }
         ]
     },
