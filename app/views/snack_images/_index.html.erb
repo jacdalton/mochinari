@@ -1,3 +1,5 @@
-<% snack_images.each do |img| %>
-  <%= cl_image_tag img.image_path, class: "flex-image" %>
-<% end %>
+<div class="row d-flex">
+  <% snack_images.each do |img| %>
+    <%= cl_image_tag img.image_path, class: "col-xs-6 col-sm-6 col-md-4 col-lg-4 mt-2" %>
+  <% end %>
+</div>

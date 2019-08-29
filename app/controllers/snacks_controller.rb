@@ -49,7 +49,9 @@ class SnacksController < ApplicationController
 
   def create
     @snack = Snack.new(snack_params)
+    @category = Category.find(params[:snack][:category])
     @snack.user = current_user
+    @snack.category = @category
     if @snack.save
       redirect_to snack_path(@snack)
     else
@@ -89,6 +91,6 @@ class SnacksController < ApplicationController
   private
 
   def snack_params
-    params.require(:snack).permit(:name, :description, :shop_name, :shop_location, :category, :tag_list)
+    params.require(:snack).permit(:name, :description, :shop_name, :shop_location, :tag_list)
   end
 end
