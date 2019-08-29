@@ -10,7 +10,7 @@
   </div>
   <h3 style="font-size: 22px; margin-top: 10px; text-align: center;">Other <%= image_tag "pink-heart.svg", style: "height: 40px;" %> snacks: </h3>
   <div class="row d-flex">
-    <% if @near_favorited_snacks.any? %>
+    <% if @far_favorited_snacks.any? %>
       <%= render "trail_edit_card", snacks: @far_favorited_snacks %>
     <% else %>
       <p>No favorite snacks outside of trail location!</p>
