@@ -4,7 +4,7 @@ var snack_id = '<%= j @snack.id.to_s %>'
 function toggleEdit() {
  const button = document.querySelector(`#toggle-button-${snack_id}`);
   if (value === "added") {
-    button.innerHTML = '';
+    button.innerHTML = '<i class="fas fa-check-square toggle-edit-trail-button" style="cursor: not-allowed;"></i>';
   }
 }
 

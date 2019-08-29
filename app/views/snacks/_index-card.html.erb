@@ -34,8 +34,7 @@
               <% end %>
             <% end %>
           </div>
-          <% user_avatar = ["avatar/man1.jpeg", "avatar/man2.jpeg", "avatar/man3.jpeg", "avatar/man4.jpeg", "avatar/man5.jpeg", "avatar/man6.jpeg", "avatar/man7.jpeg", "avatar/woman1.jpeg", "avatar/woman2.jpeg", "avatar/woman3.jpeg", "avatar/woman4.jpeg", "avatar/woman5.jpeg", "avatar/woman6.jpeg", "avatar/woman7.jpeg", "avatar/woman8.jpeg", "avatar/woman9.jpeg", "avatar/woman10.jpeg", "avatar/woman11.jpeg"] %>
-          <%= image_tag asset_path(user_avatar.sample), class: "user_avatar" unless user_rating %>
+          <div class="user_avatar"></div>
         </div>
       </div>
     <% end %>

@@ -5,7 +5,7 @@ const styles = [
         "elementType": "geometry",
         "stylers": [
             {
-                "color": "#d3c0d9"
+                "color": "#e7dbe6"
             }
         ]
     },
@@ -127,7 +127,8 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
       map.addMarker({
         lat: marker.lat,
         lng: marker.lng,
-        icon: icon
+        icon: icon,
+        infoWindow: marker.infoWindow
       })
     });
   console.log(markers)
