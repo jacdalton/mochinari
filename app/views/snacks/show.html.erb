@@ -1,22 +1,44 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="image-picker">
+        <div class="main-image-container">
+          <div class="main-image">
+            <%= cl_image_tag @snack.snack_images.first.image_path %>
+          </div>
+        </div>
+        <div class="bottom-image-container">
+          <% @snack.snack_images.each do |img| %>
+            <%= cl_image_tag img.image_path, class: "bottom-image" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="container-snack-show">
   <div class="row no-gutters">
     <div class="col">
       <div class="snack-show-card">
-        <div class="header-container d-flex">
+        <div class="header-container">
           <% if @snack.snack_images.empty? %>
             <%= image_tag "cake.jpg", class: "flex-grow-1 flex-image flex-left" %>
           <% else %>
-            <%= cl_image_tag @snack.snack_images[0].image_path, class: "flex-shrink-1 flex-image flex-left" %>
-            <div class="d-flex flex-grow-1 flex-wrap flex-right">
-            <% 4.times do |i| %>
-                <% if @snack.snack_images[i+1].nil?  %>
-                <%= image_tag "placeholder.png", class: "flex-image" %>
-                <% else %>
-                <%=  cl_image_tag @snack.snack_images[i+1].image_path, class: "flex-image" %>
-            <% end %>
-            <% end %>
-
-            </div>
+            <a href="#" data-toggle="modal" data-target="#exampleModal">
+              <div class="d-flex h-100">
+                <%= cl_image_tag @snack.snack_images[0].image_path, class: "flex-shrink-1 flex-image flex-left"  %>
+                <div class="d-flex flex-grow-1 flex-wrap flex-right">
+                  <% 4.times do |i| %>
+                    <% if @snack.snack_images[i+1].nil?  %>
+                      <%= image_tag "placeholder.png", class: "flex-image" %>
+                    <% else %>
+                      <%=  cl_image_tag @snack.snack_images[i+1].image_path, class: "flex-image" %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+            </a>
           <% end %>
         </div>
         <div class="snack-show-card-infos">
@@ -44,54 +66,54 @@
           <p class="mb-3"><%= @snack.description %></p>
           <%= render "shared/tags", tags: @tags %>
           <% if user_signed_in? %>
-          <div class="inline mt-2" >
-            <div class="pic-button">
-              <%= simple_form_for [@snack, @snack_image] do |f| %>
-                <label class="btn btn-mochi">
-                  Take a pic! <br>
-                  <i class="fas fa-camera"></i>
-                  <span style="display: none;">
-                    <%= f.file_field :image_path, capture: "camera", accept: "image/*" %>
-                  </span>
-                </label>
-              <% end %>
-            </div>
-            <div class="rate-button">
-              <% if @snack_rating.id %>
-                <div id="rating-button">
-                  <button type="button" class="btn btn-mochi" style="cursor: not-allowed;">My Rating: <br>
-                    <% @snack_rating.stars.times do %>
+            <div class="inline mt-2" >
+              <div class="pic-button">
+                <%= simple_form_for [@snack, @snack_image] do |f| %>
+                  <label class="btn btn-mochi">
+                    Take a pic! <br>
+                    <i class="fas fa-camera"></i>
+                    <span style="display: none;">
+                      <%= f.file_field :image_path, capture: "camera", accept: "image/*" %>
+                    </span>
+                  </label>
+                <% end %>
+              </div>
+              <div class="rate-button">
+                <% if @snack_rating.id %>
+                  <div id="rating-button">
+                    <button type="button" class="btn btn-mochi" style="cursor: not-allowed;">My Rating: <br>
+                      <% @snack_rating.stars.times do %>
+                        <i class="fas fa-star"></i>
+                      <% end %>
+                    </button>
+                  </div>
+                <% else %>
+                  <div id="rating-button">
+                    <button type="button" class="btn btn-mochi" data-toggle="modal" data-target="#exampleModal">
+                      Rate it! <br>
                       <i class="fas fa-star"></i>
-                    <% end %>
-                  </button>
-                </div>
-              <% else %>
-                <div id="rating-button">
-                  <button type="button" class="btn btn-mochi" data-toggle="modal" data-target="#exampleModal">
-                    Rate it! <br>
-                    <i class="fas fa-star"></i>
-                  </button>
-                </div>
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Rate <%= @snack.name %>!</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body" id='snack-rating-div'>
-                        <%= render 'snack_ratings/new' %>
-                      </div>
-                      <div class="modal-footer">
+                    </button>
+                  </div>
+                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Rate <%= @snack.name %>!</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body" id='snack-rating-div'>
+                          <%= render 'snack_ratings/new' %>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              <% end %>
+                <% end %>
+              </div>
             </div>
-          </div>
           <% end %>
         </div>
         <div class="map-container mt-3">
