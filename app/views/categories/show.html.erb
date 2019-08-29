@@ -2,7 +2,6 @@
   <h2><%= @category.name %></h2>
   <p> <%= @category.description  %> </p>
   <%= render "shared/tags", tags: @category.tag_list %>
-  <%= link_to "Back", categories_path %>
   <h3>Examples of <%= @category.name %></h3>
   <div class="row d-flex">
     <%= render "snacks/index-card", snacks: @category.snacks %>
