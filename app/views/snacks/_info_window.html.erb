@@ -1,1 +1,8 @@
-<h2><%= snack.name %></h2>
+<div class="info-window-elements info-grid-container">
+  <div class="column d-flex justify-content-center align-items-center">
+    <%= cl_image_tag snack.snack_images[0].image_path, style: "height: 50px;" %>
+  </div>
+  <div class="column ml-2">
+    <h4 style="color: #57435B;"><%= snack.name %></h4>
+  </div>
+</div>

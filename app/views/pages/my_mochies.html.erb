@@ -24,13 +24,16 @@
 <!--     </div> -->
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
     <!-- <div class="row no-gutters"> -->
+
       <% if current_user.snack_images.empty? %>
         <p>No images added yet!</p>
       <% else %>
         <%= render "snack_images/index", snack_images: current_user.snack_images %>
       <% end %>
 <!--     </div> -->
+
   </div>
   <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 <!--     <div class="row no-gutters"> -->
