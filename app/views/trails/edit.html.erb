@@ -1,6 +1,6 @@
 <div class="col">
   <h2 style="font-size: 34px; text-align: center;"> <%= @trail.name %></h2>
-  <h3 style="font-size: 22px; text-align: center; margin-top: 30px">Add <%= image_tag "pink-heart.svg", style: "height: 30px;" %> snacks near you <%#= @trail.location %></h3>
+  <h3 style="font-size: 22px; text-align: center; margin-top: 30px">Snacks you <%= image_tag "pink-heart.svg", style: "height: 30px;" %> near <%= @trail.location.split(',')[0] %></h3>
   <div class="row d-flex mt-3">
     <% if @near_favorited_snacks.any? %>
       <%= render "trail_edit_card", snacks: @near_favorited_snacks %>
@@ -8,7 +8,7 @@
       <p>No favorite snacks near trail location!</p>
     <% end %>
   </div>
-  <h3 style="font-size: 22px; margin-top: 10px; text-align: center;">Other <%= image_tag "pink-heart.svg", style: "height: 40px;" %> snacks: </h3>
+  <h3 style="font-size: 22px; margin-top: 10px; text-align: center;">Other yummy <%= image_tag "pink-heart.svg", style: "height: 40px;" %> snacks: </h3>
   <div class="row d-flex">
     <% if @far_favorited_snacks.any? %>
       <%= render "trail_edit_card", snacks: @far_favorited_snacks %>
