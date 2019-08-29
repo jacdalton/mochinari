@@ -54,7 +54,7 @@
                   Take a pic! <br>
                   <i class="fas fa-camera"></i>
                   <span style="display: none;">
-                    <%= f.file_field :image_path, capture: "camera", accept: "image/*", onchange: 'onUpload(event)' %>
+                    <%= f.file_field :image_path, capture: "camera", accept: "image/*" %>
                   </span>
                 </label>
                 <%#= f.button :submit %>
@@ -106,3 +106,8 @@
     </div>
   </div>
 </div>
+<script>
+  document.getElementById('snack_image_image_path').onchange = () => {
+  document.getElementById('new_snack_image').submit();
+  };
+</script>
