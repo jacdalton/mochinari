@@ -1,0 +1,11 @@
+var value = '<%= j @value %>'
+var snack_id = '<%= j @snack.id.to_s %>'
+
+function toggleShowCard() {
+ const card = document.querySelector(`#toggle-card-${snack_id}`);
+  if (value === "removed") {
+    card.innerHTML = '';
+  }
+}
+
+toggleShowCard();
