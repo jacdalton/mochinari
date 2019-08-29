@@ -1,6 +1,7 @@
-<div class="row no-gutters">
+<div class="container" style="flex-direction: column;">
   <h2>My Favs</h2>
   <% @snacks.each do |snack| %>
+  <div>
     <%= link_to snack, class: "mb-2" do %>
       <div class="favorite-card mt-2">
         <% if snack.snack_images.empty? %>
@@ -24,5 +25,6 @@
         </div>
       </div>
     <% end %>
+  </div>
   <% end %>
 </div>
