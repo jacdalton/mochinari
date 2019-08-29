@@ -3,7 +3,11 @@
   <div class="snack-index-card-2" id="toggle-card-<%= snack.id %>">
     <%= link_to snack_path(snack) do %>
       <div class="snack-index-card-2-image">
-        <%= cl_image_tag snack.snack_images[0].image_path %>
+        <% if snack.snack_images.empty? %>
+          <%= image_tag "cake.jpg", class: "flex-grow-1 flex-image flex-left" %>
+        <% else %>
+          <%= cl_image_tag snack.snack_images[0].image_path %>
+        <% end %>
       </div>
     <% end %>
     <%= link_to toggle_show_trail_path(snack: snack, trail: @trail), method: :patch, remote: true do %>
