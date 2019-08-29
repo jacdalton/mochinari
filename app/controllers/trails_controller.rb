@@ -58,10 +58,10 @@ class TrailsController < ApplicationController
 
     if @trail.snacks.include?(@snack)
       @trail.snacks.delete(@snack)
-      @value = "false"
+      @value = "removed"
     else
       @trail.snacks << @snack
-      @value = "true"
+      @value = "added"
     end
     respond_to do |format|
       format.js
