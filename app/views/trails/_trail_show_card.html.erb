@@ -1,47 +1,49 @@
 <% user_rating = user_rating || false %>
 <% snacks.each do |snack| %>
-  <div class="snack-index-card-2" id="toggle-card-<%= snack.id %>">
-    <%= link_to snack_path(snack) do %>
-      <div class="snack-index-card-2-image">
-        <% if snack.snack_images.empty? %>
-          <%= image_tag "cake.jpg", class: "flex-grow-1 flex-image flex-left" %>
-        <% else %>
-          <%= cl_image_tag snack.snack_images[0].image_path %>
-        <% end %>
-      </div>
-    <% end %>
-    <%= link_to toggle_show_trail_path(snack: snack, trail: @trail), method: :patch, remote: true do %>
-      <div class="toggle-edit-trail-button" id="toggle-button-<%= snack.id %>">
-        <i class="fas fa-<%= @trail.snacks.include?(snack) ? "minus" : "plus" %>-circle"></i>
-      </div>
-    <% end %>
-      <div class="snack-index-sub-card-2">
-        <div class="sub-title mt-3">
-          <h4> <%= snack.name %> </h4>
+  <div id="toggle-card-<%= snack.id %>">
+    <div class="snack-index-card-2">
+      <%= link_to snack_path(snack) do %>
+        <div class="snack-index-card-2-image">
+          <% if snack.snack_images.empty? %>
+            <%= image_tag "cake.jpg", class: "flex-grow-1 flex-image flex-left" %>
+          <% else %>
+            <%= cl_image_tag snack.snack_images[0].image_path %>
+          <% end %>
         </div>
-        <div class="bottom-info">
-          <div class="stars">
-            <% if user_rating %>
-              <% snack_rating = current_user.snack_ratings.find_by(snack: snack) %>
-              <% (snack_rating.stars).times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-              <% (5 - snack_rating.stars).times do %>
-                <i class="far fa-star"></i>
-              <% end %>
-            <% elsif snack.avg_snack_stars == 0 %>
-              No ratings yet!
-            <% else %>
-              <% (snack.avg_snack_stars).times do %>
-                <i class="fas fa-star"></i>
-              <% end %>
-              <% (5 - snack.avg_snack_stars).times do %>
-                <i class="far fa-star"></i>
-              <% end %>
-            <% end %>
+      <% end %>
+      <%= link_to toggle_show_trail_path(snack: snack, trail: @trail), method: :patch, remote: true do %>
+        <div class="toggle-edit-trail-button" id="toggle-button-<%= snack.id %>">
+          <i class="fas fa-<%= @trail.snacks.include?(snack) ? "minus" : "plus" %>-circle"></i>
+        </div>
+      <% end %>
+        <div class="snack-index-sub-card-2">
+          <div class="sub-title mt-3">
+            <h4> <%= snack.name %> </h4>
           </div>
-          <%= image_tag("bobby", class: "bobby") unless user_rating %>
+          <div class="bottom-info">
+            <div class="stars">
+              <% if user_rating %>
+                <% snack_rating = current_user.snack_ratings.find_by(snack: snack) %>
+                <% (snack_rating.stars).times do %>
+                  <i class="fas fa-star"></i>
+                <% end %>
+                <% (5 - snack_rating.stars).times do %>
+                  <i class="far fa-star"></i>
+                <% end %>
+              <% elsif snack.avg_snack_stars == 0 %>
+                No ratings yet!
+              <% else %>
+                <% (snack.avg_snack_stars).times do %>
+                  <i class="fas fa-star"></i>
+                <% end %>
+                <% (5 - snack.avg_snack_stars).times do %>
+                  <i class="far fa-star"></i>
+                <% end %>
+              <% end %>
+            </div>
+            <%= image_tag("bobby", class: "bobby") unless user_rating %>
+          </div>
         </div>
-      </div>
+    </div>
   </div>
 <% end %>
