@@ -4,13 +4,18 @@
       <div class="snack-show-card">
         <div class="header-container d-flex">
           <% if @snack.snack_images.empty? %>
-            <%= image_tag "cake.jpg", class: "flex-shrink-1 flex-image flex-left" %>
+            <%= image_tag "cake.jpg", class: "flex-grow-1 flex-image flex-left" %>
           <% else %>
             <%= cl_image_tag @snack.snack_images[0].image_path, class: "flex-shrink-1 flex-image flex-left" %>
             <div class="d-flex flex-grow-1 flex-wrap flex-right">
-              <% @snack.snack_images[1..4].each do |s| %>
-                <%= cl_image_tag s.image_path, class: "flex-image" %>
-              <% end %>
+            <% 4.times do |i| %>
+                <% if @snack.snack_images[i+1].nil?  %>
+                <%= image_tag "placeholder.png", class: "flex-image" %>
+                <% else %>
+                <%=  cl_image_tag @snack.snack_images[i].image_path, class: "flex-image" %>
+            <% end %>
+            <% end %>
+
             </div>
           <% end %>
         </div>

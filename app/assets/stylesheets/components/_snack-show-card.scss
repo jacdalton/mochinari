@@ -13,6 +13,7 @@
 
   img.flex-left {
     height: 100%;
+    border: 1px solid #F4F4F4;
   }
 
   img.flex-image {
@@ -26,6 +27,8 @@
   .flex-right > img {
     width: 50%;
     height: 50%;
+    border: 1px solid #F4F4F4;
+
   }
 
 .container-snack-show {
