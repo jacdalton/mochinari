@@ -3,13 +3,19 @@
   <div class="snack-index-card-2">
     <%= link_to snack_path(snack) do %>
       <div class="snack-index-card-2-image">
-        <%= cl_image_tag snack.snack_images[0].image_path %>
+        <% if snack.snack_images.empty? %>
+          <%= image_tag "cake.jpg", class: "flex-grow-1 flex-image flex-left" %>
+        <% else %>
+          <%= cl_image_tag snack.snack_images[0].image_path %>
+        <% end %>
       </div>
     <% end %>
-    <%= link_to toggle_edit_trail_path(snack: snack, trail: @trail), method: :patch, remote: true do %>
-      <div class="toggle-edit-trail-button" id="toggle-button-<%= snack.id %>">
-        <i class="fas fa-<%= @trail.snacks.include?(snack) ? "minus" : "plus" %>-circle"></i>
-      </div>
+    <% if !@trail.snacks.include?(snack) %>
+      <%= link_to toggle_edit_trail_path(snack: snack, trail: @trail), method: :patch, remote: true do %>
+        <div id="toggle-button-<%= snack.id %>">
+          <i class="fas fa-plus-circle toggle-edit-trail-button"></i>
+        </div>
+      <% end %>
     <% end %>
       <div class="snack-index-sub-card-2">
         <div class="sub-title mt-3">
