@@ -1,0 +1,16 @@
+.mochies-card {
+  display: flex;
+  border-radius: 5px;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+  width: inherit;
+  object-fit:cover;
+  flex-wrap: wrap;
+}
+
+.mochies-card > img {
+  height: 20vh;
+  width: 18vh;
+  // width: 100%;
+}
