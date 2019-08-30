@@ -1,14 +1,21 @@
 .favorite-card {
-  height: 100%;
-  width: 100%;
+  height: auto;
+  width: 100vw;
   display: flex;
   position: relative;
   margin-bottom:10px;
   background-color: white;
 }
 
+@media screen and (min-width: 700px) {
+  .favorite-card {
+    width: 80vw;
+    margin: 0 auto;
+  }
+}
+
 .favorite-card img {
-  height: 100%;
+  height: inherit;
   width: 35%;
   object-fit: cover;
 }
@@ -44,6 +51,9 @@ p.favorite {
   padding-left: 10px;
 }
 
+.favorite-card-infos {
+  width: inherit;
+}
 
 // .favorite-card-infos {
 //   display: flex;
